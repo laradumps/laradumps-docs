@@ -1,0 +1,5 @@
+- **What is LaraDumps?**
+  - [Get Started](get-started/index.md)
+  - [Commands](commands/index.md)
+  - [Reference](reference/index.md)
+  - [App](app/index.md)
