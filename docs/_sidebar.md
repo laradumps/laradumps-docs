@@ -1,5 +1,10 @@
-- **What is LaraDumps?**
-  - [Get Started](get-started/index.md)
-  - [Commands](commands/index.md)
-  - [Reference](reference/index.md)
-  - [App](app/index.md)
+- **Get Started**
+  - [What is LaraDumps?](laravel/get-started/what-is-laradumps.md "What is LaraDumps?")
+  - [Installation](laravel/get-started/installation.md "Installation")
+  - [Configuration](laravel/get-started/configuration.md "Configuration")
+  - [Desktop App](laravel/get-started/desktop-app.md "Desktop App")
+- **Debugging**
+  - [Usage](laravel/debug/usage.md "Usage")
+  - [Livewire](laravel/debug/livewire.md "Livewire")
+  - [Deploying to production](laravel/debug/deploying-to-production.md "Deploying to production")
+  - [Reference sheet](laravel/debug/reference-sheet.md "Reference sheet")
