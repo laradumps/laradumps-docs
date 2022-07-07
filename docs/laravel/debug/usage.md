@@ -13,6 +13,8 @@ Route::get('/', function () {
 });
 ```
 
+> 💡 **Trivia**: The "ds()" function is based on the first and last letters of the word **d**ump**s**, and it is conveniently similar to "dd()". This is not a coincidence! Easy to switch!
+
 ## Dump
 
 To send a Dump to the application, just pass one or more values to the `ds()` function.
@@ -198,6 +200,8 @@ ds()->model($myUser);
 ## Routes
 
 Dumps Laravel Routes in a table format.
+
+You might want to hide some routes from the dump output. This can be accomplished in the [config file](laravel/get-started/configuration?id=routes).
 
 ```php
 ds()->routes();

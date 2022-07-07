@@ -32,4 +32,4 @@ class Counter extends Component
 
 Tracking:
 
-![Output](../../_media/livewire.png)
+![Livewire](../../_media/livewire.png)

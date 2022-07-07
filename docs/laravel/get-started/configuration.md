@@ -6,15 +6,17 @@ You can run `php artisan ds:init` at any time to modify the settings via the wiz
 
 ## Configuration options
 
-Below you can read more about each main configuration key.
-
 ### Host
 
 The host setting allows your project to communicate with LaraDumps Desktop app.
 
-Enter the host according to your project environment. You may configure a custom host value, if needed.
+Modify the host to match project's environment. Change the `.env` file key `DS_APP_HOST`.
 
-WIP
+```bash
+DS_APP_HOST=127.0.0.1
+```
+
+ You may configure a custom host value, if needed.
 
 <style>
     td::before { display: none }
@@ -28,23 +30,41 @@ WIP
 | Homestead with VirtualBox   | 10.211.55.2          |
 | Homestead with Parallels    | 10.211.55.2          |
 
-> 📝 **Note**: If you are using `Docker` on a `Linux` host, you must perform aditional configuration because. Automatic mapping is not available. Read more [here](https://github.com/laravel/sail/pull/222).
+> 📝 **Note**: If you are using `Docker` on a `Linux` host, you must perform additional configuration because. Automatic mapping is not available. Read more [here](https://github.com/laravel/sail/pull/222).
 
 ### Auto Invoke
 
-WIP 
+By default, the LaraDumps Desktop App will always be invoked and gain focus on every new dump.
+
+To disable this behavior, change the `.env` file key `DS_AUTO_INVOKE_APP` to `false`.
+
+```bash
+DS_AUTO_INVOKE_APP=true #enabled
+```
 
 ---
 
 ### SQL Queries
 
- WIP
+You must have this feature enabled to capture [SQL Queries](laravel/debug/usage?id=sql-queries) and send them to the Desktop App.
+
+To enable this feature, change the `.env` file key `DS_SEND_QUERIES` to `true`.
+
+```bash
+DS_SEND_QUERIES=true #enabled
+```
 
 ---
 
 ### Laravel Logs
 
- WIP
+You must have this feature enabled to send [Laravel Logs](laravel/debug/usage?id=laravel-logs).
+
+To enable this feature, change the `.env` file key `DS_SEND_LOGS` to `true`.
+
+ ```bash
+DS_SEND_LOGS=true #enabled
+```
 
 ---
 
@@ -52,8 +72,8 @@ WIP
 
 Tracking Livewire Components can be enabled and disabled in the configuration key `send_livewire_components`.
 
-```php
-'send_livewire_components' => true, //enabled
+ ```bash
+DS_SEND_LIVEWIRE_COMPONENTS=true #enabled
 ```
 
 To ignore specific components and do not track their state, include the class path in the `ignore_livewire_components` configuration key.
@@ -66,8 +86,52 @@ To ignore specific components and do not track their state, include the class pa
 
 ---
 
+### Routes
+
+You might want to skip some routes when dumping [Routes](laravel/debug/usage?id=routes).
+
+Append the routes to be ignored under the `ignore_route_contains` configuration key.
+
+By default, these routes are ignored:
+
+```php
+'ignore_route_contains' => [
+    'debugbar',
+    'ignition',
+    'horizon',
+    'livewire',
+    'my-secret-route', // this route will be skipped
+],
+```
+
+---
+
 ### Preferred IDE
 
- WIP
+ Dumps contain a link to the file and line where `ds()` was called.
+
+You may configure your preferred IDE to open this project's files.
+
+To set an IDE, change the `.env` file key `DS_PREFERRED_IDE` to one of the supported IDEs.
+
+```bash
+DS_PREFERRED_IDE=vscode
+```
+
+Supported IDEs:
+
+<style>
+    td::before { display: none }
+    <!-- @see https://github.com/docsifyjs/docsify/issues/794 -->
+</style>
+
+| **IDE**             |  **Value**  |
+|---------------------|-------------|
+| PHPStorm            | phpstorm    |
+| Visual Studio Code  | vscode      |
+| Sublime             | sublime     |
+| Atom                | atom        |
+
+You might also edit or add a new IDE handler. The IDEs are defined inside the configuration key `ide_handlers` in the configuration file.
 
 ---
