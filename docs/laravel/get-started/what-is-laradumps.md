@@ -2,7 +2,7 @@
 
 ## About
 
-LaraDumps is a lightweight app designed to boost your Laravel PHP coding and debugging experience.
+LaraDumps is a friendly app designed to boost your Laravel PHP coding and debugging experience.
 
 When using LaraDumps, you can see the result of your debug displayed in a standalone Desktop application.
 
@@ -16,6 +16,7 @@ These are some debug tools available for you:
 - Compare strings with diff.
 - Verify if a string contains a substring.
 - View phpinfo() configuration.
+- Debug Livewire components.
 - List your Laravel routes.
 - Inspect Model attributes.
 - Send your dump to different screens, resulting in a better debugging experience.
