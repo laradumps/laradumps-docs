@@ -45,7 +45,7 @@ Use the function `ds()->die()` or its shortcut `dsd()` to dump and immediately s
 $myString = 'Hello World!';
 
 //Dump and die
-dsd($myString)->die();
+ds($myString)->die(); // or dsd($myString);
 
 ds('This will never happen')
 ```
