@@ -1,8 +1,8 @@
 # Configuration
 
-LaraDumps configuration is stored in `config/laradumps.php` file and can be overriden by your `.env` file.
+LaraDumps configuration is stored in `config/laradumps.php` file, and some options can be configured directly in your project's `.env` file.
 
-You can run `php artisan ds:init` at any time to modify the settings via the wizard.
+You can also run `php artisan ds:init` at any time to modify the settings via the wizard.
 
 ## Configuration options
 
@@ -32,7 +32,7 @@ DS_APP_HOST=127.0.0.1
 
 > 📝 **Note**: If you are using `Docker` on a `Linux` host, you must perform additional configuration because. Automatic mapping is not available. Read more [here](https://github.com/laravel/sail/pull/222).
 
-### Auto Invoke
+### Auto-Invoke
 
 By default, the LaraDumps Desktop App will always be invoked and gain focus on every new dump.
 
@@ -72,7 +72,7 @@ DS_SEND_LOGS=true #enabled
 
 Tracking Livewire Components can be enabled and disabled in the configuration key `send_livewire_components`.
 
- ```bash
+```bash
 DS_SEND_LIVEWIRE_COMPONENTS=true #enabled
 ```
 
@@ -82,6 +82,41 @@ To ignore specific components and do not track their state, include the class pa
 'ignore_livewire_components' => [    
      \App\Http\Livewire\OtherComponent::class,
 ],
+```
+
+---
+
+### Livewire Validation
+
+To enable dumping [Livewire failed validations](laravel/debug/usage?id=livewire-validation), change the key `DS_SEND_LIVEWIRE_FAILED_VALIDATION` to `true` inside your project's `.env` file.
+
+You can also configure the interval (sleep time).
+
+```bash
+DS_SEND_LIVEWIRE_FAILED_VALIDATION=true #enabled
+DS_SEND_LIVEWIRE_FAILED_VALIDATION_SLEEP=400 #milliseconds
+```
+
+---
+
+### Livewire Auto-Clear
+
+When debugging Livewire, you need to clear your LaraDumps APP history every time the page is reloaded to keep track of your components.
+
+LaraDumps can automatically clear the screen on page reload. You must include the Auto-Clean Blade directive together with the Livewire directive.
+
+```html
+  <!-- Scripts -->
+    @livewireScripts
+    @dsAutoClearOnPageReload
+
+</body>
+```
+
+This feature is disabled by default. To enable it, change the configuration key `auto_clear_on_page_reload` to `true`.
+
+```php
+'auto_clear_on_page_reload' = true, //enabled
 ```
 
 ---
@@ -108,7 +143,7 @@ By default, these routes are ignored:
 
 ### Preferred IDE
 
- Dumps contain a link to the file and line where `ds()` was called.
+Each dump contains a link to the file and line where the `ds()` was called from.
 
 You may configure your preferred IDE to open this project's files.
 
