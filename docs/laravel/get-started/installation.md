@@ -2,7 +2,11 @@
 
 ## Laravel Project
 
-Install LaraDumps in your Laravel project via composer. Run the command:
+Install LaraDumps in your Laravel project via composer.
+
+**Requirements**: PHP 8.0+ and Laravel 8.75+
+
+Run the command:
 
 ```bash
 composer require laradumps/laradumps --dev
