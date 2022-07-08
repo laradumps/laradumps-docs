@@ -8,7 +8,7 @@ LaraDumps provides the command `php artisan ds:check` which will produce an erro
 
 You can also add a custom `verify` script in your `composer.json`, and run `composer verify` in your deployment pipeline (CI/CD).
 
-Example script: 
+Example script:
 
 ```json
 "scripts": {
@@ -27,5 +27,3 @@ If any `ds()` is found, the `ds:check` command will indicate you the file, line 
 If you have not forgotten any `ds()`, your pipeline will be completed successfully.
 
 ![Success](../../_media/ds_check_success.png)
-
-
