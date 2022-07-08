@@ -15,7 +15,7 @@ Thank you for your interest in LaraDumps docs.
 **STEP 2:** Clone your forked repository:
 
 ```bash
-git clone https://github.com/:::USERNAME:::/docs laradumps-docs && cd laradumps-docs
+git clone https://github.com/:::USERNAME:::/laradumps-docs laradumps-docs && cd laradumps-docs
 ```
 
 📝 **NOTE:** Replace _:::USERNAME:::_ with your GitHub username.
