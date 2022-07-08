@@ -104,7 +104,7 @@ ds('custom value')->s('Custom screen');
 
 ---
 
-## Color
+## Color Tag
 
 You can also modify the default color indicator for each dump.
 
