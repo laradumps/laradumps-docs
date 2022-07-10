@@ -34,9 +34,11 @@ DS_APP_HOST=127.0.0.1
 
 ### Auto-Invoke
 
-By default, the LaraDumps Desktop App will always be invoked and gain focus on every new dump.
+By default, LaraDumps desktop app will be invoked and gain focus whenever a new dump arrives.
 
 To disable this behavior, change the `.env` file key `DS_AUTO_INVOKE_APP` to `false`.
+
+You can also send [Quiet dumps](laravel/debug/usage?id=quiet-dump) and the app will not be invoked.
 
 ```bash
 DS_AUTO_INVOKE_APP=true #enabled
