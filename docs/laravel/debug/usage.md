@@ -47,7 +47,7 @@ $myString = 'Hello World!';
 //Dump and die
 ds($myString)->die(); // or dsd($myString);
 
-ds('This will never happen')
+ds('This will never happen');
 ```
 
 This function is similar to Laravel's `dd()`.
