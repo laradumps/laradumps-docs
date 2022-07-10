@@ -13,7 +13,7 @@ LaraDumps usage reference sheet:
 | ds($var1, $var2);                     | Display multiples arguments                                                              |
 | ds($var)->die();                      | Dump and die                                                                             |
 | dsd($var);                            | Alias for dump and die                                                                   |
-| dsq($var);                            | Send a dump without invoking (focus) the Desktop App, "Quiet Dump"                       |
+| dsq($var);                            | Send a dump without invoking (focus) the Desktop App, "Quiet dump"                       |
 | ds($var)->label('My Label');          | Send dump with a custom label                                                            |
 | ds($var)->toScreen('My Screen');      | Adds new screen 'My screen'                                                              |
 | ds($var)->s('My Screen');             | Alias for new screen                                                                     |

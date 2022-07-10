@@ -17,7 +17,7 @@ Route::get('/', function () {
 
 ## Dump
 
-To send a Dump to the application, just pass one or more values to the `ds()` function.
+To send a dump to the application, just pass one or more values to the `ds()` function.
 
 ```php
 $myString = 'Hello World!';
