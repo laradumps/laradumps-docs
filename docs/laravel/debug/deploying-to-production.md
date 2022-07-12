@@ -4,6 +4,8 @@ Since LaraDumps is a debug `dev` tool, you might want to check if you forgot a `
 
 LaraDumps provides the command `php artisan ds:check` which will produce an error if any `ds()` is found in your code.
 
+> ⚠️ **Important**: You must specify which directories will be scanned in [config file](laravel/get-started/configuration?id=ds-check).
+
 ## Pipeline
 
 You can also add a custom `verify` script in your `composer.json`, and run `composer verify` in your deployment pipeline (CI/CD).

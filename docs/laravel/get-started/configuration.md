@@ -172,3 +172,20 @@ Supported IDEs:
 You might also edit or add a new IDE handler. The IDEs are defined inside the configuration key `ide_handlers` in the configuration file.
 
 ---
+
+## DS Check
+
+By default, the artisan [ds:check](laravel/debug/deploying-to-production) command is checking the config directory, which will always produce an error.
+
+You must specify which directories you would like to be checked. This configuration is set in the key `ci_check.directories`.
+
+```php
+'ci_check' => [
+    'directories' => [
+        base_path('app'), //checks the app/ directory
+    ],
+    //...
+],
+```
+
+---
