@@ -40,7 +40,7 @@ Once downloaded, open it and proceed with the installer.
 
 Download the latest application image `LaraDumps-x.x.x.AppImage` from [GitHub](https://github.com/laradumps/app/releases).
 
-Once downloaded, you must make the file executable. Via terminal, run: `chmod u+x laradumps-x.x.x.AppImage`.
+Once downloaded, you must make the file executable. Via terminal, run: `chmod u+x LaraDumps-x.x.x.AppImage`.
 
 Alternatively, click on "Properties", navigate to "Permissions" and click "Allow to execute file as program".
 
