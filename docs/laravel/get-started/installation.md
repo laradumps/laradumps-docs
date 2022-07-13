@@ -32,13 +32,13 @@ Proceed to the installation instructions for your operating system:
 
 #### **Windows**
 
-Download the latest Windows executable file `laradumps-Setup-x.x.x.exe` from [GitHub](https://github.com/laradumps/app/releases).
+Download the latest Windows executable file `LaraDumps-Setup-x.x.x.exe` from [GitHub](https://github.com/laradumps/app/releases).
 
 Once downloaded, open it and proceed with the installer.
 
 #### **Linux**
 
-Download the latest application image `laradumps-x.x.x.AppImage` from [GitHub](https://github.com/laradumps/app/releases).
+Download the latest application image `LaraDumps-x.x.x.AppImage` from [GitHub](https://github.com/laradumps/app/releases).
 
 Once downloaded, you must make the file executable. Via terminal, run: `chmod u+x laradumps-x.x.x.AppImage`.
 
@@ -50,7 +50,7 @@ Run the AppImage file.
 
 #### **MacOS**
 
-Download the latest Apple image `laradumps-x.x.x.dmg` from [GitHub](https://github.com/laradumps/app/releases).
+Download the latest Apple image `LaraDumps-x.x.x.dmg` from [GitHub](https://github.com/laradumps/app/releases).
 
 Once downloaded, open the file and drag & drop the LaraDumps app into your `Applications` folder.
 
