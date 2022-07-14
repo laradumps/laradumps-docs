@@ -110,8 +110,9 @@ LaraDumps can automatically clear the screen on page reload. You must include th
 ```html
   <!-- Scripts -->
     @livewireScripts
-    @dsAutoClearOnPageReload
-
+    @if(app()->environment('local'))
+        @dsAutoClearOnPageReload
+    @endif
 </body>
 ```
 
