@@ -58,16 +58,20 @@ The first time you open LaraDumps, you will be prompted with an alert․ Don't w
 
 LaraDumps is not a malicious software and all code is open-source, you can check it yourself!
 
-Authorize LaraDumps to run, follow these steps:
+To authorize LaraDumps to run, follow these steps:
 
-1․ Click "Open" in the alert box.
+1․ Click on the  (Apple logo) on the top menu.
 
-2․ Open System Preferences.
+2․ Go to `System Preferences`.
 
-3․ Go to the Security & Privacy tab.
+3․ Open the `Security & Privacy` tab.
 
-4․ Click on the lock and enter your password, so you can make changes.
+4․ Click on the 🔒 (lock pad) and enter your password to authenticate.
 
-5․ Click "Open Anyway" for LaraDumps.
+5․ Click `Open Anyway` for LaraDumps.
+
+6․ Once again, click `Open` when you are prompted about "This is an Internet Application".
+
+Now, LaraDumps should run just fine!
 
 <!-- tabs:end -->
