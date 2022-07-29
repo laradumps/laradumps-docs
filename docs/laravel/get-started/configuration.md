@@ -72,17 +72,36 @@ DS_SEND_LOGS=true #enabled
 
 ### Livewire Components
 
-Tracking Livewire Components can be enabled and disabled in the configuration key `send_livewire_components`.
+Tracking Livewire Components can be enabled and disabled in your project's .env file.
 
 ```bash
 DS_SEND_LIVEWIRE_COMPONENTS=true #enabled
 ```
 
-To ignore specific components and do not track their state, include the class path in the `ignore_livewire_components` configuration key.
+---
+
+### Specify Livewire Components
+
+You can specify which Livewire Components will be tracked by the Desktop application in your project's .env file.
+
+Only components in this list will send state to the Desktop app.
+
+```php
+DS_LIVEWIRE_COMPONENTS="MyComponent,NotesComponent,AttachmentsComponent"
+```
+
+---
+
+### Ignore Livewire Components
+
+To ignore specific Livewire components, include each class path in the `ignore_livewire_components` key inside the config file.
+
+Components in this list will NOT send state to the Desktop app.
 
 ```php
 'ignore_livewire_components' => [    
-     \App\Http\Livewire\OtherComponent::class,
+     \App\Http\Livewire\MyComponent::class,
+     \App\Http\Livewire\NotesComponent::class,
 ],
 ```
 
@@ -167,8 +186,20 @@ Supported IDEs:
 |---------------------|-------------|
 | PHPStorm            | phpstorm    |
 | Visual Studio Code  | vscode      |
+| Visual Studio Code WSL2 | vscode_remote      |
 | Sublime             | sublime     |
 | Atom                | atom        |
+
+Additional configuration is required for the  `Visual Studio Code WSL2`. You must change your local and remote path, see the next example:
+
+```php
+ 'vscode_remote' => [
+    'handler'        => 'vscode://vscode-remote/',
+    'line_separator' => ':',
+    'local_path'     => 'wsl+Ubuntu/home/MY-USER-NAME/MY-PROJECT-PATH', // configure this value
+    'remote_path'    => '/var/www/html', // configure this value
+],
+```
 
 You might also edit or add a new IDE handler. The IDEs are defined inside the configuration key `ide_handlers` in the configuration file.
 
