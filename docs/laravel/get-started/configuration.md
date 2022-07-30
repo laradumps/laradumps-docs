@@ -186,22 +186,32 @@ Supported IDEs:
 |---------------------|-------------|
 | PHPStorm            | phpstorm    |
 | Visual Studio Code  | vscode      |
-| Visual Studio Code WSL2 | vscode_remote      |
+| Remote Visual Studio Code (WSL2) | vscode_remote      |
 | Sublime             | sublime     |
 | Atom                | atom        |
 
-Additional configuration is required for the  `Visual Studio Code WSL2`. You must change your local and remote path, see the next example:
+You might also edit or add a new IDE handler. The IDEs are defined inside the configuration key `ide_handlers` in the configuration file.
 
-```php
- 'vscode_remote' => [
-    'handler'        => 'vscode://vscode-remote/',
-    'line_separator' => ':',
-    'local_path'     => 'wsl+Ubuntu/home/MY-USER-NAME/MY-PROJECT-PATH', // configure this value
-    'remote_path'    => '/var/www/html', // configure this value
-],
+#### Remote VSCode (WSL2)
+
+Additional configuration is required for the  `Visual Studio Code WSL2`. 
+
+1․ You must set the preferred Linux distro in your project's .env file (by default: `Ubuntu20.04LTS`).
+
+```bash
+DS_PREFERRED_WSL_DISTRO=Ubuntu20.04LTS
 ```
 
-You might also edit or add a new IDE handler. The IDEs are defined inside the configuration key `ide_handlers` in the configuration file.
+2․ You must configure your `remote_path` in the `vscode_remote` key in the configuration file.
+
+```php
+'vscode_remote' => [
+        'handler'        => 'vscode://vscode-remote/',
+        'line_separator' => ':',
+        'local_path'     => 'wsl+' . env('DS_PREFERRED_WSL_DISTRO', 'Ubuntu20.04LTS'),
+        'remote_path'    => '/var/www/html',
+],
+```
 
 ---
 
