@@ -218,7 +218,7 @@ $ pwd
 DS_WORKDIR=/var/www/html
 ```
 
-4․ You must configure your `remote_path` in the `vscode_remote` key in the configuration file:
+4. Here's what your `vscode_remote` key in the configuration file will look like:
 
 ```php
 'vscode_remote' => [
