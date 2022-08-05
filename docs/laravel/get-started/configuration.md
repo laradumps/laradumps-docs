@@ -99,7 +99,7 @@ To ignore specific Livewire components, include each class path in the `ignore_l
 Components in this list will NOT send state to the Desktop app.
 
 ```php
-'ignore_livewire_components' => [    
+'ignore_livewire_components' => [
      \App\Http\Livewire\MyComponent::class,
      \App\Http\Livewire\NotesComponent::class,
 ],
@@ -194,22 +194,39 @@ You might also edit or add a new IDE handler. The IDEs are defined inside the co
 
 #### Remote VSCode (WSL2)
 
-Additional configuration is required for the  `Visual Studio Code WSL2`. 
+Additional configuration is required for the  `Visual Studio Code WSL2`.
 
-1․ You must set the preferred Linux distro in your project's .env file (by default: `Ubuntu20.04LTS`).
+1․ You must set the preferred Linux distro in your project's .env file (by default: `Ubuntu20.04LTS`):
 
 ```bash
 DS_PREFERRED_WSL_DISTRO=Ubuntu20.04LTS
 ```
 
-2․ You must configure your `remote_path` in the `vscode_remote` key in the configuration file.
+2․ You must set the `remote_path` in your project's .env file:
+
+```bash
+DS_REMOTE_PATH=/home/$USER/path-to-your-project
+```
+PS: to get this path just type the following command on your terminal in wsl project folder:
+```bash
+$ pwd
+```
+
+3․ You must set the `work_dir` in your project's .env file (by default: `/var/www/html`):
+
+```bash
+DS_WORKDIR=/var/www/html
+```
+
+4. Here's what your `vscode_remote` key in the configuration file will look like:
 
 ```php
 'vscode_remote' => [
-        'handler'        => 'vscode://vscode-remote/',
-        'line_separator' => ':',
-        'local_path'     => 'wsl+' . env('DS_PREFERRED_WSL_DISTRO', 'Ubuntu20.04LTS'),
-        'remote_path'    => '/var/www/html',
+    'handler'        => 'vscode://vscode-remote/',
+    'line_separator' => ':',
+    'local_path'     => 'wsl+' . env('DS_PREFERRED_WSL_DISTRO', 'Ubuntu20.04LTS'),
+    'remote_path'    => env('DS_REMOTE_PATH', null),
+    'work_dir'       => env('DS_WORKDIR', '/var/www/html'),
 ],
 ```
 
