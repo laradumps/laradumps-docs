@@ -4,7 +4,7 @@ This is the LaraDumps Desktop App window, here you will receive the output of yo
 
 The following image shows an example of a dump lists the main items available at the App.
 
-![App](../../_media/app.png)
+<img src="(../../_media/app.png" alt="app" width="500">
 
 LaraDumps Desktop App functionalities:
 

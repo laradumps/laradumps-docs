@@ -202,32 +202,38 @@ Additional configuration is required for the  `Visual Studio Code WSL2`.
 DS_PREFERRED_WSL_DISTRO=Ubuntu20.04LTS
 ```
 
-2․ You must set the `remote_path` in your project's .env file:
+> 📝 **Note**: To get your distro name, run the command `wsl -l -v` in your command prompt.
+
+<br/>
+
+2․ Next, you must set the `remote_path` key in your project's .env file:
+
+The `remote_path` refers to your project's path in WSL.
 
 ```bash
 DS_REMOTE_PATH=/home/$USER/path-to-your-project
 ```
-PS: to get this path just type the following command on your terminal in wsl project folder:
-```bash
-$ pwd
-```
 
-3․ You must set the `work_dir` in your project's .env file (by default: `/var/www/html`):
+> 📝 **Note**: To get remote path, you can run the `pwd`  command inside your WSL project folder.
+
+<br/>
+
+3․ Finally, you must set the `work_dir` key in your project's .env file (by default: `/var/www/html`):
 
 ```bash
 DS_WORKDIR=/var/www/html
 ```
 
-4. Here's what your `vscode_remote` key in the configuration file will look like:
+<br/>
 
-```php
-'vscode_remote' => [
-    'handler'        => 'vscode://vscode-remote/',
-    'line_separator' => ':',
-    'local_path'     => 'wsl+' . env('DS_PREFERRED_WSL_DISTRO', 'Ubuntu20.04LTS'),
-    'remote_path'    => env('DS_REMOTE_PATH', null),
-    'work_dir'       => env('DS_WORKDIR', '/var/www/html'),
-],
+Here, you can see a full example of how your `.env` file may look like:
+
+```bash
+#...
+DS_PREFERRED_IDE=vscode_remote
+DS_PREFERRED_WSL_DISTRO=Ubuntu
+DS_REMOTE_PATH=/home/jamesbond/Projects/save-the-queen-app
+DS_WORKDIR=/var/www/html
 ```
 
 ---
