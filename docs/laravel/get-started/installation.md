@@ -1,10 +1,12 @@
 # Installation
 
-## Laravel Project
+To start debugging with LaraDumps you must download the **LaraDumps Desktop App** and then, install the **LaraDumps package** in the Laravel project you are currently working on.
 
-Install LaraDumps in your Laravel project via composer.
+## Laravel Package
 
 **Requirements**: PHP 8.0+ and Laravel 8.75+
+
+Install LaraDumps Package in your Laravel project using [Composer](https://getcomposer.org).
 
 Run the command:
 
