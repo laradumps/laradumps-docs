@@ -173,9 +173,9 @@ Log::error('Your message', ['0' => 'Your Context']);
 
 ---
 
-## Time clocking
+## Time
 
-To simply clock the execution time of a block of code, place it inside the methods `time($reference)` and `stopTime($reference)`.
+To simply measure the execution time of a block of code, place it inside the methods `time($reference)` and `stopTime($reference)`.
 
 You must pass the **same unique** `$reference` title to both methods, and it can be any combination of words.
 

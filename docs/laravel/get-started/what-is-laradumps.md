@@ -17,6 +17,7 @@ These are some debug tools available for you:
 - Verify if a string contains a substring.
 - View phpinfo() configuration.
 - Debug Livewire components.
+- Debug Livewire Events.
 - List your Laravel routes.
 - Inspect Model attributes.
 - Send your dump to different screens, resulting in a better debugging experience.
