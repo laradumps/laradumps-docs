@@ -24,8 +24,10 @@ LaraDumps usage reference sheet:
 | ds($var)->dark();                     | Black color tag                                                                          |
 | ds($var)->warning();                  | Orange color tag                                                                         |
 | ds($var)->color('bg-slate-500');      | Color tag using the [Tailwind color palette](https://tailwindcss.com/docs/customizing-colors#default-color-palette)                                                                                        |
-| ds($var)->queriesOn('My Label');      | Start capturing SQL queries                                                              |
-| ds($var)->queriesOff();               | Stop capturing SQL queries                                                               |
+| ds()->time('Reference #1');           | Start clocking execution time                                                            |
+| ds()->stopTime('Reference #1');       | Stop clocking execution time                                                             |
+| ds()->queriesOn('My Label');          | Start capturing SQL queries                                                              |
+| ds()->queriesOff();                   | Stop capturing SQL queries                                                               |
 | ds()->model(User::query()->first());  | Dumps the Model’s Attributes and Relationships.                                          |
 | ds()->routes();                       | Dumps Laravel Routes in a table format                                                   |
 | ds()->table(Collection $data, $name); | Dumps data in a table format                                                             |

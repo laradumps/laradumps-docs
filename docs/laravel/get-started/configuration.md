@@ -72,7 +72,7 @@ DS_SEND_LOGS=true #enabled
 
 ### Livewire Components
 
-Tracking Livewire Components can be enabled and disabled in your project's .env file.
+Tracking Livewire Components can be enabled and disabled in your project's `.env` file.
 
 ```bash
 DS_SEND_LIVEWIRE_COMPONENTS=true #enabled
@@ -80,9 +80,45 @@ DS_SEND_LIVEWIRE_COMPONENTS=true #enabled
 
 ---
 
+### Livewire Protected Properties
+
+Enables LaraDumps to access protected and private properties of Livewire components.
+
+Configure the key `DS_LIVEWIRE_PROTECTED_PROPERTIES` in your project's `.env` file:
+
+```bash
+DS_LIVEWIRE_PROTECTED_PROPERTIES=true #enabled
+```
+
+---
+
+### Livewire Events
+
+When this feature is enabled, LaraDumps can track and send [Livewire Events](laravel/debug/livewire?id=livewire-events) to the Desktop App.
+
+Configure the key `DS_LIVEWIRE_EVENTS` in your project's `.env` file:
+
+```bash
+DS_LIVEWIRE_EVENTS=true #enabled
+```
+
+---
+
+### Livewire Browser Events
+
+When this feature is enabled, LaraDumps will track and send [Browser Events dispatch](laravel/debug/livewire?id=livewire-events) to the Desktop App.
+
+Configure the key `DS_LIVEWIRE_DISPATCH` in your project's `.env` file:
+
+```bash
+DS_LIVEWIRE_DISPATCH=true #enabled
+```
+
+---
+
 ### Specify Livewire Components
 
-You can specify which Livewire Components will be tracked by the Desktop application in your project's .env file.
+You can specify which Livewire Components will be tracked by the Desktop application in your project's `.env` file.
 
 Only components in this list will send state to the Desktop app.
 
@@ -143,6 +179,18 @@ This feature is disabled by default. To enable it, change the configuration key 
 
 ---
 
+## Livewire Component Highlight
+
+When this feature is enabled, LaraDumps can [Highlight Livewire Components](laravel/debug/livewire?id=livewire-component-highlight) in your browser when they are selected in Desktop App.
+
+Configure the key `DS_LIVEWIRE_COMPONENTS_HIGHLIGHT` in your project's `.env` file:
+
+```bash
+DS_LIVEWIRE_COMPONENTS_HIGHLIGHT=true #enabled
+```
+
+---
+
 ### Routes
 
 You might want to skip some routes when dumping [Routes](laravel/debug/usage?id=routes).
@@ -196,7 +244,7 @@ You might also edit or add a new IDE handler. The IDEs are defined inside the co
 
 Additional configuration is required for the  `Visual Studio Code WSL2`.
 
-1․ You must set the preferred Linux distro in your project's .env file (by default: `Ubuntu20.04LTS`):
+1․ You must set the preferred Linux distro in your project's `.env` file (by default: `Ubuntu20.04LTS`):
 
 ```bash
 DS_PREFERRED_WSL_DISTRO=Ubuntu20.04LTS
@@ -206,7 +254,7 @@ DS_PREFERRED_WSL_DISTRO=Ubuntu20.04LTS
 
 <br/>
 
-2․ Next, you must set the `remote_path` key in your project's .env file:
+2․ Next, you must set the `remote_path` key in your project's `.env` file:
 
 The `remote_path` refers to your project's path in WSL.
 
@@ -218,7 +266,7 @@ DS_REMOTE_PATH=/home/$USER/path-to-your-project
 
 <br/>
 
-3․ Finally, you must set the `work_dir` key in your project's .env file (by default: `/var/www/html`):
+3․ Finally, you must set the `work_dir` key in your project's `.env` file (by default: `/var/www/html`):
 
 ```bash
 DS_WORKDIR=/var/www/html
