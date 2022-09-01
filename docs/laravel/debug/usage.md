@@ -56,16 +56,20 @@ This function is similar to Laravel's `dd()`.
 
 ## Quiet dump
 
-By default, LaraDumps desktop app will be invoked and gain focus whenever a new dump arrives.
+By default, LaraDumps desktop app will be invoked and gain focus whenever a new dump is received.
 
-You can use`dsq()` to avoid invoking the app (quiet dump) or permanently disable the [Auto-Invoke](laravel/get-started/configuration?id=auto-invoke) feature.
+You can use`dsq()` to send a quiet dump, without invoking the app.
+
+Alternatively, you can permanently disable the [Auto-Invoke](laravel/get-started/configuration?id=auto-invoke) feature.
 
 ```php
-foreach ($products as $product) {
-    dsq('Checking product #' . $product->id); //Send a dump without invoking the app
+$products = [['id' => 1, 'price' => 10], ['id' => 2, 'price' => 50], ['id' => 3, 'price' => -5]];
 
-    if ($product->price < 0) {
-        ds('Price error in product #' . $product->id); //App will be invoked
+foreach ($products as $product) {
+    dsq('Checking product #' . $product['id']); //Send a dump without invoking the app
+
+    if ($product['price'] < 0) {
+        ds('Price error in product #' . $product['id']); //App will be invoked
     }
 }
 ```
