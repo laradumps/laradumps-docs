@@ -24,7 +24,7 @@ These are some debug tools available for you:
 
 ## View more
 
-- Youtube video [Como Debugar Aplicações Laravel Daqui Pra Frente](https://youtu.be/0It5Nv1xSzc?t=648) - by Tio Jobs (in Portuguese)
+- Youtube video [Como Debugar Aplicações Laravel Daqui Pra Frente](https://www.youtube.com/watch?v=IJqJGvEhqp0) - by Tio Jobs (in Portuguese)
 
 ## Tech Stack
 
