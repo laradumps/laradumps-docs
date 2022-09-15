@@ -1,6 +1,7 @@
 - **Get Started**
   - [What is LaraDumps?](laravel/get-started/what-is-laradumps.md "What is LaraDumps?")
   - [Installation](laravel/get-started/installation.md "Installation")
+  - [Updating LaraDumps](laravel/get-started/updating-laradumps.md "Updating LaraDumps")
   - [Configuration](laravel/get-started/configuration.md "Configuration")
   - [Desktop App](laravel/get-started/desktop-app.md "Desktop App")
 - **Debugging**
