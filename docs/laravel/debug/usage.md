@@ -203,16 +203,16 @@ In the Desktop App:
 
 ### Time
 
-To simply measure the execution time of a block of code, place it inside the methods `time($reference)` and `stopTime($reference)`.
+To simply measure the execution time of a block of code, place it within the `time($reference)` and `stopTime($reference)` methods.
 
-You must pass the **same unique** `$reference` title to both methods, and it can be any combination of words.
+You must pass the **same unique** `$reference` title to both methods. The reference can be any combination of words.
 
 ```php
 ds()->time('my count');
 
-for($i=0; $i<100000; $i++){
-    //some code
-}
+    for($i=0; $i<100000; $i++){
+        //some code
+    }
 
 ds()->stopTime('my count');
 ```
