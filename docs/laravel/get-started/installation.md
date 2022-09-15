@@ -1,34 +1,17 @@
 # Installation
 
-To start debugging with LaraDumps you must download the **LaraDumps Desktop App** and then, install the **LaraDumps package** in the Laravel project you are currently working on.
+It's very simple to start debugging with LaraDumps:
 
-## Laravel Package
+- First, download and install the [LaraDumps Desktop App](laravel/get-started/installation?id=desktop-app).
+- Then, open your Laravel project and install the [LaraDumps Laravel Package](laravel/get-started/installation?id=laravel-package).
 
-**Requirements**: PHP 8.0+ and Laravel 8.75+
-
-Install LaraDumps Package in your Laravel project using [Composer](https://getcomposer.org).
-
-Run the command:
-
-```bash
-composer require laradumps/laradumps --dev
-```
-
-Once installed, you must configure LaraDumps, run:
-
-```bash
-php artisan ds:init
-```
-
-The Init wizard will guide you through the basic setup.
-
-For more information, read the [Configuration](laravel/get-started/configuration.md) section.
+Read the instructions below:
 
 ## Desktop App
 
 LaraDumps Desktop App is available for Windows, Linux and MacOS.
 
-Proceed to the installation instructions for your operating system:
+Proceed to the installation instructions according to your operating system:
 
 <!-- tabs:start -->
 
@@ -77,3 +60,25 @@ To authorize LaraDumps to run, follow these steps:
 Now, LaraDumps should run just fine!
 
 <!-- tabs:end -->
+
+## Laravel Package
+
+**Requirements**: PHP 8.0+ and Laravel 8.75+
+
+Install LaraDumps Package in your Laravel project using [Composer](https://getcomposer.org).
+
+Run the command:
+
+```shell
+composer require laradumps/laradumps --dev
+```
+
+Once the package is installed, you must configure it. Run the command:
+
+```shell
+php artisan ds:init
+```
+
+The Init wizard will guide you through the basic setup.
+
+For more information, read the [Configuration](laravel/get-started/configuration.md) section.
