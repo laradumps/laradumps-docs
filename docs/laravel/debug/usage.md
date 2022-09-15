@@ -124,6 +124,8 @@ ds5('this is screen 5');
 ds('custom value')->s('Custom screen');
 ```
 
+> 📌 You may [pin](laravel/get-started/desktop-app) a screen to keep it always on focus and preserve its dumps when clearing all screens.
+
 ---
 
 ## Color Tag

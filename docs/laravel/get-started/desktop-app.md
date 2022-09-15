@@ -21,3 +21,5 @@ LaraDumps Desktop App functionalities:
 - **Button #6:** Re-order: Allows you to drag and re-organize your dumps sequence.
 - **Button #7:** Toggle window "Always on top".
 - **Button #8:** Toggle Light/Dark Mode.
+- **Button #9:** Pin the active screen. The yellow pin and yellow bordered screen buttons indicate a pinned screen.
+- **Button #10:** Clear the active screen.
