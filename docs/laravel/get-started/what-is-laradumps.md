@@ -4,7 +4,7 @@
 
 LaraDumps is a friendly app designed to boost your Laravel PHP coding and debugging experience.
 
-When using LaraDumps, you can see the result of your debug displayed in a standalone Desktop application.
+When using LaraDumps, you can see the result of your debug displayed in a standalone Desktop Application.
 
 These are some [debug tools](laravel/debug/usage?id=debug-functions) provided by LaraDumps:
 

@@ -8,11 +8,11 @@ You can also run `php artisan ds:init` at any time to modify the settings via th
 
 ### Host
 
-The host setting allows your project to communicate with LaraDumps Desktop app.
+The host setting allows your project to communicate with LaraDumps Desktop App.
 
 Modify the host to match project's environment. Change the `.env` file key `DS_APP_HOST`.
 
-```bash
+```shell
 DS_APP_HOST=127.0.0.1
 ```
 
@@ -34,13 +34,13 @@ DS_APP_HOST=127.0.0.1
 
 ### Auto-Invoke
 
-By default, LaraDumps desktop app will be invoked and gain focus whenever a new dump arrives.
+By default, LaraDumps Desktop App will be invoked and gain focus whenever a new dump arrives.
 
 To disable this behavior, change the `.env` file key `DS_AUTO_INVOKE_APP` to `false`.
 
 You can also send [Quiet dumps](laravel/debug/usage?id=quiet-dump) and the app will not be invoked.
 
-```bash
+```shell
 DS_AUTO_INVOKE_APP=true #enabled
 ```
 
@@ -52,7 +52,7 @@ You must have this feature enabled to capture [SQL Queries](laravel/debug/usage?
 
 To enable this feature, change the `.env` file key `DS_SEND_QUERIES` to `true`.
 
-```bash
+```shell
 DS_SEND_QUERIES=true #enabled
 ```
 
@@ -64,7 +64,7 @@ You must have this feature enabled to send [Laravel Logs](laravel/debug/usage?id
 
 To enable this feature, change the `.env` file key `DS_SEND_LOGS` to `true`.
 
- ```bash
+ ```shell
 DS_SEND_LOGS=true #enabled
 ```
 
@@ -74,7 +74,7 @@ DS_SEND_LOGS=true #enabled
 
 Tracking Livewire Components can be enabled and disabled in your project's `.env` file.
 
-```bash
+```shell
 DS_SEND_LIVEWIRE_COMPONENTS=true #enabled
 ```
 
@@ -86,7 +86,7 @@ Enables LaraDumps to access protected and private properties of Livewire compone
 
 Configure the key `DS_LIVEWIRE_PROTECTED_PROPERTIES` in your project's `.env` file:
 
-```bash
+```shell
 DS_LIVEWIRE_PROTECTED_PROPERTIES=true #enabled
 ```
 
@@ -98,7 +98,7 @@ When this feature is enabled, LaraDumps can track and send [Livewire Events](lar
 
 Configure the key `DS_LIVEWIRE_EVENTS` in your project's `.env` file:
 
-```bash
+```shell
 DS_LIVEWIRE_EVENTS=true #enabled
 ```
 
@@ -110,7 +110,7 @@ When this feature is enabled, LaraDumps will track and send [Browser Events disp
 
 Configure the key `DS_LIVEWIRE_DISPATCH` in your project's `.env` file:
 
-```bash
+```shell
 DS_LIVEWIRE_DISPATCH=true #enabled
 ```
 
@@ -118,9 +118,9 @@ DS_LIVEWIRE_DISPATCH=true #enabled
 
 ### Specify Livewire Components
 
-You can specify which Livewire Components will be tracked by the Desktop application in your project's `.env` file.
+You can specify which Livewire Components will be tracked by the Desktop Application in your project's `.env` file.
 
-Only components in this list will send state to the Desktop app.
+Only components in this list will send state to the Desktop App.
 
 ```php
 DS_LIVEWIRE_COMPONENTS="MyComponent,NotesComponent,AttachmentsComponent"
@@ -132,7 +132,7 @@ DS_LIVEWIRE_COMPONENTS="MyComponent,NotesComponent,AttachmentsComponent"
 
 To ignore specific Livewire components, include each class path in the `ignore_livewire_components` key inside the config file.
 
-Components in this list will NOT send state to the Desktop app.
+Components in this list will NOT send state to the Desktop App.
 
 ```php
 'ignore_livewire_components' => [
@@ -149,7 +149,7 @@ To enable dumping [Livewire failed validations](laravel/debug/usage?id=livewire-
 
 You can also configure the interval (sleep time).
 
-```bash
+```shell
 DS_SEND_LIVEWIRE_FAILED_VALIDATION=true #enabled
 DS_SEND_LIVEWIRE_FAILED_VALIDATION_SLEEP=400 #milliseconds
 ```
@@ -185,7 +185,7 @@ When this feature is enabled, LaraDumps can [Highlight Livewire Components](lara
 
 Configure the key `DS_LIVEWIRE_COMPONENTS_HIGHLIGHT` in your project's `.env` file:
 
-```bash
+```shell
 DS_LIVEWIRE_COMPONENTS_HIGHLIGHT=true #enabled
 ```
 
@@ -219,7 +219,7 @@ You may configure your preferred IDE to open this project's files.
 
 To set an IDE, change the `.env` file key `DS_PREFERRED_IDE` to one of the supported IDEs.
 
-```bash
+```shell
 DS_PREFERRED_IDE=vscode
 ```
 
@@ -246,7 +246,7 @@ Additional configuration is required for the  `Visual Studio Code WSL2`.
 
 1․ You must set the preferred Linux distro in your project's `.env` file (by default: `Ubuntu20.04LTS`):
 
-```bash
+```shell
 DS_PREFERRED_WSL_DISTRO=Ubuntu20.04LTS
 ```
 
@@ -258,7 +258,7 @@ DS_PREFERRED_WSL_DISTRO=Ubuntu20.04LTS
 
 The `remote_path` refers to your project's path in WSL.
 
-```bash
+```shell
 DS_REMOTE_PATH=/home/$USER/path-to-your-project
 ```
 
@@ -268,7 +268,7 @@ DS_REMOTE_PATH=/home/$USER/path-to-your-project
 
 3․ Finally, you must set the `work_dir` key in your project's `.env` file (by default: `/var/www/html`):
 
-```bash
+```shell
 DS_WORKDIR=/var/www/html
 ```
 
@@ -276,7 +276,7 @@ DS_WORKDIR=/var/www/html
 
 Here, you can see a full example of how your `.env` file may look like:
 
-```bash
+```shell
 #...
 DS_PREFERRED_IDE=vscode_remote
 DS_PREFERRED_WSL_DISTRO=Ubuntu
