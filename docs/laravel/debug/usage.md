@@ -1,21 +1,35 @@
 # Usage
 
-To debug with LaraDumps, simply add `ds()` in your code and execute your application.
+## Introduction
 
-The debug dumps will be sent to the Desktop App.
+To debug with LaraDumps, simply add a `ds()` in your code in the same way as you would use `dump()` or `dd()`.
+
+The debug information will be sent to the Desktop App.
 
 Here is an example:
 
 ```php
+//File: routes/web.php
+
 Route::get('/', function () {
-    ds('Home page accessed!');
+    ds('Home page accessed!'); //add this code here!
     return view('home');
 });
 ```
 
+Add the `ds()` function to your `routes/web.php` main route, just like in this code above.
+
+Now, access your home-page, and then you will see your debug dump in the Desktop App:
+
+<img src="(../../_media/basicExample.png" alt="app" width="500">
+
 > 💡 **Trivia**: The "ds()" function is based on the first and last letters of the word **d**ump**s**, and it is conveniently similar to "dd()". This is not a coincidence! Easy to switch!
 
-## Dump
+## Debug Functions
+
+LaraDumps provides you a set of  tools to debug your code and inspect what is happening to your application during development.
+
+### Dump
 
 To send a dump to the application, just pass one or more values to the `ds()` function.
 
@@ -37,7 +51,7 @@ This function behaves similarly to Laravel's `dump()` and it will not stop the c
 
 ---
 
-## Dump and die
+### Dump and die
 
 Use the function `ds()->die()` or its shortcut `dsd()` to dump and immediately stop the code execution.
 
@@ -54,9 +68,9 @@ This function is similar to Laravel's `dd()`.
 
 ---
 
-## Quiet dump
+### Quiet dump
 
-By default, LaraDumps desktop app will be invoked and gain focus whenever a new dump is received.
+By default, LaraDumps Desktop App will be invoked and gain focus whenever a new dump is received.
 
 You can use`dsq()` to send a quiet dump, without invoking the app.
 
@@ -76,7 +90,7 @@ foreach ($products as $product) {
 
 ---
 
-## Label
+### Label
 
 Labels are very useful to identify a specific dump among many other similar outputs.
 
@@ -93,7 +107,7 @@ ds($person2)->label('Creator of Laravel');
 
 ---
 
-## Screens
+### Screens
 
 Using multiple debug screens allows you to group based on what they have in common,  improving your debugging process.
 
@@ -124,9 +138,13 @@ ds5('this is screen 5');
 ds('custom value')->s('Custom screen');
 ```
 
+In the Desktop App:
+
+<img src="(../../_media/screens.png" alt="app" width="500">
+
 ---
 
-## Color Tag
+### Color Tag
 
 You can also modify the default color indicator for each dump.
 
@@ -151,7 +169,7 @@ Read more about Tailwind color palette [here](https://tailwindcss.com/docs/custo
 
 ---
 
-## Clear Screens
+### Clear Screens
 
 Use this method to clear all previous dumps in all screens. 
 
@@ -163,11 +181,13 @@ ds()->clear();
 
 ---
 
-## Laravel Logs
+### Laravel Logs
 
-Laravel logs will be sent to the Desktop application.
+Laravel logs will be sent to the Desktop Application.
 
-This feature must be enabled in LaraDumps [config file](laravel/get-started/configuration?id=laravel-logs).
+LaraDumps provides a one-click internet search for Google, Stack Overflow and Laracasts. This is very convenient for exceptions and general error messages.
+
+The Log feature must be enabled in LaraDumps [config file](laravel/get-started/configuration?id=laravel-logs).
 
 ```php
 Log::info('Your message', ['0' => 'Your Context']);
@@ -175,9 +195,13 @@ Log::info('Your message', ['0' => 'Your Context']);
 Log::error('Your message', ['0' => 'Your Context']);
 ```
 
+In the Desktop App:
+
+<img src="(../../_media/log.png" alt="app" width="500">
+
 ---
 
-## Time
+### Time
 
 To simply measure the execution time of a block of code, place it inside the methods `time($reference)` and `stopTime($reference)`.
 
@@ -193,29 +217,37 @@ for($i=0; $i<100000; $i++){
 ds()->stopTime('my count');
 ```
 
+In the Desktop App:
+
+<img src="(../../_media/time.png" alt="app" width="500">
+
 ---
 
-## SQL Queries
+### SQL Queries
 
-To debug SQL queries, you must them between a `queriesOn()` and `queriesOff()` method call.
+To debug SQL queries, you must place the database call within the `queriesOn()` and `queriesOff()` methods.
 
 This feature must be enabled in LaraDumps [config file](laravel/get-started/configuration?id=sql-queries).
 
 For example:
 
 ```php
-ds()->queriesOn('checking an user query');
+use App\Models\User;
 
-$db = User::query()->where('id', 5)->get();
+ds()->queriesOn('checking a user query');
+
+    User::query()->where('id', 20)->get();
 
 ds()->queriesOff();
 ```
 
-### Query inspection Macro
+#### Query inspection Macro
 
-You can also chain a `ds()` method before the query execution and, it will be dumped in the Desktop app:
+You can also chain a `ds()` method before the query execution and, it will be dumped in the Desktop App:
 
 ```php
+use App\Models\User;
+
 User::query()->where('id', 20)
     ->ds()
     ->get();
@@ -223,23 +255,34 @@ User::query()->where('id', 20)
 
 > 📝 **Note**: The macro feature doesn't require SQL Queries to be enabled in the configuration file.
 
+
+In the Desktop App:
+
+<img src="(../../_media/sqlDump.png" alt="app" width="500">
+
 ---
 
-## Model Inspection
+### Model Inspection
 
 Dumps the Model's Attributes and Relationships.
 
 ```php
-$myUser = User::query()->first();
+use App\Models\User;
 
-ds()->model($myUser);
+$firstUser = User::first();
+
+ds()->model($firstUser);
 ```
+
+In the Desktop App:
+
+<img src="(../../_media/userModel.png" alt="app" width="500">
 
 ---
 
-## Routes
+### Routes
 
-Dumps Laravel Routes in a table format.
+Dumps Laravel Routes in a [table](laravel/debug/usage?id=table) format.
 
 You might want to hide some routes from the dump output. This can be accomplished in the [config file](laravel/get-started/configuration?id=routes).
 
@@ -249,17 +292,27 @@ ds()->routes();
 
 ---
 
-## Table
+### Table
 
-The method `table()` will dump data in a table format and provide a search functionality.
+The method `table()` will dump data in a table format with a built-in search functionality.
+
+This method requires a `collection` or `array` as the first argument, followed by an optional `string` name to identify your table.
 
 ```php
-ds()->table(User::all(['id', 'name']), 'users');
+use App\Models\User;
+
+$allUsers = User::all(['id', 'name', 'email']);
+
+ds()->table($allUsers, 'my users table');
 ```
+
+In the Desktop App:
+
+<img src="(../../_media/table.png" alt="app" width="500">
 
 ---
 
-## Diff
+### Diff
 
 Sometimes you may want to quickly compare one variable with another, for that use diff()
 
@@ -274,18 +327,23 @@ ds($userBefore)->diff($userAfter, true);
 
 //Comparing text
 ds('This is an EXAMPLE text')->diff('This is an example text');
-
 ```
+
+In the Desktop App:
+
+<img src="(../../_media/diff.png" alt="app" width="500">
 
 ---
 
-## JSON
+### JSON
 
 Sometimes you may need to inspect and validate JSON strings coming from different sources, such as an API or Front-end application.
 
 Use the `isJson()` method to validate and display a JSON in human-readable format.
 
 ```php
+use Illuminate\Support\Facades\Http;
+
 // Json from API
 $moviesJson = Http::get('https://api.tvmaze.com/search/people?q=lauren')->body();
         
@@ -295,9 +353,13 @@ ds($moviesJson)->isJson();
 ds('{"name: Luan}')->isJson();
 ```
 
+In the Desktop App:
+
+<img src="(../../_media/json.png" alt="app" width="500">
+
 ---
 
-## Contains
+### Contains
 
 Inspecting and debugging long strings can be tiresome and time-consuming.
 
@@ -325,9 +387,13 @@ ds($json)->contains('brazil', caseSensitive: true);
 ds($json)->contains('Maria', wholeWord: true);
 ```
 
+In the Desktop App:
+
+<img src="(../../_media/contains.png" alt="app" width="500">
+
 ---
 
-## PHPInfo
+### PHPInfo
 
 Dumps PHP configuration. Similar to `phpinfo()`.
 
