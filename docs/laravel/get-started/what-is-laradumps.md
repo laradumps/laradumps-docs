@@ -6,25 +6,25 @@ LaraDumps is a friendly app designed to boost your Laravel PHP coding and debugg
 
 When using LaraDumps, you can see the result of your debug displayed in a standalone Desktop application.
 
-These are some debug tools available for you:
+These are some [debug tools](laravel/debug/usage?id=debug-functions) provided by LaraDumps:
 
 - Dump single or multiple variables at once.
-- Dump values in a table format, with a built-in search feature.
-- Monitor SQL Queries.
-- View Laravel Logs.
+- See your dumped values in a Table, with a built-in search feature.
+- Improve your debugging experience using different screens.
+- Watch SQL Queries.
+- Monitor Laravel Logs.
 - Validate JSON strings.
 - Compare strings with diff.
 - Verify if a string contains a substring.
 - View phpinfo() configuration.
-- Debug Livewire components.
-- Debug Livewire Events.
-- List your Laravel routes.
+- Debug Livewire Components & Events.
+- List your Laravel Routes.
 - Inspect Model attributes.
-- Send your dump to different screens, resulting in a better debugging experience.
 
 ## View more
 
 - Youtube video [Como Debugar Aplicações Laravel Daqui Pra Frente](https://www.youtube.com/watch?v=IJqJGvEhqp0) - by Tio Jobs (in Portuguese)
+- Youtube video [Laravel: Debugging de Tus Aplicaciones con LaraDumps](https://www.youtube.com/watch?v=R-5SlKBt72w) - by Code with Luis (in Spanish)
 
 ## Tech Stack
 
