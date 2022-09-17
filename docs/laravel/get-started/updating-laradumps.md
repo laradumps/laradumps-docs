@@ -8,7 +8,9 @@ There are two types of notifications: [Desktop App](laravel/get-started/installa
 
 To update the App, Linux and Windows users can simply proceed with the self-update process. This process will download and install the latest available version on your computer.
 
-For macOS, due to Apple restrictions, users will have to download the latest release from [GitHub](https://github.com/laradumps/app/releases) and install it manually.
+<!--LaraDumpsVersion-->
+For macOS, LaraDumps requires the user to manually [`download`](https://github.com/laradumps/app/releases/download/v1.2.3/LaraDumps-1.2.3.dmg) and install the application. Automatic update is not available due to limitations imposed by Apple.
+<!--EndOfLaraDumpsVersion-->
 
 ## Laravel Package
 

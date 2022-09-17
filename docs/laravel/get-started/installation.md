@@ -3,7 +3,7 @@
 It's very simple to start debugging with LaraDumps:
 
 - First, download and install the [LaraDumps Desktop App](laravel/get-started/installation?id=desktop-app).
-- Then, open your Laravel project and install the [LaraDumps Laravel Package](laravel/get-started/installation?id=laravel-package).
+- Then, install the [LaraDumps Laravel Package](laravel/get-started/installation?id=laravel-package) in your current Laravel project.
 
 Read the instructions below:
 
@@ -13,37 +13,44 @@ LaraDumps Desktop App is available for Windows, Linux and MacOS.
 
 Proceed to the installation instructions according to your operating system:
 
+<!--LaraDumpsVersion-->
 <!-- tabs:start -->
 
 #### **Windows**
 
-Download the latest Windows executable file `LaraDumps-Setup-x.x.x.exe` from [GitHub](https://github.com/laradumps/app/releases).
+Click to [`Download LaraDumps v1.2.3`](https://github.com/laradumps/app/releases/download/v1.2.3/LaraDumps-Setup-1.2.3.exe) installer for Windows.
 
 Once downloaded, open it and proceed with the installer.
 
 #### **Linux**
 
-Download the latest application image `LaraDumps-x.x.x.AppImage` from [GitHub](https://github.com/laradumps/app/releases).
+Click to [`Download LaraDumps v1.2.3`](https://github.com/laradumps/app/releases/download/v1.2.3/LaraDumps-1.2.3.AppImage) application image for Linux.
 
-Once downloaded, you must make the file executable. Via terminal, run: `chmod u+x LaraDumps-x.x.x.AppImage`.
+Once downloaded, assign *execution permission* to the file:
 
-Alternatively, click on "Properties", navigate to "Permissions" and click "Allow to execute file as program".
+Click on `Properties`, navigate to `Permissions` and click `Allow to execute file as program`. Now, open the AppImage file to proceed with the installation.
 
-Run the AppImage file.
+Alternatively, use the Terminal and run the command below:
 
-*(These steps might change based on your Linux distribution).*
+```shell
+chmod u+x ./LaraDumps-1.2.3.AppImage && ./LaraDumps-1.2.3.AppImage
+```
 
-#### **MacOS**
+*(These steps might slightly change depending on your Linux distribution).*
 
-Download the latest Apple image `LaraDumps-x.x.x.dmg` from [GitHub](https://github.com/laradumps/app/releases).
+#### **macOS**
+
+Click to [`Download LaraDumps v1.2.3`](https://github.com/laradumps/app/releases/download/v1.2.3/LaraDumps-1.2.3.dmg) Apple Disc Image (.dmg) for macOS.
 
 Once downloaded, open the file and drag & drop the LaraDumps app into your `Applications` folder.
 
-The first time you open LaraDumps, you will be prompted with an alert․ Don't worry, this happens because the app code is not signed with Apple.
+#### Authorizing the app
 
-LaraDumps is not a malicious software and all code is open-source, you can check it yourself!
+The first time you open LaraDumps, you will receive an alert saying with `LaraDumps cannot be opened`.
 
-To authorize LaraDumps to run, follow these steps:
+Don't worry! The alert is because the app code is not signed with Apple. LaraDumps is not a malicious software and all code is open-source.
+
+To `authorize LaraDumps to run`, follow these steps:
 
 1․ Click on the  (Apple logo) on the top menu.
 
