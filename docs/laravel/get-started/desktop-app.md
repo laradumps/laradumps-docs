@@ -23,3 +23,7 @@ LaraDumps Desktop App functionalities:
 - **Button #8:** Toggle Light/Dark Mode.
 - **Button #9:** Pin the active screen. The yellow pin and yellow bordered screen buttons indicate a pinned screen.
 - **Button #10:** Clear all dumps from active screen.
+
+---
+
+Next: [Usage](laravel/debug/usage.md "Usage")

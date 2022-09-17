@@ -23,3 +23,9 @@ LaraDumps is open-source, visit our repositories:
 - [LaraDumps Desktop App](https://github.com/laradumps/app)
 
 - [LaraDumps Laravel Package](https://github.com/laradumps/laradumps)
+
+- [LaraDumps Documentation](https://github.com/laradumps/laradumps-docs)
+
+---
+
+Next: [Installation](laravel/get-started/installation.md "Installation")

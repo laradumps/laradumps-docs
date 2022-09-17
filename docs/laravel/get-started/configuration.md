@@ -4,7 +4,11 @@ LaraDumps configuration is stored in `config/laradumps.php` file, and some optio
 
 You can also run `php artisan ds:init` at any time to modify the settings via the wizard.
 
+---
+
 ## Configuration options
+
+LaraDumps options and their respective configurations are detailed in this section.
 
 ### Host
 
@@ -31,6 +35,8 @@ DS_APP_HOST=127.0.0.1
 | Homestead with Parallels    | 10.211.55.2          |
 
 > 📝 **Note**: If you are using `Docker` on a `Linux` host, you must perform additional configuration because. Automatic mapping is not available. Read more [here](https://github.com/laravel/sail/pull/222).
+
+---
 
 ### Auto-Invoke
 
@@ -302,3 +308,5 @@ You must specify which directories you would like to be checked. This configurat
 ```
 
 ---
+
+Next: [Desktop App](laravel/get-started/desktop-app.md "Desktop App")

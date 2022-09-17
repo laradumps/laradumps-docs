@@ -4,6 +4,7 @@
   - [Updating LaraDumps](laravel/get-started/updating-laradumps.md "Updating LaraDumps")
   - [Configuration](laravel/get-started/configuration.md "Configuration")
   - [Desktop App](laravel/get-started/desktop-app.md "Desktop App")
+
 - **Debugging**
   - [Usage](laravel/debug/usage.md "Usage")
   - [Livewire](laravel/debug/livewire.md "Livewire")
