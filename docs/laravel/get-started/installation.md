@@ -15,6 +15,7 @@ LaraDumps Desktop App is available for Windows, Linux and macOS.
 Proceed to the installation instructions according to your operating system:
 
 <!--LaraDumpsVersion-->
+
 <!-- tabs:start -->
 
 #### **Windows**
@@ -69,6 +70,7 @@ Now, LaraDumps should run just fine!
 
 <!-- tabs:end -->
 
+<!--EndOfLaraDumpsVersion-->
 ---
 
 ## Laravel Package
