@@ -10,7 +10,6 @@ LaraDumps Desktop App functionalities:
 
 - *Screens*: List of opened screens.
 - *Label*: Each dump has its own label. Read more about [Labels](laravel/debug/usage?id=label).
-- *Color tag*: Each dump has its own color tag. Read more about [Color tags](laravel/debug/usage?id=color-tag).
 - *Save*: Click here to save and preserve the dump when the screen is cleared.
 - *File & line number*: This label shows the file and line where the `ds()` was called from. Click on it to open the file in your preferred IDE.
 - **Button #1:** Clear all dumps from all screens.
