@@ -20,13 +20,13 @@ Proceed to the installation instructions according to your operating system:
 
 #### **Windows**
 
-Click to [`Download LaraDumps v1.2.3`](https://github.com/laradumps/app/releases/download/v1.2.3/LaraDumps-Setup-1.2.3.exe) installer for Windows.
+Click to [`Download LaraDumps v1.4.0`](https://github.com/laradumps/app/releases/download/v1.4.0/LaraDumps-Setup-1.4.0.exe) installer for Windows.
 
 Once downloaded, open it and proceed with the installer.
 
 #### **Linux**
 
-Click to [`Download LaraDumps v1.2.3`](https://github.com/laradumps/app/releases/download/v1.2.3/LaraDumps-1.2.3.AppImage) application image for Linux.
+Click to [`Download LaraDumps v1.4.0`](https://github.com/laradumps/app/releases/download/v1.4.0/LaraDumps-1.4.0.AppImage) application image for Linux.
 
 Once downloaded, assign **execution permission** to the file:
 
@@ -35,14 +35,14 @@ Click on `Properties`, navigate to `Permissions` and click `Allow to execute fil
 Alternatively, use the Terminal and run the command below:
 
 ```shell
-chmod u+x ./LaraDumps-1.2.3.AppImage && ./LaraDumps-1.2.3.AppImage
+chmod u+x ./LaraDumps-1.4.0.AppImage && ./LaraDumps-1.4.0.AppImage
 ```
 
 *(These steps might slightly change depending on your Linux distribution).*
 
 #### **macOS**
 
-Click to [`Download LaraDumps v1.2.3`](https://github.com/laradumps/app/releases/download/v1.2.3/LaraDumps-1.2.3.dmg) Apple Disc Image (.dmg) for macOS.
+Click to [`Download LaraDumps v1.4.0`](https://github.com/laradumps/app/releases/download/v1.4.0/LaraDumps-1.4.0.dmg) Apple Disc Image (.dmg) for macOS.
 
 Once downloaded, open the file and drag & drop the LaraDumps app into your `Applications` folder.
 
