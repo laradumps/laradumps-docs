@@ -4,27 +4,33 @@
 
 LaraDumps is a friendly app designed to boost your Laravel PHP coding and debugging experience.
 
-When using LaraDumps, you can see the result of your debug displayed in a standalone Desktop application.
+When using LaraDumps, you can see the result of your debug displayed in a standalone Desktop Application.
 
-These are some debug tools available for you:
+<div align="center">
+    <p>
+      <img src="(../../_media/app_homepage.png" alt="app" width="500">
+    </p>
+</div>
+
+These are some [debug tools](laravel/debug/usage?id=debug-functions) provided by LaraDumps:
 
 - Dump single or multiple variables at once.
-- Dump values in a table format, with a built-in search feature.
-- Monitor SQL Queries.
-- View Laravel Logs.
+- See your dumped values in a Table, with a built-in search feature.
+- Improve your debugging experience using different screens.
+- Watch SQL Queries.
+- Monitor Laravel Logs.
 - Validate JSON strings.
 - Compare strings with diff.
 - Verify if a string contains a substring.
 - View phpinfo() configuration.
-- Debug Livewire components.
-- Debug Livewire Events.
-- List your Laravel routes.
+- Debug Livewire Components & Events.
+- List your Laravel Routes.
 - Inspect Model attributes.
-- Send your dump to different screens, resulting in a better debugging experience.
 
 ## View more
 
 - Youtube video [Como Debugar Aplicações Laravel Daqui Pra Frente](https://www.youtube.com/watch?v=IJqJGvEhqp0) - by Tio Jobs (in Portuguese)
+- Youtube video [Laravel: Debugging de Tus Aplicaciones con LaraDumps](https://www.youtube.com/watch?v=R-5SlKBt72w) - by Code with Luis (in Spanish)
 
 ## Tech Stack
 
@@ -41,3 +47,7 @@ LaraDumps is a free open-source project, and it was inspired by [Spatie Ray](htt
 - Author: [Luan Freitas](https://github.com/luanfreitasdev)
 
 - Logo by [Vitor S. Rodrigues](https://github.com/vs0uz4)
+
+---
+
+Next: [Installation](laravel/get-started/installation.md "Installation")

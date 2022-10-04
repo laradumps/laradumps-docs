@@ -37,3 +37,7 @@ LaraDumps usage reference sheet:
 | ds()->phpinfo();                      | Dumps PHP configuration                                                                  |
 | php artisan ds:init                   | LaraDumps configuration wizard                                                           |
 | php artisan ds:check                  | Scan files for ds(); declarations. Useful before sending app to production               |
+
+---
+
+Next: [Usage](laravel/debug/usage.md "Usage")

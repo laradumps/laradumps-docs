@@ -85,3 +85,7 @@ class Counter extends Component
 Tracking:
 
 ![Livewire](../../_media/livewire.png)
+
+---
+
+Next: [Deploying to production](laravel/debug/deploying-to-production.md "Deploying to production")
