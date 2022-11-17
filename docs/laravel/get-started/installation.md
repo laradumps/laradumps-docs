@@ -1,40 +1,26 @@
 # Installation
 
-To start debugging with LaraDumps you must download the **LaraDumps Desktop App** and then, install the **LaraDumps package** in the Laravel project you are currently working on.
+With LaraDumps, you can go right into debugging with minimal effort:
 
-## Laravel Package
+To begin, download the [LaraDumps Desktop App](laravel/get-started/installation?id=desktop-app).
 
-**Requirements**: PHP 8.0+ and Laravel 8.75+
+Next, add the [LaraDumps Laravel Package](laravel/get-started/installation?id=laravel-package) to your Laravel project.
 
-Install LaraDumps Package in your Laravel project using [Composer](https://getcomposer.org).
-
-Run the command:
-
-```bash
-composer require laradumps/laradumps --dev
-```
-
-Once installed, you must configure LaraDumps, run:
-
-```bash
-php artisan ds:init
-```
-
-The Init wizard will guide you through the basic setup.
-
-For more information, read the [Configuration](laravel/get-started/configuration.md) section.
+---
 
 ## Desktop App
 
-LaraDumps Desktop App is available for Windows, Linux and MacOS.
+LaraDumps Desktop App is available for Windows, Linux and macOS.
 
-Proceed to the installation instructions for your operating system:
+Proceed to the installation instructions according to your operating system:
+
+<!--LaraDumpsVersion-->
 
 <!-- tabs:start -->
 
 #### **Windows**
 
-Download the latest Windows executable file `LaraDumps-Setup-x.x.x.exe` from [GitHub](https://github.com/laradumps/app/releases).
+Click to [`Download LaraDumps v1.4.0`](https://github.com/laradumps/app/releases/download/v1.4.0/LaraDumps-Setup-1.4.0.exe) installer for Windows.
 
 Once downloaded, open it and proceed with the installer.
 
@@ -48,25 +34,33 @@ Download from [https://snapcraft.io/laradumps](https://snapcraft.io/laradumps)
 
 Download the latest application image `LaraDumps-x.x.x.AppImage` from [GitHub](https://github.com/laradumps/app/releases).
 
-Once downloaded, you must make the file executable. Via terminal, run: `chmod u+x LaraDumps-x.x.x.AppImage`.
+Click to [`Download LaraDumps v1.4.0`](https://github.com/laradumps/app/releases/download/v1.4.0/LaraDumps-1.4.0.AppImage) application image for Linux.
 
-Alternatively, click on "Properties", navigate to "Permissions" and click "Allow to execute file as program".
+Once downloaded, assign **execution permission** to the file:
 
-Run the AppImage file.
+Click on `Properties`, navigate to `Permissions` and click `Allow to execute file as program`. Now, open the AppImage file to proceed with the installation.
 
-*(These steps might change based on your Linux distribution).*
+Alternatively, use the Terminal and run the command below:
 
-#### **MacOS**
+```shell
+chmod u+x ./LaraDumps-1.4.0.AppImage && ./LaraDumps-1.4.0.AppImage
+```
 
-Download the latest Apple image `LaraDumps-x.x.x.dmg` from [GitHub](https://github.com/laradumps/app/releases).
+*(These steps might slightly change depending on your Linux distribution).*
+
+#### **macOS**
+
+Click to [`Download LaraDumps v1.4.0`](https://github.com/laradumps/app/releases/download/v1.4.0/LaraDumps-1.4.0.dmg) Apple Disc Image (.dmg) for macOS.
 
 Once downloaded, open the file and drag & drop the LaraDumps app into your `Applications` folder.
 
-The first time you open LaraDumps, you will be prompted with an alert․ Don't worry, this happens because the app code is not signed with Apple.
+#### Authorizing the app
 
-LaraDumps is not a malicious software and all code is open-source, you can check it yourself!
+The first time you open LaraDumps, you will receive an alert saying `LaraDumps cannot be opened`.
 
-To authorize LaraDumps to run, follow these steps:
+Don't worry! This is just because the app code is not signed with Apple. LaraDumps is not a malicious software and all code is open-source.
+
+To `authorize LaraDumps` to run, follow these steps:
 
 1․ Click on the  (Apple logo) on the top menu.
 
@@ -83,3 +77,32 @@ To authorize LaraDumps to run, follow these steps:
 Now, LaraDumps should run just fine!
 
 <!-- tabs:end -->
+
+<!--EndOfLaraDumpsVersion-->
+---
+
+## Laravel Package
+
+**Requirements**: PHP 8.0+ and Laravel 8.75+
+
+1․ Install LaraDumps Package in your Laravel project using [Composer](https://getcomposer.org).
+
+Run the command:
+
+```shell
+composer require laradumps/laradumps --dev
+```
+
+<br/>
+
+2․ Now, configure LaraDumps. Run the command below:
+
+```shell
+php artisan ds:init
+```
+
+The wizard will guide you through the [configuration options](laravel/get-started/configuration.md).
+
+---
+
+Next: [Desktop App](laravel/get-started/desktop-app.md "Desktop App")
