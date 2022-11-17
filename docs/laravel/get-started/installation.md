@@ -40,6 +40,12 @@ Once downloaded, open it and proceed with the installer.
 
 #### **Linux**
 
+#### Snapcraft
+
+Download from [https://snapcraft.io/laradumps](https://snapcraft.io/laradumps)
+
+#### AppImage
+
 Download the latest application image `LaraDumps-x.x.x.AppImage` from [GitHub](https://github.com/laradumps/app/releases).
 
 Once downloaded, you must make the file executable. Via terminal, run: `chmod u+x LaraDumps-x.x.x.AppImage`.
