@@ -50,7 +50,7 @@ chmod u+x ./LaraDumps-1.5.0.AppImage && ./LaraDumps-1.5.0.AppImage
 
 #### **macOS**
 
-Click to [`Download LaraDumps v1.5.0`](https://github.com/laradumps/app/releases/download/v1.5.0/LaraDumps-1.5.0.dmg) Apple Disc Image (.dmg) for macOS.
+Click to [`Download LaraDumps v1.5.0`](https://github.com/laradumps/app/releases/download/v1.5.0/LaraDumps-1.5.0-universal.dmg) Apple Disc Image (.dmg) for macOS.
 
 Once downloaded, open the file and drag & drop the LaraDumps app into your `Applications` folder.
 
