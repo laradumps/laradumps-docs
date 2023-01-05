@@ -413,4 +413,13 @@ ds()->phpinfo();
 
 ---
 
+### Mailable
+
+Displays mail details and html preview from Illuminate\Mail\Mailable class.
+
+```php
+ds()->mailable(new \App\Mail\TestMail());
+```
+
+
 Next: [Livewire](laravel/debug/livewire.md "Livewire")
