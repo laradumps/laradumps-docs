@@ -421,7 +421,5 @@ Displays mail details and html preview from Illuminate\Mail\Mailable class.
 ds()->mailable(new \App\Mail\TestMail());
 ```
 
-<img src="(../../_media/mailable.png" alt="app" width="500">
-
 
 Next: [Livewire](laravel/debug/livewire.md "Livewire")
