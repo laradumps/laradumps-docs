@@ -32,4 +32,12 @@ If you have not forgotten any `ds()`, your pipeline will be completed successful
 
 ---
 
+> ⚠️ **TIP**: You can use **--dirty** to only track files that haven't been added to git for quick checks - Inspired by [Laravel Pint](https://github.com/laravel/pint/pull/130)
+
+```bash
+php artisan ds:check --dirty
+```
+
+---
+
 Next: [Reference sheet](laravel/debug/reference-sheet.md "Reference sheet")
