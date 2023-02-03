@@ -29,16 +29,25 @@ LaraDumps usage reference sheet:
 | ds()->queriesOn('My Label');                                        | Start capturing SQL queries                                                                                         |
 | ds()->queriesOff();                                                 | Stop capturing SQL queries                                                                                          |
 | ds()->model(User::query()->first());                                | Dumps the Model’s Attributes and Relationships.                                                                     |
+| ds()->mailable(new \App\Mail\TestMail());                           | Displays mail details and the HTML preview for an instance of a `Mailable` class.                                       |
+| ds()->httpOn('My Label');                                     | Start capturing HTTP Requests.                                                                                      |
+| ds()->httpOff();                                              | Stop capturing HTTP Requests.                                                                                       |
+| ds()->jobsOn('My Label');                                         | Start capturing Jobs.                                                                                               |
+| ds()->jobsOff();                                            | Stop capturing Jobs.                                                                                                |
+| ds()->cacheOn('My Label);                                         | Start capturing Cache.                                                                                              |
+| ds()->cacheOff();                                           | Stop capturing Cache.                                                                                               |
 | ds()->routes();                                                     | Dumps Laravel Routes in a table format                                                                              |
 | ds()->table(Collection $data, $name);                               | Dumps data in a table format                                                                                        |
 | ds($var1)->diff($var2);                                             | Checks the difference between two variables                                                                         |
 | ds($var)->isJson();                                                 | Validates and display JSON data                                                                                     |
-| ds($var)->contains('Text', caseSensitive: false, wholeWord: false); | Search if content contains string                                                                                   |
+| ds($var)->contains('Text', caseSensitive: false, wholeWord: false); | Search if the `content` contains the given string                                                                   |
+| Str::of('hello world')->upper()->ds();                              | Displays the current string in a Stringable macro                                                                   |
+| collect(['hello', 'world'])->ds();                                  | Displays the current state of a Collection Macro                                                                    |
+| ds()->markdown('# Hi, Anand Pilania!');                             | Displays the markdown rendered as HTML.                                                                             |
 | ds()->phpinfo();                                                    | Dumps PHP configuration                                                                                             |
+| ds()->coffee();                                                     | ☕ Grab a coffee!                                                                                                      |
 | php artisan ds:init                                                 | LaraDumps configuration wizard                                                                                      |
 | php artisan ds:check                                                | Scan files for ds(); declarations. Useful before sending app to production                                          |
-| ds()->coffee();                                                     | Grab a coffee!                                                                                                      |
-| ds()->mailable(new \App\Mail\TestMail());                           | Displays mail details and html preview from Illuminate\Mail\Mailable class.                                                                                                     |
 
 
 ---

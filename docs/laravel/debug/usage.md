@@ -183,7 +183,6 @@ ds('Dark: The Dark Side of the Moon')->dark();
 ds('Tailwind Custom Color!')->color('border-violet-500');
 ```
 
-
 In the Desktop App:
 
 <img src="(../../_media/colors.png" alt="app" width="500">
@@ -197,6 +196,8 @@ The Desktop App will receive and dump [Laravel Logs](https://laravel.com/docs/9.
 LaraDumps also provides a one-click internet search on Error Log messages. This is very convenient for exceptions and general error messages.
 
 ```php
+use Illuminate\Support\Facades\Log;
+
 Log::info('Your message', ['0' => 'Your Context']);
 
 Log::error('Your message', ['0' => 'Your Context']);
@@ -283,6 +284,95 @@ ds()->model($firstUser);
 In the Desktop App:
 
 <img src="(../../_media/userModel.png" alt="app" width="500">
+
+---
+
+### Mailable
+
+Displays mail details and the HTML preview for an instance of a `Illuminate\Mail\Mailable` class.
+
+```php
+ds()->mailable(new \App\Mail\TestMail());
+```
+
+### HTTP Requests
+
+Captures and displays all the properties of HTTP Requests within the `httpOn()` and `httpOff()` methods.
+
+```php
+use \Illuminate\Support\Facades\Http;
+
+ds()->httpOn();
+    Http::get('https://jsonplaceholder.typicode.com/todos/1');
+ds()->httpOff();
+```
+
+---
+
+### Jobs
+
+Captures and displays all information of Jobs ran within the `showJob()` and `stopShowingJob()` methods.
+
+```php
+ds()->jobsOn('Optional-Label');
+    dispatch(new \App\Jobs\TestJob());
+ds()->jobsOff();
+```
+
+---
+
+### Cache
+
+Captures and displays [Cache](https://laravel.com/docs/9.x/cache#introduction) information loaded within the `cacheOn()` and `cacheOff()` methods.
+
+```php
+ds()->cacheOn('My cache');
+
+    // SET
+    cache()->set('feature', 'Cache Observer');
+
+    cache()->remember('name', 10, function() {
+        return 'Anand Pilania';
+    });
+
+    // HIT
+    cache()->get('name');
+
+    // FORGET
+    cache()->forget('feature');
+
+    // MISSED
+    cache()->get('feature');
+
+ds()->cacheOff();
+```
+
+---
+
+### Stringable Macro
+
+Displays the current string in a [Stringable Macro](https://laravel.com/docs/9.x/helpers#strings-method-list)
+
+```php
+use Illuminate\Support\Str;
+
+Str::of('Hello')
+    ->append(' World')
+    ->ds();
+```
+
+---
+
+### Collection Macro
+
+Displays the current state of a [Collection Macro](https://laravel.com/docs/9.x/collections#main-content)
+
+```php
+collect(['hello', 'world'])
+    ->ds('original input')
+    ->map(fn($string) => ucfirst($string))
+    ->ds('capitalize result');
+```
 
 ---
 
@@ -403,6 +493,16 @@ In the Desktop App:
 
 ---
 
+### Markdown
+
+Displays the markdown rendered as HTML.
+
+```php
+ds()->markdown('# Hi, Anand Pilania!');
+```
+
+---
+
 ### PHPInfo
 
 Displays the current PHP settings in [table](laravel/debug/usage?id=table) format.
@@ -413,13 +513,5 @@ ds()->phpinfo();
 
 ---
 
-### Mailable
-
-Displays mail details and html preview from Illuminate\Mail\Mailable class.
-
-```php
-ds()->mailable(new \App\Mail\TestMail());
-```
-
-
+---
 Next: [Livewire](laravel/debug/livewire.md "Livewire")
