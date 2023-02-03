@@ -84,4 +84,4 @@ test('example test', function () {
 
 ---
 
-Next: [Desktop App](laravel/get-started/desktop-app.md "Desktop App")
+Next: [Desktop App](laravel/debug/desktop-app.md "Desktop App")

@@ -3,11 +3,11 @@
   - [Installation](laravel/get-started/installation.md "Installation")
   - [Updating LaraDumps](laravel/get-started/updating-laradumps.md "Updating LaraDumps")
   - [Configuration](laravel/get-started/configuration.md "Configuration")
-  - [Testing environment](laravel/get-started/testing-environment.md "Testing environment")
   - [Desktop App](laravel/get-started/desktop-app.md "Desktop App")
 
 - **Debugging**
   - [Usage](laravel/debug/usage.md "Usage")
   - [Livewire](laravel/debug/livewire.md "Livewire")
+  - [Testing environment](laravel/debug/testing-environment.md "Testing environment")
   - [Deploying to production](laravel/debug/deploying-to-production.md "Deploying to production")
   - [Reference sheet](laravel/debug/reference-sheet.md "Reference sheet")

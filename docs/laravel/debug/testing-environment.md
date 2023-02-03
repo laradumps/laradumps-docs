@@ -58,4 +58,4 @@ In the `phpunit.xml` file, both features are disabled:
 
 ---
 
-Next: [Desktop App](laravel/get-started/desktop-app.md "Desktop App")
+Next: [Deploying to production](laravel/debug/deploying-to-production.md "Deploying to production")
