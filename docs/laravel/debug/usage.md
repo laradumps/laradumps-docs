@@ -297,14 +297,14 @@ ds()->mailable(new \App\Mail\TestMail());
 
 ### HTTP Requests
 
-Captures and displays all the properties of HTTP Requests within the `httpClientOn()` and `httpClientOff()` methods.
+Captures and displays all the properties of HTTP Requests within the `httpOn()` and `httpOff()` methods.
 
 ```php
 use \Illuminate\Support\Facades\Http;
 
-ds()->httpClientOn();
+ds()->httpOn();
     Http::get('https://jsonplaceholder.typicode.com/todos/1');
-ds()->httpClientOff();
+ds()->httpOff();
 ```
 
 ---
@@ -314,19 +314,19 @@ ds()->httpClientOff();
 Captures and displays all information of Jobs ran within the `showJob()` and `stopShowingJob()` methods.
 
 ```php
-ds()->showJobs('Optional-Label');
+ds()->jobsOn('Optional-Label');
     dispatch(new \App\Jobs\TestJob());
-ds()->stopShowingJobs();
+ds()->jobsOff();
 ```
 
 ---
 
 ### Cache
 
-Captures and displays [Cache](https://laravel.com/docs/9.x/cache#introduction) information loaded within the `showCache()` and `stopShowingCache()` methods.
+Captures and displays [Cache](https://laravel.com/docs/9.x/cache#introduction) information loaded within the `cacheOn()` and `cacheOff()` methods.
 
 ```php
-ds()->showCache('My cache');
+ds()->cacheOn('My cache');
 
     // SET
     cache()->set('feature', 'Cache Observer');
@@ -344,7 +344,7 @@ ds()->showCache('My cache');
     // MISSED
     cache()->get('feature');
 
-ds()->stopShowingCache();
+ds()->cacheOff();
 ```
 
 ---

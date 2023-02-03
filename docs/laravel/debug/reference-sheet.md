@@ -30,12 +30,12 @@ LaraDumps usage reference sheet:
 | ds()->queriesOff();                                                 | Stop capturing SQL queries                                                                                          |
 | ds()->model(User::query()->first());                                | Dumps the Model’s Attributes and Relationships.                                                                     |
 | ds()->mailable(new \App\Mail\TestMail());                           | Displays mail details and the HTML preview for an instance of a `Mailable` class.                                       |
-| ds()->httpClientOn('My Label');                                     | Start capturing HTTP Requests.                                                                                      |
-| ds()->httpClientOff();                                              | Stop capturing HTTP Requests.                                                                                       |
-| ds()->showJobs('My Label');                                         | Start capturing Jobs.                                                                                               |
-| ds()->stopShowingJobs();                                            | Stop capturing Jobs.                                                                                                |
-| ds()->showCache('My Label);                                         | Start capturing Cache.                                                                                              |
-| ds()->stopShowingCache();                                           | Stop capturing Cache.                                                                                               |
+| ds()->httpOn('My Label');                                     | Start capturing HTTP Requests.                                                                                      |
+| ds()->httpOff();                                              | Stop capturing HTTP Requests.                                                                                       |
+| ds()->jobsOn('My Label');                                         | Start capturing Jobs.                                                                                               |
+| ds()->jobsOff();                                            | Stop capturing Jobs.                                                                                                |
+| ds()->cacheOn('My Label);                                         | Start capturing Cache.                                                                                              |
+| ds()->cacheOff();                                           | Stop capturing Cache.                                                                                               |
 | ds()->routes();                                                     | Dumps Laravel Routes in a table format                                                                              |
 | ds()->table(Collection $data, $name);                               | Dumps data in a table format                                                                                        |
 | ds($var1)->diff($var2);                                             | Checks the difference between two variables                                                                         |
