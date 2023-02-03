@@ -3,6 +3,7 @@
   - [Installation](laravel/get-started/installation.md "Installation")
   - [Updating LaraDumps](laravel/get-started/updating-laradumps.md "Updating LaraDumps")
   - [Configuration](laravel/get-started/configuration.md "Configuration")
+  - [Testing environment](laravel/get-started/testing-environment.md "Testing environment")
   - [Desktop App](laravel/get-started/desktop-app.md "Desktop App")
 
 - **Debugging**

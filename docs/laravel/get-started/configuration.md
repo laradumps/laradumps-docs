@@ -309,4 +309,4 @@ You must specify which directories you would like to be checked. This configurat
 
 ---
 
-Next: [Desktop App](laravel/get-started/desktop-app.md "Desktop App")
+Next: [Testing environment](laravel/get-started/testing-environment.md "Testing environment")
