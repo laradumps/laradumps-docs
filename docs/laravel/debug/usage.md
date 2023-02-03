@@ -421,5 +421,77 @@ Displays mail details and html preview from Illuminate\Mail\Mailable class.
 ds()->mailable(new \App\Mail\TestMail());
 ```
 
+### Markdown
 
+Displays rendered markdown from text.
+
+```php
+ds()->markdown('# Hi, Anand Pilania!');
+```
+
+--- 
+
+### HTTP Requests
+
+Shows all the properties an HTTP request has
+
+```php
+ds()->httpClientOn();
+
+\Illuminate\Support\Facades\Http::get('https://jsonplaceholder.typicode.com/todos/1');
+
+ds()->httpClientOff();
+```
+
+---
+
+### Jobs
+
+Shows information about Jobs that ran between `showJob` and `stopShowingJob`
+
+```php
+ds()->showJobs('Optional-Label');
+
+dispatch(new \App\Jobs\TestJob());
+
+ds()->stopShowingJobs();
+```
+
+---
+
+### Cache
+
+Shows information about [caches](https://laravel.com/docs/9.x/cache#introduction) loaded between showCache and stop Showing Cache
+
+```php
+ds()->showJobs('Optional-Label');
+
+dispatch(new \App\Jobs\TestJob());
+
+ds()->stopShowingJobs();
+```
+
+---
+
+### Stringable Macros
+
+
+```php
+Str::of('ABC')->append(' XYZ')->ds();
+```
+
+---
+
+### Collection Macros
+
+
+```php
+collect(['abc', 'xyz'])
+    ->ds('original')
+    ->map(fn($c) => ucfirst($c))
+        ->ds('modified');
+
+```
+
+---
 Next: [Livewire](laravel/debug/livewire.md "Livewire")

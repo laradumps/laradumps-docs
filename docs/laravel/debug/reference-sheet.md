@@ -38,7 +38,14 @@ LaraDumps usage reference sheet:
 | php artisan ds:init                                                 | LaraDumps configuration wizard                                                                                      |
 | php artisan ds:check                                                | Scan files for ds(); declarations. Useful before sending app to production                                          |
 | ds()->coffee();                                                     | Grab a coffee!                                                                                                      |
-| ds()->mailable(new \App\Mail\TestMail());                           | Displays mail details and html preview from Illuminate\Mail\Mailable class.                                                                                                     |
+| ds()->mailable(new \App\Mail\TestMail());                           | Displays mail details and html preview from Illuminate\Mail\Mailable class.                                         |
+| ds()->markdown('# Hi, Anand Pilania!');                             | Displays rendered markdown from text.                                                                               |
+| ds()->httpClientOn('My Label');                                     | Start capturing HTTP Requests.                                                                                      |
+| ds()->httpClientOff();                                              | Stop capturing HTTP Requests.                                                                                       |
+| ds()->showJobs('My Label');                                         | Start capturing Jobs.                                                                                               |
+| ds()->stopShowingJobs();                                            | Stop capturing Jobs.                                                                                                |
+| ds()->showCache('My Label);                                         | Start capturing Cache.                                                                                              |
+| ds()->stopShowingCache();                                           | Stop capturing Cache.                                                                                               |
 
 
 ---
