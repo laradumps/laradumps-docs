@@ -183,7 +183,6 @@ ds('Dark: The Dark Side of the Moon')->dark();
 ds('Tailwind Custom Color!')->color('border-violet-500');
 ```
 
-
 In the Desktop App:
 
 <img src="(../../_media/colors.png" alt="app" width="500">
@@ -197,6 +196,8 @@ The Desktop App will receive and dump [Laravel Logs](https://laravel.com/docs/9.
 LaraDumps also provides a one-click internet search on Error Log messages. This is very convenient for exceptions and general error messages.
 
 ```php
+use Illuminate\Support\Facades\Log;
+
 Log::info('Your message', ['0' => 'Your Context']);
 
 Log::error('Your message', ['0' => 'Your Context']);
@@ -283,6 +284,95 @@ ds()->model($firstUser);
 In the Desktop App:
 
 <img src="(../../_media/userModel.png" alt="app" width="500">
+
+---
+
+### Mailable
+
+Displays mail details and the HTML preview for an instance of a `Illuminate\Mail\Mailable` class.
+
+```php
+ds()->mailable(new \App\Mail\TestMail());
+```
+
+### HTTP Requests
+
+Captures and displays all the properties of HTTP Requests within the `httpClientOn()` and `httpClientOff()` methods.
+
+```php
+use \Illuminate\Support\Facades\Http;
+
+ds()->httpClientOn();
+    Http::get('https://jsonplaceholder.typicode.com/todos/1');
+ds()->httpClientOff();
+```
+
+---
+
+### Jobs
+
+Captures and displays all information of Jobs ran within the `showJob()` and `stopShowingJob()` methods.
+
+```php
+ds()->showJobs('Optional-Label');
+    dispatch(new \App\Jobs\TestJob());
+ds()->stopShowingJobs();
+```
+
+---
+
+### Cache
+
+Captures and displays [Cache](https://laravel.com/docs/9.x/cache#introduction) information loaded within the `showCache()` and `stopShowingCache()` methods.
+
+```php
+ds()->showCache('My cache');
+
+    // SET
+    cache()->set('feature', 'Cache Observer');
+
+    cache()->remember('name', 10, function() {
+        return 'Anand Pilania';
+    });
+
+    // HIT
+    cache()->get('name');
+
+    // FORGET
+    cache()->forget('feature');
+
+    // MISSED
+    cache()->get('feature');
+
+ds()->stopShowingCache();
+```
+
+---
+
+### Stringable Macro
+
+Displays the current string in a [Stringable Macro](https://laravel.com/docs/9.x/helpers#strings-method-list)
+
+```php
+use Illuminate\Support\Str;
+
+Str::of('Hello')
+    ->append(' World')
+    ->ds();
+```
+
+---
+
+### Collection Macro
+
+Displays the current state of a [Collection Macro](https://laravel.com/docs/9.x/collections#main-content)
+
+```php
+collect(['hello', 'world'])
+    ->ds('original input')
+    ->map(fn($string) => ucfirst($string))
+    ->ds('capitalize result');
+```
 
 ---
 
@@ -403,6 +493,16 @@ In the Desktop App:
 
 ---
 
+### Markdown
+
+Displays the markdown rendered as HTML.
+
+```php
+ds()->markdown('# Hi, Anand Pilania!');
+```
+
+---
+
 ### PHPInfo
 
 Displays the current PHP settings in [table](laravel/debug/usage?id=table) format.
@@ -412,86 +512,6 @@ ds()->phpinfo();
 ```
 
 ---
-
-### Mailable
-
-Displays mail details and html preview from Illuminate\Mail\Mailable class.
-
-```php
-ds()->mailable(new \App\Mail\TestMail());
-```
-
-### Markdown
-
-Displays rendered markdown from text.
-
-```php
-ds()->markdown('# Hi, Anand Pilania!');
-```
-
---- 
-
-### HTTP Requests
-
-Shows all the properties an HTTP request has
-
-```php
-ds()->httpClientOn();
-
-\Illuminate\Support\Facades\Http::get('https://jsonplaceholder.typicode.com/todos/1');
-
-ds()->httpClientOff();
-```
-
----
-
-### Jobs
-
-Shows information about Jobs that ran between `showJob` and `stopShowingJob`
-
-```php
-ds()->showJobs('Optional-Label');
-
-dispatch(new \App\Jobs\TestJob());
-
-ds()->stopShowingJobs();
-```
-
----
-
-### Cache
-
-Shows information about [caches](https://laravel.com/docs/9.x/cache#introduction) loaded between showCache and stop Showing Cache
-
-```php
-ds()->showJobs('Optional-Label');
-
-dispatch(new \App\Jobs\TestJob());
-
-ds()->stopShowingJobs();
-```
-
----
-
-### Stringable Macros
-
-
-```php
-Str::of('ABC')->append(' XYZ')->ds();
-```
-
----
-
-### Collection Macros
-
-
-```php
-collect(['abc', 'xyz'])
-    ->ds('original')
-    ->map(fn($c) => ucfirst($c))
-        ->ds('modified');
-
-```
 
 ---
 Next: [Livewire](laravel/debug/livewire.md "Livewire")
