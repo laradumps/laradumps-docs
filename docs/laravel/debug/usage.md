@@ -309,6 +309,21 @@ ds()->httpOff();
 
 ---
 
+### Artisan Command
+
+Captures and displays the called Artisan commands with their arguments, options and exit code.
+
+```php
+use Illuminate\Support\Facades\Artisan;
+
+ds()->commandsOn('running a command');
+    Artisan::call('inspire');
+ds()->commandsOff();
+
+```
+
+---
+
 ### Jobs
 
 Captures and displays all information of Jobs ran within the `showJob()` and `stopShowingJob()` methods.

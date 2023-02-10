@@ -2,9 +2,11 @@
 
 With LaraDumps, you can go right into debugging with minimal effort:
 
-To begin, download the [LaraDumps Desktop App](laravel/get-started/installation?id=desktop-app).
+1․ Download the [LaraDumps Desktop App](laravel/get-started/installation?id=desktop-app).
 
-Next, add the [LaraDumps Laravel Package](laravel/get-started/installation?id=laravel-package) to your Laravel project.
+2․ Add the [LaraDumps Laravel Package](laravel/get-started/installation?id=laravel-package) to your Laravel project.
+
+3․ Start to [Debug](laravel/debug/usage)!
 
 ---
 
