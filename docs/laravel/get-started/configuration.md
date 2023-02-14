@@ -88,7 +88,7 @@ DS_APP_HOST=172.21.48.1
 The Desktop App Port. Must always be `9191`.
 
 ```shell
-DS_APP_HOST=9191
+DS_APP_PORT=9191
 ```
 
 This configuration key will be deprecated in LaraDumps V2
