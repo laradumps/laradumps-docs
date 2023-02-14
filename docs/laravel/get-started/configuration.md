@@ -10,7 +10,7 @@ You can also run `php artisan ds:init` at any time to modify the settings via th
 
 LaraDumps options and their respective configurations are detailed in this section.
 
-### Host
+### App Host
 
 The host setting allows your project to communicate with LaraDumps Desktop App.
 
@@ -20,7 +20,7 @@ Modify the host to match project's environment. Change the `.env` file key `DS_A
 DS_APP_HOST=127.0.0.1
 ```
 
- You may configure a custom host value, if needed.
+You may configure a custom host value, if needed.
 
 <style>
     td::before { display: none }
@@ -33,10 +33,65 @@ DS_APP_HOST=127.0.0.1
 | Docker/Sail                 | host.docker.internal |
 | Homestead with VirtualBox   | 10.211.55.2          |
 | Homestead with Parallels    | 10.211.55.2          |
+| Wsl Host                    | WSL IP (read below)  |
 
-> 📝 **Note**: If you are using `Docker` on a `Linux` host, you must perform additional configuration because. Automatic mapping is not available. Read more [here](https://github.com/laravel/sail/pull/222).
+#### Docker and Linux
+
+If you are using `Docker` on a `Linux` host, you must perform additional configuration because. Automatic mapping is not available. Read more [here](https://github.com/laravel/sail/pull/222).
+
+#### WSL
+
+If you are running your project directly from the WSL machine, you must configure LaraDumps with the WSL IP.
+
+This is often the case when running `php artisan server` from inside the WSL machine.
+
+The WSL IP changes every time the computer is restarted, and you must update your project configuration when the IP changes.
+
+##### Find out the WSL IP
+
+To determine the WSL IP address, launch Windows Powershell and execute the `ipconfig` command.
+
+You should see an output similar to this:
+
+```shell
+C:\Users\user>ipconfig
+
+Windows IP Configuration
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~ some other adapters.... ~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Ethernet adapter vEthernet (WSL):
+
+   Connection-specific DNS Suffix  . :
+   Link-local IPv6 Address . . . . . : fda6::4727:7d48:8e61:7d48%60
+   IPv4 Address. . . . . . . . . . . : 172.21.48.1 <====================================
+   Subnet Mask . . . . . . . . . . . : 255.255.240.0
+   Default Gateway . . . . . . . . . :
+```
+
+Scroll down to the `Ethernet adapter vEthernet (WSL)` section, disregard other adapters.
+
+Now, add the IP address from this section in your `DS_APP_HOST` in your `.env` file.
+
+For example:
+
+```shell
+DS_APP_HOST=172.21.48.1
+```
 
 ---
+
+### App Port
+
+The Desktop App Port. Must always be `9191`.
+
+```shell
+DS_APP_HOST=9191
+```
+
+This configuration key will be deprecated in LaraDumps V2
 
 ### Auto-Invoke
 
