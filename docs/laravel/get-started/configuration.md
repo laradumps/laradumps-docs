@@ -12,9 +12,11 @@ LaraDumps options and their respective configurations are detailed in this secti
 
 ### App Host
 
-The host setting allows your project to communicate with LaraDumps Desktop App.
+Desktop App Host. Your Laravel project will send Dumps to this address.
 
-Modify the host to match project's environment. Change the `.env` file key `DS_APP_HOST`.
+You can configure the host in your `.env` file, under the key `DS_APP_HOST`.
+
+In most cases, it will be your localhost:
 
 ```shell
 DS_APP_HOST=127.0.0.1
