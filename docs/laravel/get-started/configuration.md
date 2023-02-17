@@ -303,6 +303,37 @@ Supported IDEs:
 
 You might also edit or add a new IDE handler. The IDEs are defined inside the configuration key `ide_handlers` in the configuration file.
 
+#### Docker and VSCode
+
+If you are running Docker and using VSCode, you can configure a new editor handler to properly open files from the Desktop App.
+
+First, open `config/laradumps.php` and add a new entry called `vscode_docker` in the section `ide_handlers`.
+
+You should set the key as follows:
+
+```php
+'ide_handlers' => [
+       
+       //other ides...
+
+        'vscode_docker' => [
+            'handler'        => 'vscode://file/',
+            'line_separator' => ':',
+            'remote_path'    => '/Users/jamesbond/Projects/save-the-queen-app', //<============ Path on my machine host
+            'work_dir'       => '/var/www/html'  //<============ Path inside Docker
+        ],
+    ],
+ ```
+ 
+ Now, configure your `.env` to use the handler you have just created:
+ 
+ ```shell
+DS_APP_HOST=host.docker.internal
+DS_APP_PORT=9191
+# other settings...
+DS_PREFERRED_IDE=vscode_docker #<============ 
+```
+
 #### Remote VSCode (WSL2)
 
 Additional configuration is required for the  `Visual Studio Code WSL2`.
