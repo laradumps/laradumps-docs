@@ -2,7 +2,7 @@
 
 ## Introduction
 
-To debug with LaraDumps, simply add a `ds()` in your code.
+To debug with LaraDumps, just add a `ds()` in your code.
 
 It's quite similar to using the `dump()` or `dd()` functions, but with the benefit of seeing your debug dump in a dedicated Desktop Application.
 
@@ -53,7 +53,7 @@ This function is similar to Laravel's `dump()` and it will not stop the code exe
 
 ### Dump and die
 
-Use the function `ds()->die()` or its shortcut `dsd()` to dump and immediately stop the code execution.
+Use the function `ds()->die()` or its shortcut `dsd()` to dump and stop the code execution.
 
 ```php
 $myString = 'Hello World!';
@@ -72,7 +72,7 @@ This function is similar to Laravel's `dd()`.
 
 By default, LaraDumps Desktop App will be invoked and gain focus whenever a new dump is received.
 
-If this is not what you want, simply disable the [Auto-Invoke](laravel/get-started/configuration?id=auto-invoke) feature.
+If this is not what you want, you may disable the [Auto-Invoke](laravel/get-started/configuration?id=auto-invoke) feature.
 
 Alternatively, just use the `dsq()` method and send a quiet dump. This will not invoke the App.
 
@@ -211,7 +211,7 @@ In the Desktop App:
 
 ### Time
 
-To simply measure the execution time of a block of code, place it within the `time($reference)` and `stopTime($reference)` methods.
+To measure the execution time of a block of code, place it within the `time($reference)` and `stopTime($reference)` methods.
 
 You must pass the **same unique** `$reference` title to both methods. The reference can be any combination of words.
 

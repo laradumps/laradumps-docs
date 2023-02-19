@@ -1,17 +1,17 @@
 # Updating LaraDumps
 
- LaraDumps checks for updates every time the app starts, and it will notify you if a new version has been released.
+LaraDumps checks for updates every time the app starts.
 
-There are two types of notifications: [Desktop App](laravel/get-started/installation?id=desktop-app) updates and [Laravel Package](laravel/get-started/installation?id=laravel-package) updates.
+You will be notified about new versions of the [Desktop App](laravel/get-started/installation?id=desktop-app) and new releases of the [Laravel Package](laravel/get-started/installation?id=laravel-package).
 
 ---
 
 ## Desktop App
 
-To update the App, Linux and Windows users can simply proceed with the self-update process. This process will download and install the latest available version on your computer.
+To update the App, Linux and Windows users will be notified and the self-upgrade process will download and install the latest version.
 
 <!--LaraDumpsVersion-->
-For macOS, LaraDumps requires the user to manually [`download`](https://github.com/laradumps/app/releases/download/v1.7.0/LaraDumps-1.7.0.dmg) and install the application. Automatic update is not available due to limitations imposed by Apple.
+If you are macOS user, you must [`download`](https://github.com/laradumps/app/releases/download/v1.7.0/LaraDumps-1.7.0.dmg) and install the application manually. Automatic update is not available due to limitations imposed by Apple.
 <!--EndOfLaraDumpsVersion-->
 
 ---

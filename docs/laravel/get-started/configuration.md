@@ -35,7 +35,7 @@ You may configure a custom host value, if needed.
 | Docker/Sail                 | host.docker.internal |
 | Homestead with VirtualBox   | 10.211.55.2          |
 | Homestead with Parallels    | 10.211.55.2          |
-| Wsl Host                    | WSL IP (read below)  |
+| WSL Host                    | WSL IP (read below)  |
 
 #### Docker and Linux
 
@@ -295,11 +295,11 @@ Supported IDEs:
 
 | **IDE**             |  **Value**  |
 |---------------------|-------------|
-| PHPStorm            | phpstorm    |
-| Visual Studio Code  | vscode      |
-| Remote Visual Studio Code (WSL2) | vscode_remote      |
-| Sublime             | sublime     |
-| Atom                | atom        |
+| PHPStorm            | `phpstorm`    |
+| Visual Studio Code  | `vscode`      |
+| Remote Visual Studio Code (WSL2) | `vscode_remote`      |
+| Sublime             | `sublime`     |
+| Atom                | `atom`        |
 
 You might also edit or add a new IDE handler. The IDEs are defined inside the configuration key `ide_handlers` in the configuration file.
 

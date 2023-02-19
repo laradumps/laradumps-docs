@@ -45,7 +45,7 @@ LaraDumps usage reference sheet:
 | ds($var)->contains('Text', caseSensitive: false, wholeWord: false); | Search if the `content` contains the given string                                                                   |
 | Str::of('hello world')->upper()->ds();                              | Displays the current string in a Stringable macro                                                                   |
 | collect(['hello', 'world'])->ds();                                  | Displays the current state of a Collection Macro                                                                    |
-| ds()->markdown('# Hi, Anand Pilania!');                             | Displays the markdown rendered as HTML.                                                                             |
+| ds()->markdown('# Get Started');                                             | Displays the markdown rendered as HTML.                                                                             |
 | ds()->phpinfo();                                                    | Dumps PHP configuration                                                                                             |
 | ds()->coffee();                                                     | ☕ Grab a coffee!                                                                                                    |
 | php artisan ds:init                                                 | LaraDumps configuration wizard                                                                                      |
