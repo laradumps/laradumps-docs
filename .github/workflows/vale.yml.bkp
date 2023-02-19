@@ -1,0 +1,26 @@
+---
+name: Running Vale
+on:
+  push:
+
+jobs:
+  Vale:
+    strategy:
+      fail-fast: true
+      matrix:
+        operating-system: [ubuntu-latest]
+    runs-on: ${{ matrix.operating-system }}
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+
+      - name: ⬇️ Downloading Vale.sh
+        run: |
+          wget https://github.com/errata-ai/vale/releases/download/v2.23.0/vale_2.23.0_Linux_64-bit.tar.gz
+          mkdir bin && tar -xvzf vale_2.23.0_Linux_64-bit.tar.gz -C bin
+          echo "$GITHUB_WORKSPACE/bin" >> $GITHUB_PATH
+
+      - name: 👨🏻‍🏫 Run Vale
+        run: |
+          cd vale
+          ./vale.sh --ci
