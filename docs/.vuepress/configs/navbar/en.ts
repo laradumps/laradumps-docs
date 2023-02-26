@@ -3,7 +3,7 @@ import type { NavbarConfig } from '@vuepress/theme-default'
 export const navbarEn: NavbarConfig = [
     {
         text: 'Get Started',
-        link: '/get-started/',
+        link: '/get-started/what-is-laradumps',
     },
     {
         text: 'Debugging',
