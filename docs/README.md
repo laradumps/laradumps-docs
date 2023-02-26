@@ -8,6 +8,8 @@ LaraDumps Desktop App is available for Windows, Linux and macOS.
 
 ### Get started
 
+- [What is LaraDumps](get-started/what-is-laradumps)
+
 - [Install](get-started/installation)
 
 - [Usage](debug/usage)

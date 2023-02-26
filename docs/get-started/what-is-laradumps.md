@@ -6,13 +6,9 @@ LaraDumps is a friendly app designed to boost your Laravel PHP coding and debugg
 
 When using LaraDumps, you can see the result of your debug displayed in a standalone Desktop Application.
 
-<div align="center">
-    <p>
-      <img src="(../../_media/app_homepage.png" alt="app" width="500">
-    </p>
-</div>
+![Output](/_media/app_homepage.png)
 
-These are some [debug tools](laravel/debug/usage?id=debug-functions) provided by LaraDumps:
+These are some [debug tools](/debug/usage?id=debug-functions) provided by LaraDumps:
 
 - Dump single or multiple variables at once.
 - See your dumped values in a Table, with a built-in search feature.
@@ -47,7 +43,3 @@ LaraDumps is a free open-source project, and it was inspired by [Spatie Ray](htt
 - Author: [Luan Freitas](https://github.com/luanfreitasdev)
 
 - Logo by [Vitor S. Rodrigues](https://github.com/vs0uz4)
-
----
-
-Next: [Installation](get-started/installation.md "Installation")

@@ -5,6 +5,7 @@ export const sidebarEn: SidebarConfig = {
         {
             text: 'Get Started',
             children: [
+                '/get-started/what-is-laradumps.md',
                 '/get-started/installation.md',
                 '/get-started/updating-laradumps.md',
                 '/get-started/configuration.md',
