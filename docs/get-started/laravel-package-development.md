@@ -21,7 +21,7 @@ providers:
   - LaraDumps\LaraDumps\LaraDumpsServiceProvider
 ```
 
-4․ Finally, [configure](laravel/get-started/configuration.md) LaraDumps using [CLI Commander](https://packages.tools/testbench/commander.html), run:
+4․ Finally, [configure](/get-started/configuration.md) LaraDumps using [CLI Commander](https://packages.tools/testbench/commander.html), run:
 
 ```shell
 ./vendor/bin/testbench ds:init
@@ -84,4 +84,4 @@ test('example test', function () {
 
 ---
 
-Next: [Desktop App](laravel/debug/desktop-app.md "Desktop App")
+Next: [Desktop App](/debug/desktop-app.md "Desktop App")

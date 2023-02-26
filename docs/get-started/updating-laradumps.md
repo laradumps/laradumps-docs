@@ -2,7 +2,7 @@
 
  LaraDumps checks for updates every time the app starts, and it will notify you if a new version has been released.
 
-There are two types of notifications: [Desktop App](laravel/get-started/installation?id=desktop-app) updates and [Laravel Package](laravel/get-started/installation?id=laravel-package) updates.
+There are two types of notifications: [Desktop App](/get-started/installation?id=desktop-app) updates and [Laravel Package](get-started/installation?id=laravel-package) updates.
 
 ---
 
@@ -23,7 +23,3 @@ The Laravel package can be upgraded using [Composer](https://getcomposer.org). J
 ```shell
 composer upgrade laradumps/laradumps
 ```
-
----
-
-Next: [Desktop App](laravel/get-started/desktop-app.md "Desktop App")

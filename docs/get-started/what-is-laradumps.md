@@ -50,4 +50,4 @@ LaraDumps is a free open-source project, and it was inspired by [Spatie Ray](htt
 
 ---
 
-Next: [Installation](laravel/get-started/installation.md "Installation")
+Next: [Installation](get-started/installation.md "Installation")

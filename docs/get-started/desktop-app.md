@@ -4,12 +4,12 @@ This is the LaraDumps Desktop App window, here you will receive the output of yo
 
 The following image shows an example of a dump lists the main items available at the App.
 
-<img src="(../../_media/app.png" alt="app" width="500">
+![Output](/_media/app.png)
 
 LaraDumps Desktop App functionalities:
 
 - *Screens*: List of opened screens.
-- *Label*: Each dump has its own label. Read more about [Labels](laravel/debug/usage?id=label).
+- *Label*: Each dump has its own label. Read more about [Labels](/debug/usage?id=label).
 - *Save*: Click here to save and preserve the dump when the screen is cleared.
 - *File & line number*: This label shows the file and line where the `ds()` was called from. Click on it to open the file in your preferred IDE.
 - **Button #1:** Clear all dumps from all screens.
@@ -25,4 +25,4 @@ LaraDumps Desktop App functionalities:
 
 ---
 
-Next: [Usage](laravel/debug/usage.md "Usage")
+Next: [Usage](/debug/usage.md "Usage")

@@ -21,9 +21,11 @@ Route::get('/', function () {
 
 Now, access your home-page, and you will see the debug dump in the Desktop App:
 
-<img src="(../../_media/basicExample.png" alt="app" width="500">
+![Output](/_media/basicExample.png)
 
-> 💡 **Trivia**: The "ds()" function is based on the first and last letters of the word **d**ump**s**, and it is conveniently similar to "dd()". This is not a coincidence! Easy to switch!
+::: tip
+💡 **Trivia**: The "ds()" function is based on the first and last letters of the word **d**ump**s**, and it is conveniently similar to "dd()". This is not a coincidence! Easy to switch!
+:::
 
 ## Debug Tools
 
@@ -72,7 +74,7 @@ This function is similar to Laravel's `dd()`.
 
 By default, LaraDumps Desktop App will be invoked and gain focus whenever a new dump is received.
 
-If this is not what you want, simply disable the [Auto-Invoke](laravel/get-started/configuration?id=auto-invoke) feature.
+If this is not what you want, simply disable the [Auto-Invoke](/get-started/configuration?id=auto-invoke) feature.
 
 Alternatively, just use the `dsq()` method and send a quiet dump. This will not invoke the App.
 
@@ -140,11 +142,13 @@ ds4('this is screen 4');
 ds5('this is screen 5');
 ```
 
-> 📌 Click on the [pin](laravel/get-started/desktop-app) icon to permanently focus a screen and keep its dumps when [clearing all screens](laravel/debug/usage?id=clear-screens).
+::: tip
+📌 Click on the [pin](/get-started/desktop-app) icon to permanently focus a screen and keep its dumps when [clearing all screens](/debug/usage?id=clear-screens).
+:::
 
 In the Desktop App:
 
-<img src="(../../_media/screens.png" alt="app" width="500">
+![Output](/_media/screens.png)
 
 ---
 
@@ -158,7 +162,9 @@ This will reset your application to the start point.
 ds()->clear();
 ```
 
-> 📝 **Note**: To clear only the current screen, click on the `×` at the right end of the screen list.
+::: tip
+📝 **Note**: To clear only the current screen, click on the `×` at the right end of the screen list.
+:::
 
 ---
 
@@ -185,13 +191,13 @@ ds('Tailwind Custom Color!')->color('border-violet-500');
 
 In the Desktop App:
 
-<img src="(../../_media/colors.png" alt="app" width="500">
+![Output](/_media/colors.png)
 
 ---
 
 ### Laravel Logs
 
-The Desktop App will receive and dump [Laravel Logs](https://laravel.com/docs/9.x/logging) entries whenever you enable the [Log](laravel/get-started/configuration?id=laravel-logs) feature.
+The Desktop App will receive and dump [Laravel Logs](https://laravel.com/docs/9.x/logging) entries whenever you enable the [Log](/get-started/configuration?id=laravel-logs) feature.
 
 LaraDumps also provides a one-click internet search on Error Log messages. This is very convenient for exceptions and general error messages.
 
@@ -205,7 +211,7 @@ Log::error('Your message', ['0' => 'Your Context']);
 
 In the Desktop App:
 
-<img src="(../../_media/log.png" alt="app" width="500">
+![Output](/_media/log.png)
 
 ---
 
@@ -227,7 +233,7 @@ ds()->stopTime('my count');
 
 In the Desktop App:
 
-<img src="(../../_media/time.png" alt="app" width="500">
+![Output](/_media/time.png)
 
 ---
 
@@ -235,7 +241,7 @@ In the Desktop App:
 
 To debug SQL queries, you must place the database call within the `queriesOn()` and `queriesOff()` methods.
 
-You are required to enable [SQL Query Listening](laravel/get-started/configuration?id=sql-queries) for this feature to work properly.
+You are required to enable [SQL Query Listening](/get-started/configuration?id=sql-queries) for this feature to work properly.
 
 For example:
 
@@ -261,11 +267,13 @@ User::query()->where('id', 20)
     ->get();
 ```
 
-> 📝 **Note**: The macro feature doesn't require SQL Queries to be enabled in the configuration file.
+::: tip 
+📝 **Note**: The macro feature doesn't require SQL Queries to be enabled in the configuration file.
+:::
 
 In the Desktop App:
 
-<img src="(../../_media/sqlDump.png" alt="app" width="500">
+![Output](/_media/sqlDump.png)
 
 ---
 
@@ -283,7 +291,7 @@ ds()->model($firstUser);
 
 In the Desktop App:
 
-<img src="(../../_media/userModel.png" alt="app" width="500">
+![Output](/_media/userModel.png)
 
 ---
 
@@ -393,9 +401,9 @@ collect(['hello', 'world'])
 
 ### Routes
 
-You can use the `routes()` method to list all Routes in a [table](laravel/debug/usage?id=table) format.
+You can use the `routes()` method to list all Routes in a [table](/debug/usage?id=table) format.
 
-You may configure LaraDumps to [exclude](laravel/get-started/configuration?id=routes) specific routes from the dump output.
+You may configure LaraDumps to [exclude](/get-started/configuration?id=routes) specific routes from the dump output.
 
 ```php
 ds()->routes();
@@ -427,7 +435,7 @@ ds()->table($allUsers, 'my users table');
 
 In the Desktop App:
 
-<img src="(../../_media/table.png" alt="app" width="500">
+![Output](/_media/table.png)
 
 ---
 
@@ -448,7 +456,7 @@ ds($userBefore)->diff($userAfter, true);
 
 In the Desktop App:
 
-<img src="(../../_media/diff.png" alt="app" width="500">
+![Output](/_media/diff.png)
 
 ---
 
@@ -472,7 +480,7 @@ ds('{"name: Luan}')->isJson();
 
 In the Desktop App:
 
-<img src="(../../_media/json.png" alt="app" width="500">
+![Output](/_media/json.png)
 
 ---
 
@@ -504,7 +512,7 @@ ds($json)->contains('Maria', wholeWord: true);
 
 In the Desktop App:
 
-<img src="(../../_media/contains.png" alt="app" width="500">
+![Output](/_media/contains.png)
 
 ---
 
@@ -520,13 +528,8 @@ ds()->markdown('# Hi, Anand Pilania!');
 
 ### PHPInfo
 
-Displays the current PHP settings in [table](laravel/debug/usage?id=table) format.
+Displays the current PHP settings in [table](/debug/usage?id=table) format.
 
 ```php
 ds()->phpinfo();
 ```
-
----
-
----
-Next: [Livewire](laravel/debug/livewire.md "Livewire")
