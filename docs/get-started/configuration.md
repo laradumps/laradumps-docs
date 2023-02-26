@@ -24,11 +24,6 @@ DS_APP_HOST=127.0.0.1
 
 You may configure a custom host value, if needed.
 
-<style>
-    td::before { display: none }
-    <!-- @see https://github.com/docsifyjs/docsify/issues/794 -->
-</style>
-
 | **Environment**             |  **Host**            |
 |-----------------------------|----------------------|
 | Default                     | 127.0.0.1            |
@@ -288,18 +283,13 @@ DS_PREFERRED_IDE=vscode
 
 Supported IDEs:
 
-<style>
-    td::before { display: none }
-    <!-- @see https://github.com/docsifyjs/docsify/issues/794 -->
-</style>
-
-| **IDE**             |  **Value**  |
-|---------------------|-------------|
-| PHPStorm            | phpstorm    |
-| Visual Studio Code  | vscode      |
-| Remote Visual Studio Code (WSL2) | vscode_remote      |
-| Sublime             | sublime     |
-| Atom                | atom        |
+| **IDE**                          | **Value**     |
+|----------------------------------|---------------|
+| PHPStorm                         | phpstorm      |
+| Visual Studio Code               | vscode        |
+| Remote Visual Studio Code (WSL2) | vscode_remote |
+| Sublime                          | sublime       |
+| Atom                             | atom          |
 
 You might also edit or add a new IDE handler. The IDEs are defined inside the configuration key `ide_handlers` in the configuration file.
 
@@ -344,7 +334,9 @@ Additional configuration is required for the  `Visual Studio Code WSL2`.
 DS_PREFERRED_WSL_DISTRO=Ubuntu20.04LTS
 ```
 
-> 📝 **Note**: To get your distro name, run the command `wsl -l -v` in your command prompt.
+::: tip
+📝 To get your distro name, run the command `wsl -l -v` in your command prompt.
+:::
 
 <br/>
 
@@ -356,7 +348,9 @@ The `remote_path` refers to your project's path in WSL.
 DS_REMOTE_PATH=/home/$USER/path-to-your-project
 ```
 
-> 📝 **Note**: To get remote path, you can run the `pwd`  command inside your WSL project folder.
+::: tip
+> 📝 To get remote path, you can run the `pwd`  command inside your WSL project folder.
+:::
 
 <br/>
 
@@ -394,7 +388,3 @@ You must specify which directories you would like to be checked. This configurat
     //...
 ],
 ```
-
----
-
-Next: [Desktop App](laravel/get-started/desktop-app.md "Desktop App")

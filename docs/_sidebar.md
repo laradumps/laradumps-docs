@@ -1,13 +1,13 @@
 - **Get Started**
-  - [What is LaraDumps?](laravel/get-started/what-is-laradumps.md "What is LaraDumps?")
-  - [Installation](laravel/get-started/installation.md "Installation")
-  - [Updating LaraDumps](laravel/get-started/updating-laradumps.md "Updating LaraDumps")
-  - [Configuration](laravel/get-started/configuration.md "Configuration")
-  - [Desktop App](laravel/get-started/desktop-app.md "Desktop App")
+  - [What is LaraDumps?](get-started/what-is-laradumps.md "What is LaraDumps?")
+  - [Installation](get-started/installation.md "Installation")
+  - [Updating LaraDumps](get-started/updating-laradumps.md "Updating LaraDumps")
+  - [Configuration](get-started/configuration.md "Configuration")
+  - [Desktop App](get-started/desktop-app.md "Desktop App")
 
 - **Debugging**
-  - [Usage](laravel/debug/usage.md "Usage")
-  - [Livewire](laravel/debug/livewire.md "Livewire")
-  - [Testing environment](laravel/debug/testing-environment.md "Testing environment")
-  - [Deploying to production](laravel/debug/deploying-to-production.md "Deploying to production")
-  - [Reference sheet](laravel/debug/reference-sheet.md "Reference sheet")
+  - [Usage](debug/usage.md "Usage")
+  - [Livewire](debug/livewire.md "Livewire")
+  - [Testing environment](debug/testing-environment.md "Testing environment")
+  - [Deploying to production](debug/deploying-to-production.md "Deploying to production")
+  - [Reference sheet](debug/reference-sheet.md "Reference sheet")

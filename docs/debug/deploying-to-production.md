@@ -4,7 +4,9 @@ Since LaraDumps is a debug `dev` tool, you might want to check if you forgot a `
 
 LaraDumps provides the command `php artisan ds:check` which will produce an error if any `ds()` is found in your code.
 
-> ⚠️ **Important**: You must specify which directories will be scanned in [config file](laravel/get-started/configuration?id=ds-check).
+::: warning
+⚠️ You must specify which directories will be scanned in [config file](/get-started/configuration?id=ds-check).
+:::
 
 ## Pipeline
 
@@ -24,20 +26,18 @@ Example script:
 
 If any `ds()` is found, the `ds:check` command will indicate you the file, line and code snippet.
 
-![Error](../../_media/ds_check_error.png)
+![Output](/_media/ds_check_error.png)
 
 If you have not forgotten any `ds()`, your pipeline will be completed successfully.
 
-![Success](../../_media/ds_check_success.png)
+![Output](/_media/ds_check_success.png)
 
 ---
 
-> ⚠️ **TIP**: You can use **--dirty** to only track files that haven't been added to git for quick checks - Inspired by [Laravel Pint](https://github.com/laravel/pint/pull/130)
+::: tip
+You can use **--dirty** to only track files that haven't been added to git for quick checks - Inspired by [Laravel Pint](https://github.com/laravel/pint/pull/130)
+:::
 
 ```bash
 php artisan ds:check --dirty
 ```
-
----
-
-Next: [Reference sheet](laravel/debug/reference-sheet.md "Reference sheet")

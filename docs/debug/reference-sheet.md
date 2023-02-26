@@ -2,11 +2,6 @@
 
 LaraDumps usage reference sheet:
 
-<style>
-    td::before { display: none }
-  <!-- @see https://github.com/docsifyjs/docsify/issues/794 -->
-</style>
-
 | **Function**                                                        | **Description**                                                                                                     |
 |---------------------------------------------------------------------|---------------------------------------------------------------------------------------------------------------------|
 | ds($var);                                                           | Display a string, array or object                                                                                   |
@@ -53,5 +48,3 @@ LaraDumps usage reference sheet:
 
 
 ---
-
-Next: [Usage](laravel/debug/usage.md "Usage")

@@ -2,9 +2,9 @@
 
 With LaraDumps, you can go right into debugging with minimal effort:
 
-1․ Download the [LaraDumps Desktop App](laravel/get-started/installation?id=desktop-app).
+1․ Download the [LaraDumps Desktop App](get-started/installation?id=desktop-app).
 
-2․ Add the [LaraDumps Laravel Package](laravel/get-started/installation?id=laravel-package) to your Laravel project.
+2․ Add the [LaraDumps Laravel Package](get-started/installation?id=laravel-package) to your Laravel project.
 
 3․ Start to [Debug](laravel/debug/usage)!
 
@@ -18,15 +18,13 @@ Proceed to the installation instructions according to your operating system:
 
 <!--LaraDumpsVersion-->
 
-<!-- tabs:start -->
-
-#### **Windows**
+### **Windows**
 
 Click to [`Download LaraDumps v1.7.0`](https://github.com/laradumps/app/releases/download/v1.7.0/LaraDumps-Setup-1.7.0.exe) installer for Windows.
 
 Once downloaded, open it and proceed with the installer.
 
-#### **Linux**
+### **Linux**
 
 #### Snapcraft
 
@@ -50,7 +48,7 @@ chmod u+x ./LaraDumps-1.7.0.AppImage && ./LaraDumps-1.7.0.AppImage
 
 *(These steps might slightly change depending on your Linux distribution).*
 
-#### **macOS**
+### **macOS**
 
 Click to [`Download LaraDumps v1.7.0`](https://github.com/laradumps/app/releases/download/v1.7.0/LaraDumps-1.7.0-universal.dmg) Apple Disc Image (.dmg) for macOS.
 
@@ -78,8 +76,6 @@ To `authorize LaraDumps` to run, follow these steps:
 
 Now, LaraDumps should run just fine!
 
-<!-- tabs:end -->
-
 <!--EndOfLaraDumpsVersion-->
 ---
 
@@ -103,8 +99,6 @@ composer require laradumps/laradumps --dev
 php artisan ds:init
 ```
 
-The wizard will guide you through the [configuration options](laravel/get-started/configuration.md).
+The wizard will guide you through the [configuration options](get-started/configuration.md).
 
 ---
-
-Next: [Desktop App](laravel/get-started/desktop-app.md "Desktop App")

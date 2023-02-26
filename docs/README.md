@@ -8,13 +8,13 @@ LaraDumps Desktop App is available for Windows, Linux and macOS.
 
 ### Get started
 
-- [Install](laravel/get-started/installation)
+- [Install](get-started/installation)
 
-- [Usage](laravel/debug/usage)
+- [Usage](debug/usage)
 
-- [Debug Livewire](laravel/debug/livewire)
+- [Debug Livewire](debug/livewire)
 
-- [Reference sheet](laravel/debug/reference-sheet)
+- [Reference sheet](debug/reference-sheet)
 
 ### GitHub Repositories
 
@@ -28,4 +28,4 @@ LaraDumps is open-source, visit our repositories:
 
 ---
 
-Next: [Installation](laravel/get-started/installation.md "Installation")
+Next: [Installation](get-started/installation.md "Installation")
