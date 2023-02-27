@@ -10,6 +10,7 @@ export const navbarEn: NavbarConfig = [
         children: [
             '/debug/usage.md',
             '/debug/livewire.md',
+            '/debug/testing-environment.md',
             '/debug/deploying-to-production.md',
             '/debug/reference-sheet.md',
         ],
