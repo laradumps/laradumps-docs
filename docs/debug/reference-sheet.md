@@ -31,7 +31,7 @@ LaraDumps usage reference sheet:
 | ds()->jobsOff();                                                    | Stop capturing Jobs.                                                                                                |
 | ds()->commandsOn('My Label');                                       | Start capturing calls to Artisan.                                                                                   |
 | ds()->commandsOff();                                                | Stop capturing calls to Artisan.                                                                                    |
-| ds()->cacheOn('My Label);                                           | Start capturing Cache.                                                                                              |
+| ds()->cacheOn('My Label');                                          | Start capturing Cache.                                                                                              |
 | ds()->cacheOff();                                                   | Stop capturing Cache.                                                                                               |
 | ds()->routes();                                                     | Dumps Laravel Routes in a table format                                                                              |
 | ds()->table(Collection $data, $name);                               | Dumps data in a table format                                                                                        |
