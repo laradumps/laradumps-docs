@@ -1,7 +1,6 @@
 import {defaultTheme, defineUserConfig} from 'vuepress'
 
 import {
-    navbarEn,
     sidebarEn,
     head,
 } from './configs'
@@ -17,7 +16,6 @@ export default defineUserConfig({
         docsDir: 'main',
         locales: {
             '/': {
-                navbar: navbarEn,
                 sidebar: sidebarEn,
                 editLinkText: 'Edit this page on GitHub',
             },

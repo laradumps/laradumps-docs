@@ -1,7 +1,7 @@
 import type { SidebarConfig } from '@vuepress/theme-default'
 
 export const sidebarEn: SidebarConfig = {
-    '/get-started/': [
+    '/': [
         {
             text: 'Get Started',
             children: [
@@ -12,8 +12,6 @@ export const sidebarEn: SidebarConfig = {
                 '/get-started/desktop-app.md',
             ],
         },
-    ],
-    '/debug/': [
         {
             text: 'Debugging',
             children: [
