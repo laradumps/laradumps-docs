@@ -60,7 +60,7 @@ Use the function `ds()->die()` or its shortcut `dsd()` to dump and immediately s
 ```php
 $myString = 'Hello World!';
 
-ds($myString)->die(); 
+ds($myString)->die();
 //dsd($myString);
 
 ds('This will never happen');
@@ -267,7 +267,7 @@ User::query()->where('id', 20)
     ->get();
 ```
 
-::: tip 
+::: tip
 📝 **Note**: The macro feature doesn't require SQL Queries to be enabled in the configuration file.
 :::
 
@@ -471,7 +471,7 @@ use Illuminate\Support\Facades\Http;
 
 // Json from API
 $moviesJson = Http::get('https://api.tvmaze.com/search/people?q=lauren')->body();
-        
+
 ds($moviesJson)->isJson();
 
 //Invalid JSON
@@ -506,7 +506,7 @@ $json = '{"name":"Mariana", "country":"Brazil"}';
 //Will not match "Brazil"
 ds($json)->contains('brazil', caseSensitive: true);
 
-//No match for "Maria" in "Mariana" 
+//No match for "Maria" in "Mariana"
 ds($json)->contains('Maria', wholeWord: true);
 ```
 
@@ -532,4 +532,48 @@ Displays the current PHP settings in [table](/debug/usage?id=table) format.
 
 ```php
 ds()->phpinfo();
+```
+
+---
+
+### Benchmark
+
+Benchmark closures (`array` of closures or a variable number of closures as `arguments`) and dump detailed results including `start time, end time, total execution time, and result` for each closure and also includes a `fastest` flag to indicate the fastest closure in the results.
+
+```php
+ds()->benchmark(
+    function() {
+        sleep(2);
+        return 'First';
+    },
+    function(){
+        sleep(1);
+        return 'Second';
+    }
+);
+```
+
+You can also add custom labels for each closures:
+
+```php
+ds()->benchmark([
+    'Label 1' => function() {
+        sleep(1);
+        return 'Result 1';
+    },
+    'Label 2' => function() {
+        sleep(2);
+        return 'Result 2';
+    },
+]);
+```
+
+You can also chain multiple benchmarks or other tools:
+
+```php
+ds()->benchmark(
+    ...
+)->benchmark(
+    ...
+)->table(..., ...);
 ```
