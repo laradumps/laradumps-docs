@@ -6,7 +6,7 @@ With LaraDumps, you can go right into debugging with minimal effort:
 
 2․ Add the [LaraDumps Laravel Package](installation.html?id=laravel-package#laravel-package) to your Laravel project.
 
-3․ Start to [Debug](laravel/debug/usage)!
+3․ Start to [Debug](../debug/usage.html)!
 
 ---
 
