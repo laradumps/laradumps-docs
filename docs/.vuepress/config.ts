@@ -13,7 +13,7 @@ export default defineUserConfig({
     theme: defaultTheme({
         logo: '/_media/icon.png',
         repo: 'laradumps/laradumps-docs',
-        docsDir: 'main',
+        docsDir: 'docs',
         locales: {
             '/': {
                 sidebar: sidebarEn,
