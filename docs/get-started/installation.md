@@ -99,6 +99,6 @@ composer require laradumps/laradumps --dev
 php artisan ds:init
 ```
 
-The wizard will guide you through the [configuration options](get-started/configuration.md).
+The wizard will guide you through the [configuration options](configuration.md).
 
 ---
