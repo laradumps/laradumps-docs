@@ -21,8 +21,6 @@ Route::get('/', function () {
 
 Now, access your home-page, and you will see the debug dump in the Desktop App:
 
-![Output](/_media/basicExample.png)
-
 ::: tip
 💡 **Trivia**: The "ds()" function is based on the first and last letters of the word **d**ump**s**, and it is conveniently similar to "dd()". This is not a coincidence! Easy to switch!
 :::
@@ -146,10 +144,6 @@ ds5('this is screen 5');
 📌 Click on the [pin](/get-started/desktop-app) icon to permanently focus a screen and keep its dumps when [clearing all screens](/debug/usage?id=clear-screens).
 :::
 
-In the Desktop App:
-
-![Output](/_media/screens.png)
-
 ---
 
 ### Clear Screens
@@ -189,13 +183,11 @@ ds('Dark: The Dark Side of the Moon')->dark();
 ds('Tailwind Custom Color!')->color('border-violet-500');
 ```
 
-In the Desktop App:
-
-![Output](/_media/colors.png)
-
 ---
 
 ### Laravel Logs
+
+* Only available for [laradumps/laradumps](https://github.com/laradumps/laradumps)
 
 The Desktop App will receive and dump [Laravel Logs](https://laravel.com/docs/9.x/logging) entries whenever you enable the [Log](/get-started/configuration?id=laravel-logs) feature.
 
@@ -208,10 +200,6 @@ Log::info('Your message', ['0' => 'Your Context']);
 
 Log::error('Your message', ['0' => 'Your Context']);
 ```
-
-In the Desktop App:
-
-![Output](/_media/log.png)
 
 ---
 
@@ -231,13 +219,11 @@ ds()->time('my count');
 ds()->stopTime('my count');
 ```
 
-In the Desktop App:
-
-![Output](/_media/time.png)
-
 ---
 
 ### SQL Queries
+
+* Only available for [laradumps/laradumps](https://github.com/laradumps/laradumps)
 
 To debug SQL queries, you must place the database call within the `queriesOn()` and `queriesOff()` methods.
 
@@ -257,6 +243,8 @@ ds()->queriesOff();
 
 #### Query inspection Macro
 
+* Only available for [laradumps/laradumps](https://github.com/laradumps/laradumps)
+
 You can also chain a `ds()` method before the query execution and, it will be dumped in the Desktop App:
 
 ```php
@@ -267,17 +255,15 @@ User::query()->where('id', 20)
     ->get();
 ```
 
-::: tip
-📝 **Note**: The macro feature doesn't require SQL Queries to be enabled in the configuration file.
+::: warning
+The macro feature doesn't require SQL Queries to be enabled in the configuration file.
 :::
-
-In the Desktop App:
-
-![Output](/_media/sqlDump.png)
 
 ---
 
 ### Model Inspection
+
+* Only available for [laradumps/laradumps](https://github.com/laradumps/laradumps)
 
 You can use the `model()` method to view [Eloquent Model's](https://laravel.com/docs/9.x/eloquent#introduction) Attributes and Relationships.
 
@@ -289,13 +275,11 @@ $firstUser = User::first();
 ds()->model($firstUser);
 ```
 
-In the Desktop App:
-
-![Output](/_media/userModel.png)
-
 ---
 
 ### Mailable
+
+* Only available for [laradumps/laradumps](https://github.com/laradumps/laradumps)
 
 Displays mail details and the HTML preview for an instance of a `Illuminate\Mail\Mailable` class.
 
@@ -304,6 +288,8 @@ ds()->mailable(new \App\Mail\TestMail());
 ```
 
 ### HTTP Requests
+
+* Only available for [laradumps/laradumps](https://github.com/laradumps/laradumps)
 
 Captures and displays all the properties of HTTP Requests within the `httpOn()` and `httpOff()` methods.
 
@@ -318,6 +304,8 @@ ds()->httpOff();
 ---
 
 ### Artisan Command
+
+* Only available for [laradumps/laradumps](https://github.com/laradumps/laradumps)
 
 Captures and displays the called Artisan commands with their arguments, options and exit code.
 
@@ -334,6 +322,8 @@ ds()->commandsOff();
 
 ### Jobs
 
+* Only available for [laradumps/laradumps](https://github.com/laradumps/laradumps)
+
 Captures and displays all information of Jobs ran within the `showJob()` and `stopShowingJob()` methods.
 
 ```php
@@ -345,6 +335,8 @@ ds()->jobsOff();
 ---
 
 ### Cache
+
+* Only available for [laradumps/laradumps](https://github.com/laradumps/laradumps)
 
 Captures and displays [Cache](https://laravel.com/docs/9.x/cache#introduction) information loaded within the `cacheOn()` and `cacheOff()` methods.
 
@@ -374,6 +366,8 @@ ds()->cacheOff();
 
 ### Stringable Macro
 
+* Only available for [laradumps/laradumps](https://github.com/laradumps/laradumps)
+
 Displays the current string in a [Stringable Macro](https://laravel.com/docs/9.x/helpers#strings-method-list)
 
 ```php
@@ -388,6 +382,8 @@ Str::of('Hello')
 
 ### Collection Macro
 
+* Only available for [laradumps/laradumps](https://github.com/laradumps/laradumps)
+
 Displays the current state of a [Collection Macro](https://laravel.com/docs/9.x/collections#main-content)
 
 ```php
@@ -400,6 +396,8 @@ collect(['hello', 'world'])
 ---
 
 ### Routes
+
+* Only available for [laradumps/laradumps](https://github.com/laradumps/laradumps)
 
 You can use the `routes()` method to list all Routes in a [table](/debug/usage?id=table) format.
 
@@ -433,31 +431,6 @@ $allUsers = User::all(['id', 'name', 'email']);
 ds()->table($allUsers, 'my users table');
 ```
 
-In the Desktop App:
-
-![Output](/_media/table.png)
-
----
-
-### Diff
-
-You can use `diff()` to see how two values compare to each other.
-
-```php
-$userBefore = ['name' => 'Luan', 'last_name' => 'Freitas', 'is_active' => false];
-
-// The values are altered by some code...
-
-$userAfter = ['name' => 'Luan', 'last_name' => 'Freitas', 'is_active' => true];
-
-ds($userBefore)->diff($userAfter, true);
-
-```
-
-In the Desktop App:
-
-![Output](/_media/diff.png)
-
 ---
 
 ### JSON
@@ -477,10 +450,6 @@ ds($moviesJson)->isJson();
 //Invalid JSON
 ds('{"name: Luan}')->isJson();
 ```
-
-In the Desktop App:
-
-![Output](/_media/json.png)
 
 ---
 
@@ -510,13 +479,11 @@ ds($json)->contains('brazil', caseSensitive: true);
 ds($json)->contains('Maria', wholeWord: true);
 ```
 
-In the Desktop App:
-
-![Output](/_media/contains.png)
-
 ---
 
 ### Markdown
+
+* Only available for [laradumps/laradumps](https://github.com/laradumps/laradumps)
 
 Displays the markdown rendered as HTML.
 

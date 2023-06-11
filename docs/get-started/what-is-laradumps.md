@@ -16,10 +16,8 @@ These are some [debug tools](/debug/usage?id=debug-functions) provided by LaraDu
 - Watch SQL Queries.
 - Monitor Laravel Logs.
 - Validate JSON strings.
-- Compare strings with diff.
 - Verify if a string contains a substring.
 - View phpinfo() configuration.
-- Debug Livewire Components & Events.
 - List your Laravel Routes.
 - Inspect Model attributes.
 
@@ -32,8 +30,7 @@ These are some [debug tools](/debug/usage?id=debug-functions) provided by LaraDu
 
 - PHP & Laravel
 - Electron
-- Vanilla JS
-- Alpine JS
+- Vue 3
 - Tailwind CSS
 
 ## Credits

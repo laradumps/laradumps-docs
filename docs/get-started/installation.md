@@ -2,10 +2,13 @@
 
 With LaraDumps, you can go right into debugging with minimal effort:
 
-1․ Download the [LaraDumps Desktop App](installation?id=desktop-app).
+1 - Download the [LaraDumps Desktop App](installation?id=desktop-app).
 
-2․ Add the [LaraDumps Laravel Package](installation.html?id=laravel-package#laravel-package) to your Laravel project.
-
+2 - Add the LaraDumps PHP Package:
+   * [Agnostic PHP Framework](https://github.com/laradumps/laradumps-core) 
+   * [Laravel Package](https://github.com/laradumps/laradumps)
+   * [Global LaraDumps Package](https://github.com/laradumps/global-laradumps)
+  
 3․ Start to [Debug](../debug/usage.html)!
 
 ---
@@ -96,9 +99,56 @@ composer require laradumps/laradumps --dev
 2․ Now, configure LaraDumps. Run the command below:
 
 ```shell
-php artisan ds:init
+vendor/bin/laradumps configure
 ```
 
+## Agnostic PHP Framework
+
+**Requirements**: PHP 8.0+
+
+1․ Install LaraDumps Package in your PHP project using [Composer](https://getcomposer.org).
+
+Run the command:
+
+```shell
+composer require laradumps/laradumps-core --dev
+```
+
+<br/>
+
+2․ Now, configure LaraDumps. Run the command below:
+
+```shell
+vendor/bin/laradumps configure
+```
 The wizard will guide you through the [configuration options](configuration.md).
+
+---
+
+## Global LaraDumps
+
+**Requirements**: PHP 8.0+
+
+1․ You can install the global LaraDumps via [Composer](https://getcomposer.org).
+
+```shell
+composer global require laradumps/global-laradumps
+```
+
+<br/>
+
+#### How to install
+
+```shell
+global-laradumps install
+```
+
+<br/>
+ 
+#### How to uninstall
+
+```shell
+global-laradumps uninstall
+```
 
 ---

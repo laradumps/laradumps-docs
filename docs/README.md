@@ -10,11 +10,13 @@ LaraDumps Desktop App is available for Windows, Linux and macOS.
 
 - [What is LaraDumps](get-started/what-is-laradumps)
 
+- [Release Notes](get-started/release-notes)
+
+- [Upgrade Guide](get-started/upgrade-guide)
+
 - [Install](get-started/installation)
 
 - [Usage](debug/usage)
-
-- [Debug Livewire](debug/livewire)
 
 - [Reference sheet](debug/reference-sheet)
 
@@ -23,9 +25,17 @@ LaraDumps Desktop App is available for Windows, Linux and macOS.
 LaraDumps is open-source, visit our repositories:
 
 - [LaraDumps Desktop App](https://github.com/laradumps/app)
-
+  -- Build with Vue 3
+  
+- [LaraDumps Core Package](https://github.com/laradumps/laradumps-core)
+  -- To debug any PHP software without a framework
+  
 - [LaraDumps Laravel Package](https://github.com/laradumps/laradumps)
+  -- To debug Laravel Framework
 
+- [Global LaraDumps Package](https://github.com/laradumps/global-laradumps)
+  -- Install LaraDumps globally with composer
+  
 - [LaraDumps Documentation](https://github.com/laradumps/laradumps-docs)
 
 ---

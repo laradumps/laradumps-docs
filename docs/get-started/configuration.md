@@ -1,8 +1,10 @@
 # Configuration
 
-LaraDumps configuration is stored in `config/laradumps.php` file, and some options can be configured directly in your project's `.env` file.
+The LaraDumps configuration is stored directly in your project's .env file.
 
-You can also run `php artisan ds:init` at any time to modify the settings via the wizard.
+You can run `vendor/bin/laradumps configure` to configure the project with the desktop application.
+
+Or if you've already done that, you can simply go to "**Settings**" in the application or change the variable by .env
 
 ---
 
@@ -96,7 +98,7 @@ By default, LaraDumps Desktop App will be invoked and gain focus whenever a new 
 
 To disable this behavior, change the `.env` file key `DS_AUTO_INVOKE_APP` to `false`.
 
-You can also send [Quiet dumps](laravel/debug/usage?id=quiet-dump) and the app will not be invoked.
+You can also send [Quiet dumps](../debug/usage?id=quiet-dump) and the app will not be invoked.
 
 ```shell
 DS_AUTO_INVOKE_APP=true #enabled
@@ -105,6 +107,8 @@ DS_AUTO_INVOKE_APP=true #enabled
 ---
 
 ### SQL Queries
+
+* Only available for [laradumps/laradumps](https://github.com/laradumps/laradumps)
 
 You must have this feature enabled to capture [SQL Queries](laravel/debug/usage?id=sql-queries) and send them to the Desktop App.
 
@@ -118,6 +122,8 @@ DS_SEND_QUERIES=true #enabled
 
 ### Laravel Logs
 
+* Only available for [laradumps/laradumps](https://github.com/laradumps/laradumps)
+
 You must have this feature enabled to send [Laravel Logs](laravel/debug/usage?id=laravel-logs).
 
 To enable this feature, change the `.env` file key `DS_SEND_LOGS` to `true`.
@@ -128,143 +134,22 @@ DS_SEND_LOGS=true #enabled
 
 ---
 
-### Livewire Components
+### Auto-Clear
 
-Tracking Livewire Components can be enabled and disabled in your project's `.env` file.
-
-```shell
-DS_SEND_LIVEWIRE_COMPONENTS=true #enabled
-```
-
----
-
-### Livewire Protected Properties
-
-Enables LaraDumps to access protected and private properties of Livewire components.
-
-Configure the key `DS_LIVEWIRE_PROTECTED_PROPERTIES` in your project's `.env` file:
-
-```shell
-DS_LIVEWIRE_PROTECTED_PROPERTIES=true #enabled
-```
-
----
-
-### Livewire Events
-
-When this feature is enabled, LaraDumps can track and send [Livewire Events](laravel/debug/livewire?id=livewire-events) to the Desktop App.
-
-Configure the key `DS_LIVEWIRE_EVENTS` in your project's `.env` file:
-
-```shell
-DS_LIVEWIRE_EVENTS=true #enabled
-```
-
----
-
-### Livewire Browser Events
-
-When this feature is enabled, LaraDumps will track and send [Browser Events dispatch](laravel/debug/livewire?id=livewire-events) to the Desktop App.
-
-Configure the key `DS_LIVEWIRE_DISPATCH` in your project's `.env` file:
-
-```shell
-DS_LIVEWIRE_DISPATCH=true #enabled
-```
-
----
-
-### Specify Livewire Components
-
-You can specify which Livewire Components will be tracked by the Desktop Application in your project's `.env` file.
-
-Only components in this list will send state to the Desktop App.
-
-```php
-DS_LIVEWIRE_COMPONENTS="MyComponent,NotesComponent,AttachmentsComponent"
-```
-
----
-
-### Ignore Livewire Components
-
-To ignore specific Livewire components, include each class path in the `ignore_livewire_components` key inside the config file.
-
-Components in this list will NOT send state to the Desktop App.
-
-```php
-'ignore_livewire_components' => [
-     \App\Http\Livewire\MyComponent::class,
-     \App\Http\Livewire\NotesComponent::class,
-],
-```
-
----
-
-### Livewire Validation
-
-To enable dumping [Livewire failed validations](laravel/debug/usage?id=livewire-validation), change the key `DS_SEND_LIVEWIRE_FAILED_VALIDATION` to `true` inside your project's `.env` file.
-
-You can also configure the interval (sleep time).
-
-```shell
-DS_SEND_LIVEWIRE_FAILED_VALIDATION=true #enabled
-DS_SEND_LIVEWIRE_FAILED_VALIDATION_SLEEP=400 #milliseconds
-```
-
----
-
-### Livewire Auto-Clear
-
-When debugging Livewire, you need to clear your LaraDumps APP history every time the page is reloaded to keep track of your components.
-
-LaraDumps can automatically clear the screen on page reload. You must include the Auto-Clean Blade directive together with the Livewire directive.
+LaraDumps can automatically clear the screen on page reload. You must include the Auto-Clean Blade directive.
 
 ```html
   <!-- Scripts -->
-    @livewireScripts
-    @if(app()->environment('local'))
-        @dsAutoClearOnPageReload
-    @endif
+  @if(app()->environment('local'))
+      @dsAutoClearOnPageReload
+  @endif
 </body>
 ```
 
-This feature is disabled by default. To enable it, change the configuration key `auto_clear_on_page_reload` to `true`.
-
-```php
-'auto_clear_on_page_reload' = true, //enabled
-```
-
----
-
-## Livewire Component Highlight
-
-When this feature is enabled, LaraDumps can [Highlight Livewire Components](laravel/debug/livewire?id=livewire-component-highlight) in your browser when they are selected in Desktop App.
-
-Configure the key `DS_LIVEWIRE_COMPONENTS_HIGHLIGHT` in your project's `.env` file:
+This feature is disabled by default. To enable it, change the environment key `DS_AUTO_CLEAR_ON_PAGE_RELOAD` to `true`.
 
 ```shell
-DS_LIVEWIRE_COMPONENTS_HIGHLIGHT=true #enabled
-```
-
----
-
-### Routes
-
-You might want to skip some routes when dumping [Routes](laravel/debug/usage?id=routes).
-
-Append the routes to be ignored under the `ignore_route_contains` configuration key.
-
-By default, these routes are ignored:
-
-```php
-'ignore_route_contains' => [
-    'debugbar',
-    'ignition',
-    'horizon',
-    'livewire',
-    'my-secret-route', // this route will be skipped
-],
+DS_AUTO_CLEAR_ON_PAGE_RELOAD=true #enabled
 ```
 
 ---
@@ -376,7 +261,7 @@ DS_WORKDIR=/var/www/html
 
 ## DS Check
 
-By default, the artisan [ds:check](laravel/debug/deploying-to-production) command is checking the config directory, which will always produce an error.
+By default, the artisan [ds:check](../debug/deploying-to-production) command is checking the config directory, which will always produce an error.
 
 You must specify which directories you would like to be checked. This configuration is set in the key `ci_check.directories`.
 

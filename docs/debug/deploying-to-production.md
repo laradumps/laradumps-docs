@@ -16,7 +16,7 @@ Example script:
 
 ```json
 "scripts": {
-   "ds:check": "@php artisan ds:check",
+   "ds:check": "@php vendor/bin/laradumps check --dir=app,routes,config --text=dump,dd",
    "verify": [
          "@ds:check",
          // ..
@@ -24,7 +24,25 @@ Example script:
 }
 ```
 
-If any `ds()` is found, the `ds:check` command will indicate you the file, line and code snippet.
+If any `ds()` is found, the `check` command will indicate you the file, line and code snippet.
+
+::: tip
+Does not require environment variables or configuration files. Only via argument in the terminal:
+:::
+
+#### Arguments
+
+* You can pass some arguments, `--dir` is required
+* Default words: `ds,dsq,dsd,ds1,ds2,ds3,ds4,ds5`
+
+```bash
+--dir // Directories that will be filtered separated by comma
+--text // Texts that will be searched separated by a comma
+--dirty // Search only files that are dirty in git
+--ignore // Directories to be ignored separated by comma
+--ignore-files // Files that will be ignored separated by a comma
+stop-on-failure // Stop the search if a match is found
+```
 
 ![Output](/_media/ds_check_error.png)
 
@@ -39,5 +57,5 @@ You can use **--dirty** to only track files that haven't been added to git for q
 :::
 
 ```bash
-php artisan ds:check --dirty
+vendor/bin/laradumps --dirty
 ```

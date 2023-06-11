@@ -6,6 +6,8 @@ export const sidebarEn: SidebarConfig = {
             text: 'Get Started',
             children: [
                 '/get-started/what-is-laradumps.md',
+                '/get-started/release-notes.md',
+                '/get-started/upgrade-guide.md',
                 '/get-started/installation.md',
                 '/get-started/updating-laradumps.md',
                 '/get-started/configuration.md',
@@ -16,7 +18,6 @@ export const sidebarEn: SidebarConfig = {
             text: 'Debugging',
             children: [
                 '/debug/usage.md',
-                '/debug/livewire.md',
                 '/debug/testing-environment.md',
                 '/debug/deploying-to-production.md',
                 '/debug/reference-sheet.md',
