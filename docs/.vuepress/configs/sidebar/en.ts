@@ -11,7 +11,6 @@ export const sidebarEn: SidebarConfig = {
                 '/get-started/installation.md',
                 '/get-started/updating-laradumps.md',
                 '/get-started/configuration.md',
-                '/get-started/desktop-app.md',
             ],
         },
         {
