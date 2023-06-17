@@ -6,6 +6,14 @@ Welcome to LaraDumps, a friendly app designed to boost your [Laravel](https://la
 
 LaraDumps Desktop App is available for Windows, Linux and macOS.
 
+::: warning
+LaraDumps v2 is available in alpha mode, so there may be some glitches or unfinished processes. If this happens, report it here:
+
+* [Desktop App issue](https://github.com/laradumps/app)
+* [LaraDumps Core issue](https://github.com/laradumps/laradumps-core)
+* [LaraDumps (Laravel) issue](https://github.com/laradumps/laradumps)
+
+:::
 ### Get started
 
 - [What is LaraDumps](get-started/what-is-laradumps)

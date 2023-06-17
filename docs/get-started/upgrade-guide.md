@@ -7,7 +7,7 @@ If you are using version 1, you are probably using the Laravel framework. For th
 ### 1 - Update dependencies:
 
 ```
-composer require laradumps/laradumps -W --dev
+composer require laradumps/laradumps 2.x-dev -W --dev
 ```
 
 This will also install the `laradumps/laradumps-core` package as a dependency.

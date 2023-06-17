@@ -15,6 +15,15 @@ With LaraDumps, you can go right into debugging with minimal effort:
 
 ## Desktop App
 
+::: warning
+
+Uncover the platform links at the moment. Alpha test you will find here:
+
+Ex: https://github.com/laradumps/app/releases/2.0.0-alpha3,4,5...
+
+Download: [https://github.com/laradumps/app/releases](https://github.com/laradumps/app/releases)
+:::
+
 LaraDumps Desktop App is available for Windows, Linux and macOS.
 
 Proceed to the installation instructions according to your operating system:
@@ -91,7 +100,7 @@ Now, LaraDumps should run just fine!
 Run the command:
 
 ```shell
-composer require laradumps/laradumps --dev
+composer require laradumps/laradumps 2.x-dev -W --dev
 ```
 
 <br/>
@@ -126,6 +135,10 @@ The wizard will guide you through the [configuration options](configuration.md).
 ---
 
 ## Global LaraDumps
+
+::: warning
+Global LaraDumps not currently available
+::: 
 
 **Requirements**: PHP 8.0+
 
