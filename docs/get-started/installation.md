@@ -8,7 +8,11 @@ With LaraDumps, you can go right into debugging with minimal effort:
    * [Agnostic PHP Framework](https://github.com/laradumps/laradumps-core) 
    * [Laravel Package](https://github.com/laradumps/laradumps)
    * [Global LaraDumps Package](https://github.com/laradumps/global-laradumps)
-  
+
+::: warning
+Global LaraDumps not currently available
+:::
+
 3․ Start to [Debug](../debug/usage.html)!
 
 ---
