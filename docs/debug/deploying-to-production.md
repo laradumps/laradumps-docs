@@ -2,11 +2,7 @@
 
 Since LaraDumps is a debug `dev` tool, you might want to check if you forgot a `ds()` somewhere in your code before you deploy your app to production.
 
-LaraDumps provides the command `php artisan ds:check` which will produce an error if any `ds()` is found in your code.
-
-::: warning
-⚠️ You must specify which directories will be scanned in [config file](/get-started/configuration?id=ds-check).
-:::
+LaraDumps provides the command `vendor/bin/laradumps check` which will produce an error if any `ds()` is found in your code.
 
 ## Pipeline
 

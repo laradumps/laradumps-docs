@@ -9,24 +9,11 @@ With LaraDumps, you can go right into debugging with minimal effort:
    * [Laravel Package](https://github.com/laradumps/laradumps)
    * [Global LaraDumps Package](https://github.com/laradumps/global-laradumps)
 
-::: warning
-Global LaraDumps not currently available
-:::
-
 3․ Start to [Debug](../debug/usage.html)!
 
 ---
 
 ## Desktop App
-
-::: warning
-
-Uncover the platform links at the moment. Alpha test you will find here:
-
-Ex: https://github.com/laradumps/app/releases/2.0.0-alpha3,4,5...
-
-Download: [https://github.com/laradumps/app/releases](https://github.com/laradumps/app/releases)
-:::
 
 LaraDumps Desktop App is available for Windows, Linux and macOS.
 
@@ -36,7 +23,7 @@ Proceed to the installation instructions according to your operating system:
 
 ### **Windows**
 
-Click to [`Download LaraDumps v1.7.2`](https://github.com/laradumps/app/releases/download/v1.7.2/LaraDumps-Setup-1.7.2.exe) installer for Windows.
+Click to [`Download LaraDumps v2.0.0`](https://github.com/laradumps/app/releases/download/v2.0.0/LaraDumps-Setup-2.0.0.exe) installer for Windows.
 
 Once downloaded, open it and proceed with the installer.
 
@@ -50,7 +37,7 @@ Download from [https://snapcraft.io/laradumps](https://snapcraft.io/laradumps)
 
 Download the latest application image `LaraDumps-x.x.x.AppImage` from [GitHub](https://github.com/laradumps/app/releases).
 
-Click to [`Download LaraDumps v1.7.2`](https://github.com/laradumps/app/releases/download/v1.7.2/LaraDumps-1.7.2.AppImage) application image for Linux.
+Click to [`Download LaraDumps v2.0.0`](https://github.com/laradumps/app/releases/download/v2.0.0/LaraDumps-2.0.0.AppImage) application image for Linux.
 
 Once downloaded, assign **execution permission** to the file:
 
@@ -59,14 +46,14 @@ Click on `Properties`, navigate to `Permissions` and click `Allow to execute fil
 Alternatively, use the Terminal and run the command below:
 
 ```shell
-chmod u+x ./LaraDumps-1.7.2.AppImage && ./LaraDumps-1.7.2.AppImage
+chmod u+x ./LaraDumps-2.0.0.AppImage && ./LaraDumps-2.0.0.AppImage
 ```
 
 *(These steps might slightly change depending on your Linux distribution).*
 
 ### **macOS**
 
-Click to [`Download LaraDumps v1.7.2`](https://github.com/laradumps/app/releases/download/v1.7.2/LaraDumps-1.7.2-universal.dmg) Apple Disc Image (.dmg) for macOS.
+Click to [`Download LaraDumps v2.0.0`](https://github.com/laradumps/app/releases/download/v2.0.0/LaraDumps-2.0.0-universal.dmg) Apple Disc Image (.dmg) for macOS.
 
 Once downloaded, open the file and drag & drop the LaraDumps app into your `Applications` folder.
 
@@ -104,7 +91,7 @@ Now, LaraDumps should run just fine!
 Run the command:
 
 ```shell
-composer require laradumps/laradumps 2.x-dev -W --dev
+composer require laradumps/laradumps
 ```
 
 <br/>
@@ -139,10 +126,6 @@ The wizard will guide you through the [configuration options](configuration.md).
 ---
 
 ## Global LaraDumps
-
-::: warning
-Global LaraDumps not currently available
-::: 
 
 **Requirements**: PHP 8.0+
 

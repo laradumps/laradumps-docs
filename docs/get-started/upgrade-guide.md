@@ -7,7 +7,7 @@ If you are using version 1, you are probably using the Laravel framework. For th
 ### 1 - Update dependencies:
 
 ```
-composer require laradumps/laradumps 2.x-dev -W --dev
+composer require laradumps/laradumps --dev
 ```
 
 This will also install the `laradumps/laradumps-core` package as a dependency.
@@ -57,6 +57,7 @@ DS_SEND_JOBS=false
 DS_SEND_CACHE=false
 DS_SEND_COMMANDS=false
 DS_SEND_HTTP=false
+DS_SEND_MAIL=false
 DS_SEND_SCHEDULED_COMMANDS=false
 DS_SEND_GATE=false
 DS_FILE_HANDLER=subl://open?url=file://{filepath}&line={line}

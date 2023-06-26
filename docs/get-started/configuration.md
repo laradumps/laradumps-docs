@@ -154,122 +154,85 @@ DS_AUTO_CLEAR_ON_PAGE_RELOAD=true #enabled
 
 ---
 
-### Preferred IDE
+### IDE Handler
 
 Each dump contains a link to the file and line where the `ds()` was called from.
 
 You may configure your preferred IDE to open this project's files.
 
-To set an IDE, change the `.env` file key `DS_PREFERRED_IDE` to one of the supported IDEs.
+To set an IDE, change the `.env` file key `DS_FILE_HANDLER` to one of the supported IDEs.
 
 ```shell
-DS_PREFERRED_IDE=vscode
+DS_FILE_HANDLER=phpstorm://open?file={filepath}&line={line} 
 ```
 
 Supported IDEs:
 
-| **IDE**                          | **Value**     |
-|----------------------------------|---------------|
-| PHPStorm                         | phpstorm      |
-| Visual Studio Code               | vscode        |
-| Remote Visual Studio Code (WSL2) | vscode_remote |
-| Sublime                          | sublime       |
-| Atom                             | atom          |
+| **IDE**                          | **Value**                                             |
+|----------------------------------|-------------------------------------------------------|
+| PHPStorm                         | phpstorm://open?file={filepath}&line={line}           |
+| Visual Studio Code               | vscode://file/{filepath}:{line}                       |
+| Remote Visual Studio Code (WSL2) | vscode://vscode-remote/                               |
+| Sublime                          | subl://open?url=file://{filepath}&line={line}         |
+| Atom                             | atom://core/open/file?filename={filepath}&line={line} |
 
-You might also edit or add a new IDE handler. The IDEs are defined inside the configuration key `ide_handlers` in the configuration file.
+Value can be customized according to platform and IDE configuration. See below for some example configurations.
 
 #### Docker and VSCode
 
 If you are running Docker and using VSCode, you can configure a new editor handler to properly open files from the Desktop App.
 
-First, open `config/laradumps.php` and add a new entry called `vscode_docker` in the section `ide_handlers`.
+Configure your `.env` to use the handler you have just created:
 
-You should set the key as follows:
-
-```php
-'ide_handlers' => [
-       
-       //other ides...
-
-        'vscode_docker' => [
-            'handler'        => 'vscode://file/',
-            'line_separator' => ':',
-            'remote_path'    => '/Users/jamesbond/Projects/save-the-queen-app', //<============ Path on my machine host
-            'work_dir'       => '/var/www/html'  //<============ Path inside Docker
-        ],
-    ],
- ```
- 
- Now, configure your `.env` to use the handler you have just created:
- 
  ```shell
 DS_APP_HOST=host.docker.internal
 DS_APP_PORT=9191
 # other settings...
-DS_PREFERRED_IDE=vscode_docker #<============ 
+DS_FILE_HANDLER=phpstorm://open?file={filepath}&line={line} #<============ 
+DS_PROJECT_PATH=C:\\dan\\projects\\ #<============ 
 ```
 
-#### Remote VSCode (WSL2)
+#### PHPStorm 
 
-Additional configuration is required for the  `Visual Studio Code WSL2`.
+* MacOS, Windows & Linux
+```shell
+DS_FILE_HANDLER=phpstorm://open?file={filepath}&line={line}
+DS_PROJECT_PATH=C:\\dan\\projects\\
+```
 
-1․ You must set the preferred Linux distro in your project's `.env` file (by default: `Ubuntu20.04LTS`):
+#### VS Code
 
 ```shell
-DS_PREFERRED_WSL_DISTRO=Ubuntu20.04LTS
+DS_FILE_HANDLER=vscode://file/{filepath}:{line}
+DS_PROJECT_PATH=
+```
+
+#### VS Code Docker
+
+* Windows
+
+```shell
+DS_FILE_HANDLER=vscode://file/{filepath}:{line}
+DS_PROJECT_PATH=/Users/dan/projects/my-app/
+```
+
+#### VS Code Remote WSL (custom path)
+
+* Windows
+```shell
+DS_PROJECT_PATH=C:\dan\projects\\
+DS_FILE_HANDLER=vscode://vscode-remote/wsl+Ubuntu{filepath}:{line} // vscode://vscode-remote/wsl+Ubuntu22{filepath}:{line}
+```
+
+* Linux
+```shell
+DS_PROJECT_PATH=/Users/luan.freitas/Documents/project
+DS_FILE_HANDLER=vscode://vscode-remote/wsl+Ubuntu{filepath}:{line}
 ```
 
 ::: tip
-📝 To get your distro name, run the command `wsl -l -v` in your command prompt.
+* To get your distro name, run the command `wsl -l -v` in your command prompt.
+* To get remote path, you can run the `pwd`  command inside your WSL project folder.
 :::
-
-<br/>
-
-2․ Next, you must set the `remote_path` key in your project's `.env` file:
-
-The `remote_path` refers to your project's path in WSL.
-
-```shell
-DS_REMOTE_PATH=/home/$USER/path-to-your-project
-```
-
-::: tip
-> 📝 To get remote path, you can run the `pwd`  command inside your WSL project folder.
-:::
-
-<br/>
-
-3․ Finally, you must set the `work_dir` key in your project's `.env` file (by default: `/var/www/html`):
-
-```shell
-DS_WORKDIR=/var/www/html
-```
-
-<br/>
-
-Here, you can see a full example of how your `.env` file may look like:
-
-```shell
-#...
-DS_PREFERRED_IDE=vscode_remote
-DS_PREFERRED_WSL_DISTRO=Ubuntu
-DS_REMOTE_PATH=/home/jamesbond/Projects/save-the-queen-app
-DS_WORKDIR=/var/www/html
-```
 
 ---
-
-## DS Check
-
-By default, the artisan [ds:check](../debug/deploying-to-production) command is checking the config directory, which will always produce an error.
-
-You must specify which directories you would like to be checked. This configuration is set in the key `ci_check.directories`.
-
-```php
-'ci_check' => [
-    'directories' => [
-        base_path('app'), //checks the app/ directory
-    ],
-    //...
-],
-```
