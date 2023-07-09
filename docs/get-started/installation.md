@@ -23,7 +23,7 @@ Proceed to the installation instructions according to your operating system:
 
 ### **Windows**
 
-Click to [`Download LaraDumps v2.1.1`](https://github.com/laradumps/app/releases/download/v2.1.0/LaraDumps-Setup-2.1.1.exe) installer for Windows.
+Click to [`Download LaraDumps v2.1.1`](https://github.com/laradumps/app/releases/download/v2.1.1/LaraDumps-Setup-2.1.1.exe) installer for Windows.
 
 Once downloaded, open it and proceed with the installer.
 
@@ -46,7 +46,7 @@ Click on `Properties`, navigate to `Permissions` and click `Allow to execute fil
 Alternatively, use the Terminal and run the command below:
 
 ```shell
-chmod u+x ./LaraDumps-2.1.0.AppImage && ./LaraDumps-2.1.0.AppImage
+chmod u+x ./LaraDumps-2.1.1.AppImage && ./LaraDumps-2.1.1.AppImage
 ```
 
 *(These steps might slightly change depending on your Linux distribution).*
