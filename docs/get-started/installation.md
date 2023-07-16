@@ -91,7 +91,7 @@ Now, LaraDumps should run just fine!
 Run the command:
 
 ```shell
-composer require laradumps/laradumps
+composer require laradumps/laradumps --dev
 ```
 
 <br/>
