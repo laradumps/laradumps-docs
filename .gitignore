@@ -5,3 +5,6 @@ node_modules
 docs/.vuepress/dist
 .idea
 .DS_Store
+
+docs/.vitepress/dist
+docs/.vitepress/cache
