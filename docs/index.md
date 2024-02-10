@@ -7,7 +7,7 @@ hero:
   tagline: Welcome to LaraDumps, a friendly app designed to boost your PHP coding and debugging experience.
   
   image:
-    src: /_media/homepage.png
+    src: ./_media/homepage.png
     alt: LaraDumps
 
   actions:
