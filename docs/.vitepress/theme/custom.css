@@ -1,0 +1,10 @@
+:root {
+    --vp-c-brand-1: #fcbf19;
+    --vp-c-brand-2: #fcbf19;
+
+    --vp-button-brand-bg: #fcbf19;
+}
+
+.dark {
+    --vp-button-brand-bg: #fcbf19;
+}

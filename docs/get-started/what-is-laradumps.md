@@ -23,8 +23,8 @@ These are some [debug tools](/debug/usage?id=debug-functions) provided by LaraDu
 
 ## View more
 
-- Youtube video [Como Debugar Aplicações Laravel Daqui Pra Frente](https://www.youtube.com/watch?v=IJqJGvEhqp0) - by Tio Jobs (in Portuguese)
-- Youtube video [Laravel: Debugging de Tus Aplicaciones con LaraDumps](https://www.youtube.com/watch?v=R-5SlKBt72w) - by Code with Luis (in Spanish)
+- YouTube video [Como Debugar Aplicações Laravel Daqui Pra Frente](https://www.youtube.com/watch?v=IJqJGvEhqp0) - by Tio Jobs (in Portuguese)
+- YouTube video [Laravel: Debugging de Tus Aplicaciones con LaraDumps](https://www.youtube.com/watch?v=R-5SlKBt72w) - by Code with Luis (in Spanish)
 
 ## Tech Stack
 

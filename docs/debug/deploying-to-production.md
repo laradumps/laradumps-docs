@@ -40,11 +40,11 @@ Does not require environment variables or configuration files. Only via argument
 stop-on-failure // Stop the search if a match is found
 ```
 
-![Output](/_media/ds_check_error.png)
+![Output](./_media/ds_check_error.png)
 
 If you have not forgotten any `ds()`, your pipeline will be completed successfully.
 
-![Output](/_media/ds_check_success.png)
+![Output](./_media/ds_check_success.png)
 
 ---
 
