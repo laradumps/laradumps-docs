@@ -16,15 +16,22 @@ export default defineConfig({
       },
     ],
     ['meta', { name: 'og:title', content: 'LaraDumps'}],
-    ['meta', { name: 'og:description', content: 'Welcome to LaraDumps, a friendly app designed to boost your Laravel PHP coding and debugging experience.'}],
+    ['meta', { name: 'og:description', content: 'Welcome to LaraDumps, a friendly app designed to boost your PHP coding and debugging experience.'}],
     ['meta', { name: 'application-name', content: 'LaraDumps' }],
     ['meta', { name: 'apple-mobile-web-app-title', content: 'LaraDumps' }],
     ['meta', { name: 'apple-mobile-web-app-status-bar-style', content: 'black' }],
     ['meta', { name: 'theme-color', content: '#3eaf7c' }],
   ],
+  markdown: {
+    toc: {
+        level: [2, 2],
+      },
+        anchor: { level: [1, 2, 3] },
+  },
   appearance: 'dark',
   lang: 'en-US',
   themeConfig: {
+    outline: [2, 3],
     logo: '/_media/web_icon.png',
     siteTitle: 'LaraDumps',
     nav: [
