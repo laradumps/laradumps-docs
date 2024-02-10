@@ -12,7 +12,7 @@ export default defineConfig({
         rel: 'icon',
         type: 'image/png',
         sizes: '32x32',
-        href: `/_media/logomark@2x.png`,
+        href: `/_media/web_icon.png`,
       },
     ],
     ['meta', { name: 'og:title', content: 'LaraDumps'}],
@@ -25,7 +25,7 @@ export default defineConfig({
   appearance: 'dark',
   lang: 'en-US',
   themeConfig: {
-    logo: '/_media/logomark@1x.png',
+    logo: '/_media/web_icon.png',
     siteTitle: 'LaraDumps',
     nav: [
       { text: 'Home', link: '/' },
@@ -56,7 +56,7 @@ export default defineConfig({
     ],
 
     socialLinks: [
-      { icon: 'github', link: 'https://github.com/laradumps/laradumps-docs' },
+      { icon: 'github', link: 'https://github.com/laradumps/laradumps' },
       { icon: 'twitter', link: 'https://twitter.com/luanfreitasdev' },
     ],
     footer: {
