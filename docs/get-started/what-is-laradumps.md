@@ -6,6 +6,13 @@ LaraDumps is a friendly app designed to boost your Laravel PHP coding and debugg
 
 When using LaraDumps, you can see the result of your debug displayed in a standalone Desktop Application.
 
+```php
+ds($this);
+
+ds('Hello !');
+
+```
+
 ![Output](/_media/app_homepage.png)
 
 These are some [debug tools](/debug/usage?id=debug-functions) provided by LaraDumps:
@@ -25,13 +32,14 @@ These are some [debug tools](/debug/usage?id=debug-functions) provided by LaraDu
 
 - YouTube video [Como Debugar Aplicações Laravel Daqui Pra Frente](https://www.youtube.com/watch?v=IJqJGvEhqp0) - by Tio Jobs (in Portuguese)
 - YouTube video [Laravel: Debugging de Tus Aplicaciones con LaraDumps](https://www.youtube.com/watch?v=R-5SlKBt72w) - by Code with Luis (in Spanish)
-
+- YouTube video [Un super outil GRATUIT pour débugger vos applications Laravel !](https://www.youtube.com/watch?v=Go55pP5rIgY&t=10s&pp=ygUJbGFyYWR1bXBz) - by Laravel Jutsu
+- 
 ## Tech Stack
 
 - PHP & Laravel
 - Electron
 - Vue 3
-- Tailwind CSS
+- [Tailwind CSS](https://tailwindcss.com/) / [daisyUI](https://daisyui.com/)
 
 ## Credits
 

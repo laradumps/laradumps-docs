@@ -84,14 +84,14 @@ Now, LaraDumps should run just fine!
 
 ## Laravel Package
 
-**Requirements**: PHP 8.0+ and Laravel 8.75+
+**Requirements**: PHP 8.10+ and Laravel 9+
 
 1․ Install LaraDumps Package in your Laravel project using [Composer](https://getcomposer.org).
 
 Run the command:
 
 ```shell
-composer require laradumps/laradumps --dev
+composer require laradumps/laradumps --dev -W
 ```
 
 <br/>
@@ -99,12 +99,12 @@ composer require laradumps/laradumps --dev
 2․ Now, configure LaraDumps. Run the command below:
 
 ```shell
-vendor/bin/laradumps configure
+php artisan ds:init $(pwd)
 ```
 
 ## Agnostic PHP Framework
 
-**Requirements**: PHP 8.0+
+**Requirements**: PHP 8.1+
 
 1․ Install LaraDumps Package in your PHP project using [Composer](https://getcomposer.org).
 
@@ -119,7 +119,7 @@ composer require laradumps/laradumps-core --dev
 2․ Now, configure LaraDumps. Run the command below:
 
 ```shell
-vendor/bin/laradumps configure
+vendor/bin/laradumps init $(pwd)
 ```
 The wizard will guide you through the [configuration options](configuration.md).
 
@@ -127,7 +127,7 @@ The wizard will guide you through the [configuration options](configuration.md).
 
 ## Global LaraDumps
 
-**Requirements**: PHP 8.0+
+**Requirements**: PHP 8.1+
 
 1․ You can install the global LaraDumps via [Composer](https://getcomposer.org).
 

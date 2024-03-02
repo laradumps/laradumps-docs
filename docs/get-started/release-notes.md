@@ -1,34 +1,29 @@
 # Release Notes
 
-### LaraDumps v2 is now available!
+### LaraDumps v3 is now available!
 
-### New App made in Vue 3
+### New
+* UI made with [daisyUI](https://daisyui.com/)
 
-The first version of LaraDumps was developed using Javascript and AlpineJS, this made it difficult to maintain for new features and also for updating external libraries. 
+* Multi Themes - Now, with built-in integration with daisyui, it's easier to create or add new themes for laradumps!
+  * Themes are easily changed through the menu in the "[Themes](https://daisyui.com/docs/themes/)" app. Currently 7 main themes have been added (**Light, Dark, Dracula, Dim, Retro, Halloween, and Cyberpunk**).
 
-Because of this, it was necessary to rewrite it with Vue 3, typescript, and Vite allowing greater support to the open-source community.
+![Output](/_media/upgrade-guide-v3/themes.png)
 
-#### What's new?
+*   Desktop app settings have been migrated to the menu, enabling faster and more efficient maintenance.
 
-* Made with Vue 3
-* Framework Agnostic PHP
-* Screen Cleaner
-* Global shortcuts (clear all, dark mode, always on top, toggle menu)
-* Multi-Language
-* Global Composer
-* Filter by color
-* Load environment using Desktop App
-* Global search
-* Time duration in query payload
+![Output](/_media/upgrade-guide-v3/settings.png)
 
-### PHP package
+* New listener switcher button at the top of the menu
+  * In version 2, you added a project using the `/vendor/bin/laradumps configure` command, but this is no longer necessary,
+  * because in version v3 the `laradumps` and `laradumps-core` packages do not read beyond the .env file. To do this you need to run the
+  * `/vendor/bin/laradumps init` command and a `laradumps.yaml` file will be generated in the root of your package.
+  * When you do your first `ds()`, a new project will be automatically added to the desktop app, and the settings that
+  * can be changed (laravel queries, jobs, mail for example) will be changed by the app in the "Signal" icon
 
-In this release, all the core resources that are needed to debug anything in PHP have been extracted into another repository [laradumps/laradumps-core](https://github.com/laradumps/laradumps-core). 
+![Output](/_media/upgrade-guide-v3/listener.png)
 
-This allows running `laradumps-core` on any system that uses PHP 8.0 without a framework!
+* Reorder, privacy mode, and saved dumps are migrated to the menu
+* IDE Handler switcher without menu
 
-::: tip
-Now, `laradumps/laradumps` makes use of `laradumps/laradumps-core`, but with some features unique to working in the Laravel Framework (Queries, Logs, Commands, Cache, etc).
-
-With `laradumps-core`, we also can install it globally (this will come in the future).
-:::
+![Output](/_media/upgrade-guide-v3/IDE.png)

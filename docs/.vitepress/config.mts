@@ -54,11 +54,12 @@ export default defineConfig({
         text: 'Debugging',
         items: [
           { text: 'Usage', link: '/debug/usage.md' },
+          { text: 'Laravel', link: '/debug/laravel.md' },
           { text: 'Testing environment', link: '/debug/testing-environment.md' },
           { text: 'Deploying to production', link: '/debug/deploying-to-production.md' },
           { text: 'Reference sheet', link: '/debug/reference-sheet.md' },
         ],
-        collapsed: false
+        collapsed: true
       },
     ],
 
