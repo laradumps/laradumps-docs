@@ -84,14 +84,14 @@ Now, LaraDumps should run just fine!
 
 ## Laravel Package
 
-**Requirements**: PHP 8.10+ and Laravel 9+
+**Requirements**: PHP 8.1+ and Laravel 10+
 
 1․ Install LaraDumps Package in your Laravel project using [Composer](https://getcomposer.org).
 
 Run the command:
 
 ```shell
-composer require laradumps/laradumps --dev -W
+composer require laradumps/laradumps ^3.0 --dev -W
 ```
 
 <br/>
@@ -102,6 +102,43 @@ composer require laradumps/laradumps --dev -W
 php artisan ds:init $(pwd)
 ```
 
+This command will generate a file called laradumps.yaml in the root of your project that looks like this:
+
+::: warning
+This file is important for correct communication between the desktop app and the Laravel or PHP project.
+If your project_path is empty, you must manually add your project's `$(pwd)` to `app.project_path`
+:::
+
+```yaml
+app:
+  primary_host: 127.0.0.1
+  secondary_host: host.docker.internal
+  port: 9191
+  workdir: /var/www/html/
+  project_path: /your-project-path-here/
+config:
+  sleep: 0
+  color_in_screen: false
+  docker: false
+observers:
+  dump: false
+  auto_invoke_app: false
+  queries: false
+  mail: false
+  logs_applications: false
+  logs_vendor: false
+  logs_deprecated: false
+  http_client_requests: false
+  http: false
+  jobs: false
+  commands: false
+  scheduled_commands: false
+  gate: false
+  auto_clear_on_page_reload: false
+```
+
+> See full information in [configuration options](configuration.md).
+
 ## Agnostic PHP Framework
 
 **Requirements**: PHP 8.1+
@@ -111,7 +148,7 @@ php artisan ds:init $(pwd)
 Run the command:
 
 ```shell
-composer require laradumps/laradumps-core --dev
+composer require laradumps/laradumps-core ^2.0 --dev
 ```
 
 <br/>
@@ -121,7 +158,25 @@ composer require laradumps/laradumps-core --dev
 ```shell
 vendor/bin/laradumps init $(pwd)
 ```
-The wizard will guide you through the [configuration options](configuration.md).
+
+::: info
+Similar to Laravel step, a `laradumps.yaml` file will be generated here without the "`observers`" key, which is specific to Laravel.
+:::
+
+```yaml
+app:
+  primary_host: 127.0.0.1
+  secondary_host: host.docker.internal
+  port: 9191
+  workdir: /var/www/html/
+  project_path: /your-project-path-here/
+config:
+  sleep: 0
+  color_in_screen: false
+  docker: false
+```
+
+> See full information in [configuration options](configuration.md).
 
 ---
 

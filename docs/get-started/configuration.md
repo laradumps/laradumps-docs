@@ -1,10 +1,19 @@
 # Configuration
 
-The LaraDumps configuration is stored directly in your project's .env file.
+After running the initial configuration command shown in the previous step. 
+You will notice that your project will be shown as in the image below, observing the “**signal**” icon.
 
-You can run `vendor/bin/laradumps init $(pwd)` to configure the project with the desktop application.
+By clicking on the signal icon, you will be able to see all your projects, toggle the settings, and also remove them.
 
-Or if you've already done that, you can simply go to "**Settings**" in the application or change the variable by .env
+![Output](/_media/config-example.gif)
+
+::: warning
+
+The settings may change depending on the update of the PHP or Laravel package. 
+
+**Always have the latest versions installed to ensure compatibility between desktop apps**
+
+:::
 
 ---
 
@@ -12,9 +21,9 @@ Or if you've already done that, you can simply go to "**Settings**" in the appli
 
 LaraDumps options and their respective configurations are detailed in this section.
 
-### App Host
+### app.primary_host
 
-Desktop App Host. Your Laravel project will send Dumps to this address.
+Desktop App Host. Your PHP/Laravel project will send Dumps to this address.
 
 You can configure the host in your `laradumps.yaml` file, under the key `app.primary_host`.
 
@@ -34,6 +43,18 @@ You may configure a custom host value, if needed.
 | Homestead with VirtualBox   | 10.211.55.2          |
 | Homestead with Parallels    | 10.211.55.2          |
 | Wsl Host                    | WSL IP (read below)  |
+
+### app.secondary_host
+
+As a direct alternative, the secondary host can already be configured if you wish to have more than one pre-defined host, such as a "docker connection" using `host.docker.internal`
+
+```yaml
+app:
+  primary_host: 127.0.0.1
+  secondary_host: host.docker.internal // [!code ++]
+```
+
+---
 
 #### Docker and Linux
 
@@ -73,7 +94,7 @@ Ethernet adapter vEthernet (WSL):
 
 Scroll down to the `Ethernet adapter vEthernet (WSL)` section, disregard other adapters.
 
-Now, add the IP address from this section in your `DS_APP_HOST` in your `laradumps.yaml` file.
+Now, add the IP address from this section in your `app.primary_host` or `app.secondary_host` in your `laradumps.yaml` file.
 
 For example:
 
@@ -99,56 +120,14 @@ observers:
 
 ---
 
-#### Docker and VSCode
-
-If you are running Docker and using VSCode, you can configure a new editor handler to properly open files from the Desktop App.
-
-Configure your `.env` to use the handler you have just created:
-
- ```shell
-DS_APP_HOST=host.docker.internal
-DS_APP_PORT=9191
-# other settings...
-DS_FILE_HANDLER=phpstorm://open?file={filepath}&line={line} #<============ 
-DS_PROJECT_PATH=C:\\dan\\projects\\ #<============ 
-```
-
-#### PHPStorm 
-
-* MacOS, Windows & Linux
-```shell
-DS_FILE_HANDLER=phpstorm://open?file={filepath}&line={line}
-DS_PROJECT_PATH=C:\\dan\\projects\\
-```
-
-#### VS Code
-
-```shell
-DS_FILE_HANDLER=vscode://file/{filepath}:{line}
-DS_PROJECT_PATH=
-```
-
-#### VS Code Docker
-
-* Windows
-
-```shell
-DS_FILE_HANDLER=vscode://file/{filepath}:{line}
-DS_PROJECT_PATH=/Users/dan/projects/my-app/
-```
-
 #### VS Code Remote WSL (custom path)
 
 * Windows
-```shell
-DS_PROJECT_PATH=C:\dan\projects\\
-DS_FILE_HANDLER=vscode://vscode-remote/wsl+Ubuntu{filepath}:{line} // vscode://vscode-remote/wsl+Ubuntu22{filepath}:{line}
-```
 
-* Linux
-```shell
-DS_PROJECT_PATH=/Users/luan.freitas/Documents/project
-DS_FILE_HANDLER=vscode://vscode-remote/wsl+Ubuntu{filepath}:{line}
+```yaml
+app:
+  project_path: C:\dan\projects\\
+  wsl_config: wsl+Ubuntu
 ```
 
 ::: tip

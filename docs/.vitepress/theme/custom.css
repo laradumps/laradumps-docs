@@ -1,10 +1,24 @@
 :root {
-    --vp-c-brand-1: #fcbf19;
-    --vp-c-brand-2: #fcbf19;
+    --vp-c-brand-1: #fdbe17;
+    --vp-c-brand-2: #fdbe17;
 
-    --vp-button-brand-bg: #fcbf19;
+    --vp-button-brand-bg: #fdbe17;
 }
 
 .dark {
-    --vp-button-brand-bg: #fcbf19;
+    --vp-button-brand-bg: #fdbe17;
+}
+
+.dark .vp-doc :not(pre) > code {
+    color: white;
+    font-weight: bold;
+    text-decoration: none !important;
+    border: 1px solid dimgray;
+}
+
+.vp-doc :not(pre) > code {
+    color: black;
+    font-weight: bold;
+    text-decoration: none !important;
+    border: 1px solid #e5e3e3;
 }
