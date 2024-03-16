@@ -87,18 +87,16 @@ config:
   docker: false
 observers:
   dump: false
-  auto_invoke_app: false
+  original_dump: false
   queries: false
-  mail: true
+  mail: false
   logs_applications: false
   logs_vendor: false
   logs_deprecated: false
-  http_client_requests: false
   http: false
   jobs: false
   commands: false
   scheduled_commands: false
   gate: false
-  auto_clear_on_page_reload: false
-
+  cache: false
 ```

@@ -46,14 +46,14 @@ Click on `Properties`, navigate to `Permissions` and click `Allow to execute fil
 Alternatively, use the Terminal and run the command below:
 
 ```shell
-chmod u+x ./LaraDumps-2.4.3.AppImage && ./LaraDumps-2.4.3.AppImage
+chmod u+x ./LaraDumps-3.0.0.AppImage && ./LaraDumps-3.0.0.AppImage
 ```
 
 *(These steps might slightly change depending on your Linux distribution).*
 
 ### **macOS**
 
-Click to [`Download LaraDumps v2.4.3`](https://github.com/laradumps/app/releases/download/v2.4.3/LaraDumps-2.4.3-universal.dmg) Apple Disc Image (.dmg) for macOS.
+Click to [`Download LaraDumps v3.0.0`](https://github.com/laradumps/app/releases/download/v3.0.0/LaraDumps-3.0.0-universal.dmg) Apple Disc Image (.dmg) for macOS.
 
 Once downloaded, open the file and drag & drop the LaraDumps app into your `Applications` folder.
 
@@ -102,7 +102,7 @@ composer require laradumps/laradumps ^3.0 --dev -W
 php artisan ds:init $(pwd)
 ```
 
-This command will generate a file called laradumps.yaml in the root of your project that looks like this:
+This command will generate a file called `laradumps.yaml` in the root of your project that looks like this:
 
 ::: warning
 This file is important for correct communication between the desktop app and the Laravel or PHP project.
@@ -122,19 +122,18 @@ config:
   docker: false
 observers:
   dump: false
-  auto_invoke_app: false
+  original_dump: false
   queries: false
   mail: false
   logs_applications: false
   logs_vendor: false
   logs_deprecated: false
-  http_client_requests: false
   http: false
   jobs: false
   commands: false
   scheduled_commands: false
   gate: false
-  auto_clear_on_page_reload: false
+  cache: false
 ```
 
 > See full information in [configuration options](configuration.md).

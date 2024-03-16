@@ -1,6 +1,6 @@
 {
   "name": "laradumps-doc",
-  "version": "2.0.0",
+  "version": "3.0.0",
   "main": "index.js",
   "license": "MIT",
   "scripts": {
@@ -9,6 +9,6 @@
     "docs:preview": "vitepress preview docs"
   },
   "devDependencies": {
-    "vitepress": "^1.0.0-rc.44"
+    "vitepress": "^1.0.0-rc.45"
   }
 }
