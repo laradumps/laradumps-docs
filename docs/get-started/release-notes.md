@@ -39,7 +39,14 @@
 
 #### LaraDumps for Laravel
 Repo: https://github.com/laradumps/laradumps
-* Command: `php artisan ds:init $(pwd)`
+
+* Command: `php artisan ds:init $(pwd)` 
+* New Observer: **dump**
+
+  >  You can use LaraDumps to listen to `dump()` and `dd()`. Change this in **laradumps.yaml** in `observers.dump` or through the app
+* Improves: **Log Context**
+
+  > In Laravel 11 [Log Context](https://laravel.com/docs/11.x/context) was added and this was supported
 
 #### LaraDumps for PHP
 Repo: https://github.com/laradumps/laradumps-core
