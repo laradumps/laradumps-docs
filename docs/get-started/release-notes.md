@@ -2,28 +2,46 @@
 
 ### LaraDumps v3 is now available!
 
-### New
-* UI made with [daisyUI](https://daisyui.com/)
+### New in LaraDumps App
 
-* Multi Themes - Now, with built-in integration with daisyui, it's easier to create or add new themes for laradumps!
-  * Themes are easily changed through the menu in the "[Themes](https://daisyui.com/docs/themes/)" app. Currently 7 main themes have been added (**Light, Dark, Dracula, Dim, Retro, Halloween, and Cyberpunk**).
+🌼 **UI made with** [daisyUI](https://daisyui.com/)
 
-![Output](/_media/upgrade-guide-v3/themes.png)
+🎨 **Multi Themes** - Now, with built-in integration with daisyui, it's easier to create or add new themes for laradumps!
+  
+  > Themes are easily changed through the menu in the "[Themes](https://daisyui.com/docs/themes/)" app. _Currently, 8 main themes have been added_ (**Light, Dark, Dracula, Dim, Retro, Halloween, Cyberpunk and Laravel**).
 
-*   Desktop app settings have been migrated to the menu, enabling faster and more efficient maintenance.
+✨ **Switcher project at the top of the menu**
+  > The `/vendor/bin/laradumps configure` command has been deprecated and replaced with ds:init.
+  
+  > If you are on Laravel: `php artisan ds:init $(pwd)`
 
-![Output](/_media/upgrade-guide-v3/settings.png)
+  > If you are on PHP without Laravel: /vendor/bin/laradumps init $(pwd). Read more.
+  
+---
 
-* New listener switcher button at the top of the menu
-  * In version 2, you added a project using the `/vendor/bin/laradumps configure` command, but this is no longer necessary,
-  * because in version v3 the `laradumps` and `laradumps-core` packages do not read beyond the .env file. To do this you need to run the
-  * `/vendor/bin/laradumps init` command and a `laradumps.yaml` file will be generated in the root of your package.
-  * When you do your first `ds()`, a new project will be automatically added to the desktop app, and the settings that
-  * can be changed (laravel queries, jobs, mail for example) will be changed by the app in the "Signal" icon
+🧩 **Menu Updates**
 
-![Output](/_media/upgrade-guide-v3/listener.png)
+ > Added to main menu: 
+    > Auto Launch, Language, Shortcuts Reorder, Saved Dumps, Themes, IDE,
 
-* Reorder, privacy mode, and saved dumps are migrated to the menu
-* IDE Handler switcher without menu
+💻 **Auto Launch**
 
-![Output](/_media/upgrade-guide-v3/IDE.png)
+ > Start LaraDumps at your computer's login. (windows and mac)
+
+🔗 **Menu IDE Handler**
+
+> In version 2, the IDE Handler configuration was in the PHP backend. 
+> Now you can change the IDE without losing your dumps!
+
+### New in LaraDumps PHP Packages
+
+---
+
+#### LaraDumps for Laravel
+Repo: https://github.com/laradumps/laradumps
+* Command: `php artisan ds:init $(pwd)`
+
+#### LaraDumps for PHP
+Repo: https://github.com/laradumps/laradumps-core
+
+* Command: `/vendor/bin/laradumps init $(pwd)`
