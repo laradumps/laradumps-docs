@@ -21,6 +21,8 @@ Route::get('/', function () {
 
 Now, access your home-page, and you will see the debug dump in the Desktop App:
 
+![Output](/_media/app_first_example.png)
+
 ::: tip
 💡 **Trivia**: The "ds()" function is based on the first and last letters of the word **d**ump**s**, and it is conveniently similar to "dd()". This is not a coincidence! Easy to switch!
 :::
@@ -48,6 +50,9 @@ ds($myString, $myArray, $myBoolean);
 ```
 
 This function is similar to Laravel's `dump()` and it will not stop the code execution.
+
+![Output](/_media/app_second_example.png)
+
 
 ---
 
@@ -126,24 +131,6 @@ ds('custom value')->s('Custom screen');
 
 ```
 
-To save time, numbered screens can be targeted using aliases:
-
-```php
-ds('this is screen 1');
-
-ds2('this is screen 2');
-
-ds3('this is screen 3');
-
-ds4('this is screen 4');
-
-ds5('this is screen 5');
-```
-
-::: tip
-📌 Click on the [pin](/get-started/desktop-app) icon to permanently focus a screen and keep its dumps when [clearing all screens](/debug/usage?id=clear-screens).
-:::
-
 ---
 
 ### Clear Screens
@@ -164,23 +151,19 @@ ds()->clear();
 
 ### Color Tag
 
-You can use the `color()` method to mark a dump with a predefined color or provide a provided Tailwind color.
-
-Read more about Tailwind color palette [here](https://tailwindcss.com/docs/customizing-colors#default-color-palette).
+You can use the `color()` method to mark a dump with a predefined color.
 
 ```php
-ds('Info: Just FYI')->info();
+ds('Info: Just FYI')->info(); // or ->blue()
 
-ds('Success: IT WORKS!')->success();
+ds('Success: IT WORKS!')->success(); // or ->green()
 
-ds('Danger: ERROR!!!')->danger();
+ds('Danger: ERROR!!!')->danger(); // or ->red()
 
-ds('Warning: Something is not right!')->warning();
+ds('Warning: Something is not right!')->warning(); // or ->orange()
 
-ds('Dark: The Dark Side of the Moon')->dark();
+ds('Dark: The Dark Side of the Moon')->dark(); // or ->black()
 
-//A custom color
-ds('Tailwind Custom Color!')->color('border-violet-500');
 ```
 
 ---
@@ -206,7 +189,7 @@ ds()->stopTime('my count');
 
 * Only available for [laradumps/laradumps](https://github.com/laradumps/laradumps)
 
-You can use the `model()` method to view [Eloquent Model's](https://laravel.com/docs/9.x/eloquent#introduction) Attributes and Relationships.
+You can use the `model()` method to view [Eloquent Model's](https://laravel.com/docs/eloquent#introduction) Attributes and Relationships.
 
 ```php
 use App\Models\User;
@@ -232,7 +215,7 @@ $allUsers = [
         //...
 ];
 
-// Using Elloquent
+// Using Eloquent
 $allUsers = User::all(['id', 'name', 'email']);
 
 ds()->table($allUsers, 'my users table');

@@ -23,7 +23,7 @@ Proceed to the installation instructions according to your operating system:
 
 ### **Windows**
 
-Click to [`Download LaraDumps v2.4.3`](https://github.com/laradumps/app/releases/download/v2.4.3/LaraDumps-Setup-2.4.3.exe) installer for Windows.
+Click to [`Download LaraDumps v3.0.0`](https://github.com/laradumps/app/releases/download/v3.0.0/LaraDumps-Setup-3.0.0.exe) installer for Windows.
 
 Once downloaded, open it and proceed with the installer.
 
@@ -33,11 +33,15 @@ Once downloaded, open it and proceed with the installer.
 
 Download from [https://snapcraft.io/laradumps](https://snapcraft.io/laradumps)
 
+```bash
+sudo snap install laradumps
+```
+
 #### AppImage
 
 Download the latest application image `LaraDumps-x.x.x.AppImage` from [GitHub](https://github.com/laradumps/app/releases).
 
-Click to [`Download LaraDumps v2.4.3`](https://github.com/laradumps/app/releases/download/v2.4.3/LaraDumps-2.4.3.AppImage) application image for Linux.
+Click to [`Download LaraDumps v3.0.0`](https://github.com/laradumps/app/releases/download/v3.0.0/LaraDumps-3.0.0.AppImage) application image for Linux.
 
 Once downloaded, assign **execution permission** to the file:
 
@@ -80,8 +84,6 @@ To `authorize LaraDumps` to run, follow these steps:
 Now, LaraDumps should run just fine!
 
 <!--EndOfLaraDumpsVersion-->
----
-
 ## Laravel Package
 
 **Requirements**: PHP 8.1+ and Laravel 10+

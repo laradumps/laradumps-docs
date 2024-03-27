@@ -13,9 +13,7 @@ composer require laradumps/laradumps --dev -W
 
 ### Logs
 
-The Desktop App will receive and dump [Laravel Logs](https://laravel.com/docs/9.x/logging) entries whenever you enable the [Log](/get-started/configuration?id=laravel-logs) feature.
-
-LaraDumps also provides a one-click internet search on Error Log messages. This is very convenient for exceptions and general error messages.
+The Desktop App will receive and dump [Laravel Logs](https://laravel.com/docs/logging) entries whenever you enable the [Log](/get-started/configuration?id=laravel-logs) feature.
 
 ```php
 use Illuminate\Support\Facades\Log;
@@ -25,14 +23,19 @@ Log::info('Your message', ['0' => 'Your Context']);
 Log::error('Your message', ['0' => 'Your Context']);
 ```
 
+::: info
+**To Listen globally:**
+
+* In Desktop App, choose your project and toggle: **LOGS**, or set `observers.logs` : `true` in **laradumps.yaml**
+:::
+
+> Laravel 11 [Log Context](https://laravel.com/docs/11.x/context) was supported
+
 ---
 
 ### Queries
 
-
 To debug SQL queries, you must place the database call within the `queriesOn()` and `queriesOff()` methods.
-
-You are required to enable [SQL Query Listening](/get-started/configuration?id=sql-queries) for this feature to work properly.
 
 For example:
 
@@ -41,10 +44,18 @@ use App\Models\User;
 
 ds()->queriesOn('checking a user query');
 
-    User::query()->where('id', 20)->get();
+User::query()->where('id', 20)->get();
 
 ds()->queriesOff();
 ```
+
+![Output](/_media/app_queries_example.png)
+
+::: info
+**To Listen globally:**
+
+* In Desktop App, choose your project and toggle: **QUERIES**, or set `observers.queries` : `true` in **laradumps.yaml**
+:::
 
 #### Query Macro
 
@@ -74,6 +85,14 @@ Displays mail details and the HTML preview for an instance of a `Illuminate\Mail
 ds()->mailable(new \App\Mail\TestMail());
 ```
 
+::: info
+**To Listen globally:**
+
+* In Desktop App, choose your project and toggle: **MAIL**, or set `observers.mail` : `true` in **laradumps.yaml**
+:::
+
+---
+
 ### HTTP Requests
 
 Captures and displays all the properties of HTTP Requests within the `httpOn()` and `httpOff()` methods.
@@ -85,6 +104,12 @@ ds()->httpOn();
     Http::get('https://jsonplaceholder.typicode.com/todos/1');
 ds()->httpOff();
 ```
+
+::: info
+**To Listen globally:**
+
+* In Desktop App, choose your project and toggle: **HTTP**, or set `observers.http` : `true` in **laradumps.yaml**
+:::
 
 ---
 
@@ -101,11 +126,17 @@ ds()->commandsOff();
 
 ```
 
+::: info
+**To Listen globally:**
+
+* In Desktop App, choose your project and toggle: **COMMANDS**, or set `observers.commands` : `true` in **laradumps.yaml**
+:::
+
 ---
 
 ### Jobs
 
-Captures and displays all information of Jobs ran within the `showJob()` and `stopShowingJob()` methods.
+Captures and displays all information of Jobs ran within the `jobsOn()` and `jobsOff()` methods.
 
 ```php
 ds()->jobsOn('Optional-Label');
@@ -113,11 +144,17 @@ ds()->jobsOn('Optional-Label');
 ds()->jobsOff();
 ```
 
+::: info
+**To Listen globally:**
+
+* In Desktop App, choose your project and toggle: **JOBS**, or set `observers.jobs` : `true` in **laradumps.yaml**
+:::
+
 ---
 
 ### Cache
 
-Captures and displays [Cache](https://laravel.com/docs/9.x/cache#introduction) information loaded within the `cacheOn()` and `cacheOff()` methods.
+Captures and displays [Cache](https://laravel.com/docs/cache#introduction) information loaded within the `cacheOn()` and `cacheOff()` methods.
 
 ```php
 ds()->cacheOn('My cache');
@@ -141,11 +178,17 @@ ds()->cacheOn('My cache');
 ds()->cacheOff();
 ```
 
+::: info
+**To Listen globally:**
+
+* In Desktop App, choose your project and toggle: **CACHE**, or set `observers.cache` : `true` in **laradumps.yaml**
+:::
+
 ---
 
 ### Stringable Macro
 
-Displays the current string in a [Stringable Macro](https://laravel.com/docs/9.x/helpers#strings-method-list)
+Displays the current string in a [Stringable Macro](https://laravel.com/docs/helpers#strings-method-list)
 
 ```php
 use Illuminate\Support\Str;
@@ -159,7 +202,7 @@ Str::of('Hello')
 
 ### Collection Macro
 
-Displays the current state of a [Collection Macro](https://laravel.com/docs/9.x/collections#main-content)
+Displays the current state of a [Collection Macro](https://laravel.com/docs/collections#main-content)
 
 ```php
 collect(['hello', 'world'])
@@ -179,24 +222,3 @@ You may configure LaraDumps to [exclude](/get-started/configuration?id=routes) s
 ```php
 ds()->routes();
 ```
-
-
-### Auto-Clear
-
-LaraDumps can automatically clear the screen on page reload. You must include the Auto-Clean Blade directive.
-
-```html
-  <!-- Scripts -->
-  @if(app()->environment('local'))
-      @dsAutoClearOnPageReload
-  @endif
-</body>
-```
-
-This feature is disabled by default. To enable it, change the environment key `DS_AUTO_CLEAR_ON_PAGE_RELOAD` to `true`.
-
-```shell
-DS_AUTO_CLEAR_ON_PAGE_RELOAD=true #enabled
-```
-
----

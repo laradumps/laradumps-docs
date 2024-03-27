@@ -22,3 +22,7 @@
     text-decoration: none !important;
     border: 1px solid #e5e3e3;
 }
+
+img {
+    border-radius: 12px;
+}

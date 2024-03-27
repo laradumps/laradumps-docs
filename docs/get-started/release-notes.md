@@ -41,13 +41,18 @@
 Repo: https://github.com/laradumps/laradumps
 
 * Command: `php artisan ds:init $(pwd)` 
-* New Observer: **dump**
+* New Observer: **dump or dd**
 
   >  You can use LaraDumps to listen to `dump()` and `dd()`. Change this in **laradumps.yaml** in `observers.dump` or through the app
+
+* New Observer: **Slow Queries**
+
+> LaraDumps can identify slow queries. Activate this functionality through the app or **laradumps.yaml**, and change the minimum threshold in `slow_queries.threshold_in_ms`
+
 * Improves: **Log Context**
 
   > In Laravel 11 [Log Context](https://laravel.com/docs/11.x/context) was added and this was supported
-
+  
 #### LaraDumps for PHP
 Repo: https://github.com/laradumps/laradumps-core
 
