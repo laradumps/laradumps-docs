@@ -5,7 +5,7 @@ With LaraDumps, you can go right into debugging with minimal effort:
 1. Download the [LaraDumps Desktop App](installation.html?id=desktop-app#desktop-app).
 
 2. Install one of the LaraDumps PHP Packages according to your project stack.
-   * [Laravel Framekwork Package](installation.html?id=desktop-app#laravel-package)
+   * [Laravel Framework Package](installation.html?id=desktop-app#laravel-package)
    * [PHP Agnostic Framework](installation.html?id=desktop-app#agnostic-php-framework)
 
 3. You may also install the Global LaraDumps package to make LaraDumps available in all projects in your computer.
