@@ -64,9 +64,9 @@ brew uninstall laradumps/app/laradump
 
 #### Disk image .dmg
 
-Alternativelly, you can download and install the LaraDumps App using its disk image.
+Alternatively, you can download and install the LaraDumps App using its disk image.
 
-[Download latest version here](https://github.com/laradumps/app/releases/download/v3.7.0/LaraDumps-3.7.0-universal.dmg )
+[Download latest version here](https://github.com/laradumps/app/releases/download/v3.7.1/LaraDumps-3.7.1-universal.dmg )
 
 📝 **NOTE:** If you receive an "application damaged" error, read the section **Running the app** in this page.
 
@@ -80,7 +80,7 @@ Once downloaded, open the file and drag & drop the LaraDumps app into your `Appl
 
 The first time you open LaraDumps, you will receive an alert saying `LaraDumps cannot be opened`.
 
-Don't worry! This is just because the app code is not signed with Apple. LaraDumps is not a malicious software and all code is open-source.
+Don't worry! This is just because the app code is not signed with Apple. LaraDumps is not malicious software and all code is open-source.
 
 To `authorize LaraDumps` to run, follow these steps:
 
@@ -112,7 +112,7 @@ sudo snap install laradumps
 
 ### AppImage
 
-[Download latest version here](https://github.com/laradumps/app/releases/download/v3.7.0/LaraDumps-3.7.0.AppImage)
+[Download latest version here](https://github.com/laradumps/app/releases/download/v3.7.1/LaraDumps-3.7.1.AppImage)
 
 Download the latest application image `LaraDumps-x.x.x.AppImage` from [GitHub](https://github.com/laradumps/app/releases).
 
@@ -123,7 +123,7 @@ Click on `Properties`, navigate to `Permissions` and click `Allow to execute fil
 Alternatively, use the Terminal and run the command below:
 
 ```shell
-chmod u+x ./LaraDumps-3.7.0.AppImage && ./LaraDumps-3.7.0.AppImage
+chmod u+x ./LaraDumps-3.7.1.AppImage && ./LaraDumps-3.7.1.AppImage
 ```
 
 *(These steps might slightly change depending on your Linux distribution).*
@@ -132,7 +132,7 @@ chmod u+x ./LaraDumps-3.7.0.AppImage && ./LaraDumps-3.7.0.AppImage
 
 ### Windows
 
-[Download latest version here](https://github.com/laradumps/app/releases/download/v3.7.0/LaraDumps-Setup-3.7.0.exe)
+[Download latest version here](https://github.com/laradumps/app/releases/download/v3.7.1/LaraDumps-Setup-3.7.1.exe)
 
 Once downloaded, open it and proceed with the installer.
 
