@@ -64,7 +64,7 @@ If you are using `Docker` on a `Linux` host, you must perform additional configu
 
 If you are running your project directly from the WSL machine, you must configure LaraDumps with the WSL IP.
 
-This is often the case when running `php artisan server` from inside the WSL machine.
+This is often the case when running `php artisan serve` from inside the WSL machine.
 
 The WSL IP changes every time the computer is restarted, and you must update your project configuration when the IP changes.
 

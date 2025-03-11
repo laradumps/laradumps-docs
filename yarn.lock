@@ -926,7 +926,12 @@ vite@^5.0.0, vite@^5.4.1:
   optionalDependencies:
     fsevents "~2.3.3"
 
-vitepress@^1.3.4:
+vitepress-plugin-tabs@^0.5.0:
+  version "0.5.0"
+  resolved "https://registry.npmjs.org/vitepress-plugin-tabs/-/vitepress-plugin-tabs-0.5.0.tgz"
+  integrity sha512-SIhFWwGsUkTByfc2b279ray/E0Jt8vDTsM1LiHxmCOBAEMmvzIBZSuYYT1DpdDTiS3SuJieBheJkYnwCq/yD9A==
+
+vitepress@^1.0.0-rc.27, vitepress@^1.3.4:
   version "1.3.4"
   resolved "https://registry.npmjs.org/vitepress/-/vitepress-1.3.4.tgz"
   integrity sha512-I1/F6OW1xl3kW4PaIMC6snxjWgf3qfziq2aqsDoFc/Gt41WbcRv++z8zjw8qGRIJ+I4bUW7ZcKFDHHN/jkH9DQ==
@@ -953,7 +958,7 @@ vue-demi@>=0.14.10:
   resolved "https://registry.npmjs.org/vue-demi/-/vue-demi-0.14.10.tgz"
   integrity sha512-nMZBOwuzabUO0nLgIcc6rycZEebF6eeUfaiQx9+WSk8e29IbLvPU9feI6tqW4kTo3hvoYAJkMh8n8D0fuISphg==
 
-"vue@^3.0.0-0 || ^2.6.0", vue@^3.2.25, vue@^3.4.38, vue@3.5.8:
+"vue@^3.0.0-0 || ^2.6.0", vue@^3.2.25, vue@^3.3.8, vue@^3.4.38, vue@3.5.8:
   version "3.5.8"
   resolved "https://registry.npmjs.org/vue/-/vue-3.5.8.tgz"
   integrity sha512-hvuvuCy51nP/1fSRvrrIqTLSvrSyz2Pq+KQ8S8SXCxTWVE0nMaOnSDnSOxV1eYmGfvK7mqiwvd1C59CEEz7dAQ==

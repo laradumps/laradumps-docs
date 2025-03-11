@@ -1,59 +1,59 @@
 # Release Notes
 
-### LaraDumps v3 is now available!
+### LaraDumps v4 is now available!
 
 ### New in LaraDumps App
 
-🌼 **UI made with** [daisyUI](https://daisyui.com/)
+🌼 **UI made with** [daisyUI 5](https://daisyui.com/)
 
-🎨 **Multi Themes** - Now, with built-in integration with daisyui, it's easier to create or add new themes for laradumps!
-  
-  > Themes are easily changed through the menu in the "[Themes](https://daisyui.com/docs/themes/)" app. _Currently, 8 main themes have been added_ (**Light, Dark, Dracula, Dim, Retro, Halloween, Cyberpunk and Laravel**).
+🔥 **XDebug step debugging** - Now you can use XDebug with LaraDumps. Just enable with `xdebug_break()` and see the result in the app.
 
-✨ **Switcher project at the top of the menu**
-  > The `/vendor/bin/laradumps configure` command has been deprecated and replaced with ds:init.
-  
-  > If you are on Laravel: `php artisan ds:init $(pwd)`
+Features:
 
-  > If you are on PHP without Laravel: /vendor/bin/laradumps init $(pwd). Read more.
-  
----
+* Run
+* Step over
+* Step into
+* Stop
+* Evaluate expression
 
-🧩 **Menu Updates**
-
- > Added to main menu: 
-    > Auto Launch, Language, Shortcuts Reorder, Saved Dumps, Themes, IDE,
-
-💻 **Auto Launch**
-
- > Start LaraDumps at your computer's login. (windows and mac)
-
-🔗 **Menu IDE Handler**
-
-> In version 2, the IDE Handler configuration was in the PHP backend. 
-> Now you can change the IDE without losing your dumps!
-
-### New in LaraDumps PHP Packages
+![Output](/_media/xdebug.png)
 
 ---
 
-#### LaraDumps for Laravel
-Repo: https://github.com/laradumps/laradumps
+🎨 **Custom Themes** - You can create your own themes and share them with the community.
 
-* Command: `php artisan ds:init $(pwd)` 
-* New Observer: **dump or dd**
+![Output](/_media/custom-theme.png)
 
-  >  You can use LaraDumps to listen to `dump()` and `dd()`. Change this in **laradumps.yaml** in `observers.dump` or through the app
+---
 
-* New Observer: **Slow Queries**
+🔥 **New Queries, Mail, Logs and Jobs** 
 
-> LaraDumps can identify slow queries. Activate this functionality through the app or **laradumps.yaml**, and change the minimum threshold in `slow_queries.threshold_in_ms`
+**Jobs**
 
-* Improves: **Log Context**
+![Output](/_media/laravel-jobs.png)
 
-  > In Laravel 11 [Log Context](https://laravel.com/docs/11.x/context) was added and this was supported
-  
-#### LaraDumps for PHP
-Repo: https://github.com/laradumps/laradumps-core
+**Logs**
 
-* Command: `/vendor/bin/laradumps init $(pwd)`
+![Output](/_media/laravel-logs.png)
+
+**Queries**
+
+![Output](/_media/laravel-queries.png)
+
+---
+
+🔥 **New Settings Page** 
+
+- **General** - Language, IDE Handler, Check for Updates and auto-launch.
+- **Layout** - Theme, Scroll Direction, Dump order.
+* Now, you can control which buttons are visible on the screen. (show collapse button, show pause button, show ssh button)
+
+---
+
+🔥 **Limited Dumps** 
+
+Now, you can limit the number of dumps displayed on the screen. This is useful when you have a lot of dumps and want to see only the last ones.
+- Limit every dump
+- Limit Laravel Queries
+- Limit Laravel Logs
+- Limit Laravel Jobs

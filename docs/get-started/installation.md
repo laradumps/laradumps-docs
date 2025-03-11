@@ -2,14 +2,16 @@
 
 With LaraDumps, you can go right into debugging with minimal effort:
 
-1 - Download the [LaraDumps Desktop App](installation?id=desktop-app).
+1. Download the [LaraDumps Desktop App](installation.html?id=desktop-app#desktop-app).
 
-2 - Add the LaraDumps PHP Package:
-   * [Agnostic PHP Framework](https://github.com/laradumps/laradumps-core) 
-   * [Laravel Package](https://github.com/laradumps/laradumps)
-   * [Global LaraDumps Package](https://github.com/laradumps/global-laradumps)
+2. Install one of the LaraDumps PHP Packages according to your project stack.
+   * [Laravel Framework Package](installation.html?id=desktop-app#laravel-package)
+   * [PHP Agnostic Framework](installation.html?id=desktop-app#agnostic-php-framework)
 
-3․ Start to [Debug](../debug/usage.html)!
+3. You may also install the Global LaraDumps package to make LaraDumps available in all projects in your computer.
+   * [Global LaraDumps Package](installation.html?id=desktop-app#global-laradumps)
+
+4. Start to [Debuging](debug/usage.html)!
 
 ## Desktop App
 
@@ -17,23 +19,68 @@ LaraDumps Desktop App is available for Windows, Linux and macOS.
 
 Proceed to the installation instructions according to your operating system:
 
-| Operation System                                                                | Download (latest)                                                                                                                      |
-|---------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------|
-| <img src="./../_media/os/macos.png" width="40" alt="LaraDumps macOS App" />     | [dmg](https://github.com/laradumps/app/releases/download/v3.3.7/LaraDumps-3.3.7-universal.dmg)                                         |
-| <img src="./../_media/os/linux.png" width="40" alt="LaraDumps Linux App" />     | [AppImage](https://github.com/laradumps/app/releases/download/v3.3.7/LaraDumps-3.3.7.AppImage), [snap](https://snapcraft.io/laradumps) |
-| <img src="./../_media/os/windows.png" width="40" alt="LaraDumps Windows App" /> | [exe](https://github.com/laradumps/app/releases/download/v3.3.7/LaraDumps-Setup-3.3.7.exe)                                             |
+:::tabs
+== macOS
 
-### macOS
+#### Install via 🍺 Homebrew
+
+1. First, make sure Homebrew it is up to date. Run the following command:
+
+```bash
+brew update
+```
+
+2. Then, add Homebrew LaraDumps tap. Run the following command:
+
+```bash
+brew tap laradumps/app
+```
+
+3. Next, install the LaraDumps app. Run the following command:
+
+```bash
+brew install --cask laradumps/app/laradumps
+```
+
+Now, just open the App!
+
+📝 **NOTE:** If you receive an "application damaged" error, read the section **Running the app** in this page.
 
 ---
 
+To upgrade the app using Homebrew, run:
+
+```bash
+brew upgrade --cask laradumps
+```
+
+To uninstall the app using Homebrew, run:
+
+```bash
+brew uninstall laradumps/app/laradump
+```
+
+---
+
+#### Disk image .dmg
+
+Alternatively, you can download and install the LaraDumps App using its disk image.
+
+[Download latest version here](https://github.com/laradumps/app/releases/download/v4.0.0/LaraDumps-4.0.0-universal.dmg )
+
+📝 **NOTE:** If you receive an "application damaged" error, read the section **Running the app** in this page.
+
+---
+
+#### Running the app
+
 Once downloaded, open the file and drag & drop the LaraDumps app into your `Applications` folder.
 
-#### Authorizing the app
+##### Authorizing the app
 
 The first time you open LaraDumps, you will receive an alert saying `LaraDumps cannot be opened`.
 
-Don't worry! This is just because the app code is not signed with Apple. LaraDumps is not a malicious software and all code is open-source.
+Don't worry! This is just because the app code is not signed with Apple. LaraDumps is not malicious software and all code is open-source.
 
 To `authorize LaraDumps` to run, follow these steps:
 
@@ -51,19 +98,21 @@ To `authorize LaraDumps` to run, follow these steps:
 
 Now, LaraDumps should run just fine!
 
-### **Windows**
+== Linux
 
-Once downloaded, open it and proceed with the installer.
+### Linux
 
-### **Linux**
+#### snapcraft
 
-- Snapcraft
+https://snapcraft.io/laradumps
 
 ```bash
 sudo snap install laradumps
 ```
 
-- AppImage
+### AppImage
+
+[Download latest version here](https://github.com/laradumps/app/releases/download/v4.0.0/LaraDumps-4.0.0.AppImage)
 
 Download the latest application image `LaraDumps-x.x.x.AppImage` from [GitHub](https://github.com/laradumps/app/releases).
 
@@ -74,12 +123,24 @@ Click on `Properties`, navigate to `Permissions` and click `Allow to execute fil
 Alternatively, use the Terminal and run the command below:
 
 ```shell
-chmod u+x ./LaraDumps-3.3.7.AppImage && ./LaraDumps-3.3.7.AppImage
+chmod u+x ./LaraDumps-4.0.0.AppImage && ./LaraDumps-4.0.0.AppImage
 ```
 
 *(These steps might slightly change depending on your Linux distribution).*
 
-## Laravel Package
+== Windows
+
+### Windows
+
+[Download latest version here](https://github.com/laradumps/app/releases/download/v4.0.0/LaraDumps-Setup-4.0.0.exe)
+
+Once downloaded, open it and proceed with the installer.
+
+:::
+
+## PHP Packages
+
+### Laravel Package
 
 **Requirements**: PHP 8.1+ and Laravel 10+
 
@@ -88,7 +149,7 @@ chmod u+x ./LaraDumps-3.3.7.AppImage && ./LaraDumps-3.3.7.AppImage
 Run the command:
 
 ```shell
-composer require laradumps/laradumps ^3.0 --dev -W
+composer require laradumps/laradumps ^4.0 --dev -W
 ```
 
 <br/>
@@ -135,7 +196,7 @@ observers:
 
 > See full information in [configuration options](configuration.md).
 
-## Agnostic PHP Framework
+### Agnostic PHP Framework
 
 **Requirements**: PHP 8.1+
 
@@ -144,7 +205,7 @@ observers:
 Run the command:
 
 ```shell
-composer require laradumps/laradumps-core ^2.0 --dev
+composer require laradumps/laradumps-core ^3.0 --dev
 ```
 
 <br/>
@@ -176,7 +237,7 @@ config:
 
 ---
 
-## Global LaraDumps
+### Global LaraDumps
 
 **Requirements**: PHP 8.1+
 
