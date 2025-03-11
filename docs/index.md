@@ -3,12 +3,12 @@
 layout: home
 
 hero:
-  name: "🚚 LaraDumps" 
+  name: "LaraDumps" 
   tagline: Welcome to LaraDumps, a friendly app designed to boost your PHP coding and debugging experience.
-#  
-#  image:
-#    src: 'https://raw.githubusercontent.com/laradumps/laradumps-docs/2.x/docs/_media/homepage.png'
-#    alt: LaraDumps
+  
+  image:
+    src: '_media/home.png'
+    alt: LaraDumps
 
   actions:
     - theme: brand

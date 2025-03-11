@@ -7,16 +7,16 @@ When connected to a remote server, LaraDumps securely transfers the output of ds
 Install LaraDumps package without --dev
 
 :::tabs
-== Agnostic PHP Framework
-
-```bash
-composer require laradumps/laradumps-core
-```
-
 == Laravel Project
 
 ```bash
 composer require laradumps/laradumps
+```
+
+== Agnostic PHP Framework
+
+```bash
+composer require laradumps/laradumps-core
 ```
 
 :::

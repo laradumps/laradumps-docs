@@ -7,8 +7,6 @@ LaraDumps is a friendly app designed to boost your Laravel PHP coding and debugg
 When using LaraDumps, you can see the result of your debug displayed in a standalone Desktop Application.
 
 ```php
-ds($this);
-
 ds('Hello !');
 
 ```
@@ -39,7 +37,7 @@ These are some [debug tools](/debug/usage?id=debug-functions) provided by LaraDu
 - PHP & Laravel
 - Electron
 - Vue 3
-- [Tailwind CSS](https://tailwindcss.com/) / [daisyUI](https://daisyui.com/)
+- [Tailwind CSS 4](https://tailwindcss.com/) / [daisyUI 5](https://daisyui.com/)
 
 ## Credits
 

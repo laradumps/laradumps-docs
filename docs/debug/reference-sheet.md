@@ -2,7 +2,7 @@
 
 LaraDumps usage reference sheet:
 
-| **Function**                                                        | **Description**                                                                   | ** Package **   |
+| **Function**                                                        | **Description**                                                                   | **Package**     |
 |---------------------------------------------------------------------|-----------------------------------------------------------------------------------|-----------------|
 | ds($var);                                                           | Display a string, array or object                                                 | Any             |
 | ds($var1, $var2);                                                   | Display multiples arguments                                                       | Any             |
@@ -34,7 +34,6 @@ LaraDumps usage reference sheet:
 | ds()->cacheOff();                                                   | Stop capturing Cache.                                                             | Laravel Package |
 | ds()->routes();                                                     | Dumps Laravel Routes in a table format                                            | Laravel Package |
 | ds()->table(Collection $data, $name);                               | Dumps data in a table format                                                      | Any             |
-| ds($var1)->diff($var2);                                             | Checks the difference between two variables                                       | Any             |
 | ds($var)->isJson();                                                 | Validates and display JSON data                                                   | Any             |
 | ds($var)->contains('Text', caseSensitive: false, wholeWord: false); | Search if the `content` contains the given string                                 | Any             |
 | Str::of('hello world')->upper()->ds();                              | Displays the current string in a Stringable macro                                 | Laravel Package |
