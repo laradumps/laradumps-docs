@@ -60,6 +60,7 @@ export default defineConfig({
           { text: 'Usage', link: '/debug/usage.md' },
           { text: 'Laravel', link: '/debug/laravel.md' },
           { text: 'Livewire', link: '/debug/livewire.md' },
+          { text: 'Xdebug', link: '/debug/xdebug.md' },
           { text: 'Remove Servers (SSH)', link: '/debug/ssh.md' },
           { text: 'Deploying to production', link: '/debug/deploying-to-production.md' },
           { text: 'Reference sheet', link: '/debug/reference-sheet.md' },
