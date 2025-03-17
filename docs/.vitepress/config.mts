@@ -36,7 +36,7 @@ export default defineConfig({
   lang: 'en-US',
   themeConfig: {
     outline: [2, 3],
-    logo: '/_media/web_icon.png',
+    logo: 'https://github.com/laradumps/laradumps-docs/blob/4.x/docs/_media/web_icon.png',
     siteTitle: 'LaraDumps',
     nav: [
       { text: 'Home', link: '/' },
