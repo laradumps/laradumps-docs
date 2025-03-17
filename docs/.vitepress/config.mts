@@ -21,7 +21,7 @@ export default defineConfig({
     ['meta', { name: 'application-name', content: 'LaraDumps' }],
     ['meta', { name: 'apple-mobile-web-app-title', content: 'LaraDumps' }],
     ['meta', { name: 'apple-mobile-web-app-status-bar-style', content: 'black' }],
-    ['meta', { name: 'theme-color', content: '#3eaf7c' }],
+    ['meta', { name: 'theme-color', content: '#D4A500' }],
   ],
   markdown: {
     toc: {
@@ -45,25 +45,25 @@ export default defineConfig({
       {
         text: 'Get Started',
         items: [
-          { text: 'What is LaraDumps?', link: '/get-started/what-is-laradumps.md' },
-          { text: 'Release Notes', link: '/get-started/release-notes.md' },
-          { text: 'Upgrade Guide', link: '/get-started/upgrade-guide.md' },
-          { text: 'Installation', link: '/get-started/installation.md' },
-          { text: 'Updating LaraDumps', link: '/get-started/updating-laradumps.md' },
-          { text: 'Configuration', link: '/get-started/configuration.md' },
+          { text: '🚀 What is LaraDumps?', link: '/get-started/what-is-laradumps.md' },
+          { text: '📣 Release Notes', link: '/get-started/release-notes.md' },
+          { text: '⬆️ Upgrade Guide', link: '/get-started/upgrade-guide.md' },
+          { text: '📦 Installation', link: '/get-started/installation.md' },
+          { text: '🔄 Updating LaraDumps', link: '/get-started/updating-laradumps.md' },
+          { text: '⚙️ Configuration', link: '/get-started/configuration.md' },
         ],
         collapsed: false
       },
       {
         text: 'Debugging',
         items: [
-          { text: 'Usage', link: '/debug/usage.md' },
-          { text: 'Laravel', link: '/debug/laravel.md' },
-          { text: 'Livewire', link: '/debug/livewire.md' },
-          { text: 'Xdebug', link: '/debug/xdebug.md' },
-          { text: 'Remove Servers (SSH)', link: '/debug/ssh.md' },
-          { text: 'Deploying to production', link: '/debug/deploying-to-production.md' },
-          { text: 'Reference sheet', link: '/debug/reference-sheet.md' },
+          { text: '📖 Usage', link: '/debug/usage.md' },
+          { text: '⚡ Laravel', link: '/debug/laravel.md' },
+          { text: '🔌 Livewire', link: '/debug/livewire.md' },
+          { text: '🐛 Xdebug', link: '/debug/xdebug.md' },
+          { text: '🔒 Remove Servers (SSH)', link: '/debug/ssh.md' },
+          { text: '🚀 Deploying to production', link: '/debug/deploying-to-production.md' },
+          { text: '📝 Reference sheet', link: '/debug/reference-sheet.md' },
         ],
         collapsed: true
       },
