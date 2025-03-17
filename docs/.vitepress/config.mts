@@ -13,7 +13,7 @@ export default defineConfig({
         rel: 'icon',
         type: 'image/png',
         sizes: '32x32',
-        href: `/_media/web_icon.png`,
+        href: `https://raw.githubusercontent.com/laradumps/laradumps-docs/refs/heads/4.x/docs/_media/web_icon.png`,
       },
     ],
     ['meta', { name: 'og:title', content: 'LaraDumps'}],
@@ -36,7 +36,7 @@ export default defineConfig({
   lang: 'en-US',
   themeConfig: {
     outline: [2, 3],
-    logo: 'https://github.com/laradumps/laradumps-docs/blob/4.x/docs/_media/web_icon.png',
+    logo: 'https://raw.githubusercontent.com/laradumps/laradumps-docs/refs/heads/4.x/docs/_media/web_icon.png',
     siteTitle: 'LaraDumps',
     nav: [
       { text: 'Home', link: '/' },
