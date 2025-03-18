@@ -9,7 +9,6 @@ LaraDumps is primarily designed for [Laravel](https://laravel.com) developers, o
 ```php
 // Laravel-specific features
 ds()->model($user);           // Laravel model inspection with relationships
-ds()->query($users);          // Query debugging with execution time
 ds()->markdown($markdown);    // Preview markdown content
 ds()->routes();               // Routes inspection
 ds()->mailable($welcomeMail); // Preview mailables
