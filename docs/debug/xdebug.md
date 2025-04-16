@@ -13,7 +13,14 @@ xdebug.mode=debug
 xdebug.client_host=127.0.0.1      
 xdebug.client_port=9003
 xdebug.start_with_request=trigger
+xdebug.start_upon_error=no
 ```
+
+## Laravel Herd
+
+::: warning
+If you are using [Laravel Herd](https://herd.laravel.com/docs/macos/debugging/xdebug#enabling-xdebug-manually), you can set `xdebug.start_upon_error=no` and `xdebug.start_with_request=trigger` in Herd's `php.ini` file
+:::
 
 ## Settings
 
