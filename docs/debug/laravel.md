@@ -268,7 +268,7 @@ ds()->routes();
 
 ### Context
 
-Displays the current state of Laravel Context.
+Displays the current state of [Laravel Context](https://laravel.com/docs/context)
 
 * Enable in the desktop app:
   `Settings → Layout tab → Show context (true)`
