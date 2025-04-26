@@ -40,9 +40,7 @@ LaraDumps usage reference sheet:
 | collect(['hello', 'world'])->ds();                                  | Displays the current state of a Collection Macro                                  | Laravel Package |
 | ds()->markdown('# Hi, Anand Pilania!');                             | Displays the markdown rendered as HTML.                                           | Laravel Package |
 | ds()->phpinfo();                                                    | Dumps PHP configuration                                                           | Any             |
-| ds()->coffee();                                                     | ☕ Grab a coffee!                                                                  | Any             |
-| vendor/bin/laradumps configure                                      | LaraDumps configuration wizard                                                    | Any             |
-| vendor/bin/laradumps check                                          | Scan files for ds(); declarations. Useful before sending app to production        | Any             |
+| ds()->withContext();                                                | Display  the current state of Laravel Context                                     | Laravel Package |
 
 
 ---

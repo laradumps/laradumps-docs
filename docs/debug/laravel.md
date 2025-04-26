@@ -265,3 +265,41 @@ You may configure LaraDumps to [exclude](/get-started/configuration?id=routes) s
 ```php
 ds()->routes();
 ```
+
+### Context
+
+Displays the current state of [Laravel Context](https://laravel.com/docs/context)
+
+* Enable in the desktop app:
+  `Settings → Layout tab → Show context (true)`
+* Only available for laradumps/laradumps
+
+#### Basic Usage
+
+```php  
+use Illuminate\Support\Facades\Context;
+
+Context::set('key', 'value');
+
+ds()->withContext();
+```
+
+#### Filtering Context by Key
+
+Pass a key to display only the specified context value:
+
+```php
+use Illuminate\Support\Facades\Context;
+
+Context::set('key', 'value');
+
+ds()->withContext('key');
+```
+
+::: info
+Enable automatic context display for every dump by adding this to laradumps.yaml:
+```yaml
+extra:
+  context: true
+```
+:::
