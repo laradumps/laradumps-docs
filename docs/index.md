@@ -38,6 +38,14 @@ features:
 
 ---
 
+<div class="mx-auto max-w-6xl">
+  <h2>
+    Contributors
+  </h2>
+ 
+  <Contributors class="mb-10" />
+</div>
+
 <style>
 :root {
   --vp-home-hero-image-background-image: linear-gradient(-45deg, #F7E27E 70%, #E1DAE6 40%);

@@ -2,8 +2,6 @@
 
 ## Introduction
 
-...
-
 * Only available for [laradumps/laradumps](https://github.com/laradumps/laradumps)
 
 ```php
