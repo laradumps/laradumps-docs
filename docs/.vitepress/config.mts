@@ -39,7 +39,11 @@ export default defineConfig({
     logo: 'https://raw.githubusercontent.com/laradumps/laradumps-docs/refs/heads/4.x/docs/_media/web_icon.png',
     siteTitle: 'LaraDumps',
     nav: [
-      { text: 'Home', link: '/' },
+      { text: 'Guide', link: '/' },
+      {
+        text: 'Release Notes',
+        link: 'https://github.com/laradumps/app/releases',
+      },
     ],
     sidebar: [
       {
@@ -65,7 +69,7 @@ export default defineConfig({
           { text: '🚀 Deploying to production', link: '/debug/deploying-to-production.md' },
           { text: '📝 Reference sheet', link: '/debug/reference-sheet.md' },
         ],
-        collapsed: true
+        collapsed: false
       },
     ],
 

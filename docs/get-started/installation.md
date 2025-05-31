@@ -11,7 +11,7 @@ With LaraDumps, you can go right into debugging with minimal effort:
 3. You may also install the Global LaraDumps package to make LaraDumps available in all projects in your computer.
    * [Global LaraDumps Package](installation.html?id=desktop-app#global-laradumps)
 
-4. Start to [Debuging](debug/usage.html)!
+4. Start to [Debugging](../debug/usage.html)!
 
 ## Desktop App
 
