@@ -67,12 +67,6 @@ XDEBUG_SESSION=1
 
 Alternatively, you can manually trigger a breakpoint using `xdebug_break()`:
 
-1. Set the `XDEBUG_SESSION` environment variable to `0` in your `.env` file.
-
-```dotenv
-XDEBUG_SESSION=0
-```
-
 ```php
 class NotificationService
 {
