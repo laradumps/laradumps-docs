@@ -5,6 +5,10 @@
 * [xdebug](https://xdebug.org/docs/install) PHP extension ^3.0
 * LaraDumps ^3.5.0
 
+::: info
+**Breakpoints**: Currently, **only PHPStorm is supported** for IDE integration.
+:::
+
 Example `php.ini` configuration:
 
 ```ini
@@ -47,25 +51,23 @@ app:
     wsl_config: wsl+Ubuntu
 ```
 
-## Starting Debug
+## PHPStorm Integration
 
 LaraDumps is **not a full-featured Xdebug client**. It does not manage debugging sessions or support interactive breakpoints directly.
 
-Currently, **only PHPStorm is supported** for IDE integration.
+1. **Set a breakpoint in your code** where you want to start debugging.  
 
-To enable breakpoints with PHPStorm:
+2. **Important:** Ensure that the file is saved (`Ctrl+S` or `Cmd+S`) so PHPStorm registers the breakpoint correctly.
 
-1. Add the following to your `.env` file:
-
-```dotenv
-XDEBUG_SESSION=1
-```
-
-2. **Important:** After setting a breakpoint, save the file (`Ctrl+S` or `Cmd+S`) so PHPStorm registers it correctly.
+3. **Click the "Xdebug" button** in LaraDumps Desktop App to start listening for Xdebug connections.
 
 ---
 
-Alternatively, you can manually trigger a breakpoint using `xdebug_break()`:
+## Using other IDEs
+
+If you are using an IDE other than PHPStorm, you can still use LaraDumps for debugging, but you will need to manually trigger the Xdebug session.
+
+To do this, add `xdebug_break()` in your code where you want to start debugging.
 
 ```php
 class NotificationService
@@ -76,7 +78,7 @@ class NotificationService
         $subject = "Order Confirmation - #{$order->id}";
         $body = "Thank you for your order. Your order ID is #{$order->id} and the total is \${$order->total}.";
 
-        xdebug_break(); // optional manual breakpoint
+        xdebug_break(); // <<-- This will trigger the Xdebug session
 
         $this->sendEmail($recipient, $subject, $body);
     }
