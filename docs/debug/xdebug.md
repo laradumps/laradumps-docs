@@ -51,25 +51,40 @@ app:
     wsl_config: wsl+Ubuntu
 ```
 
-## PHPStorm Integration
+## Starting Debug (PHPStorm)
 
 LaraDumps is **not a full-featured Xdebug client**. It does not manage debugging sessions or support interactive breakpoints directly.
 
-1. **Set a breakpoint in your code** where you want to start debugging.  
+Currently, **only PHPStorm is supported** for IDE integration.
 
-2. **Important:** Ensure that the file is saved (`Ctrl+S` or `Cmd+S`) so PHPStorm registers the breakpoint correctly.
+To enable breakpoints with PHPStorm:
 
-3. **Click the "Xdebug" button** in LaraDumps Desktop App to start listening for Xdebug connections.
+### Using browser extension
 
----
+Install and use the [PHP Debugging Extension for Browsers](https://www.jetbrains.com/help/phpstorm/browser-debugging-extensions.html):
+- Select `PHPSTORM` as the IDE
+- Click on **Debug** in the extension before sending a request
 
-## Using other IDEs
+--- 
+### Using `.env` file
 
-If you are using an IDE other than PHPStorm, you can still use LaraDumps for debugging, but you will need to manually trigger the Xdebug session.
+To start a debugging session, you can set the `XDEBUG_SESSION` environment variable in your `.env` file:
 
-To do this, add `xdebug_break()` in your code where you want to start debugging.
+```dotenv
+XDEBUG_SESSION=1
+```
 
-```php
+To disable the session, you can comment out or remove the line.
+
+::: warning
+**Important:** After setting a breakpoint, save the file (`Ctrl+S` or `Cmd+S`) so PHPStorm registers it correctly.
+:::
+
+## Other IDEs
+
+You can also trigger a breakpoint programmatically in your code. This is useful for debugging specific parts of your application without needing to set up a browser extension or modify the `.env` file.
+
+```php{9}
 class NotificationService
 {
     public function sendOrderConfirmation(Order $order): void
