@@ -177,12 +177,13 @@ ds()->commandsOff();
 
 ### Jobs
 
-Captures and displays all information of Jobs ran within the `jobsOn()` and `jobsOff()` methods.
+To monitor and dump executed Jobs, just enable the "Jobs" option inside your project settings in the desktop app.
 
-```php
-ds()->jobsOn('Optional-Label');
-    dispatch(new \App\Jobs\TestJob());
-ds()->jobsOff();
+Alternativelly, you may edit the option `observers` > `jobs` in your project's `laradumps.yaml` file.
+
+```yaml
+observers:
+  jobs: false
 ```
 
 ::: info
