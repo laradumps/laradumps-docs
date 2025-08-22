@@ -2,12 +2,13 @@
 
 ## Introduction
 
-* Only available for [laradumps/laradumps](https://github.com/laradumps/laradumps)
+The features listed on this page are available only for applications built on the [Laravel Framework](https://laravel.com) and require the Laradumps Laravel package to work properly.
+
+To install Laradumps in your project, run the following command:
 
 ```php
 composer require laradumps/laradumps --dev -W
 ```
-
 
 ### Logs
 
@@ -85,7 +86,6 @@ return [
 
 #### Query Macro
 
-* Only available for [laradumps/laradumps](https://github.com/laradumps/laradumps)
 
 You can also chain a `ds()` method before the query execution and, it will be dumped in the Desktop App:
 
@@ -103,47 +103,34 @@ The macro feature doesn't require SQL Queries to be enabled in the configuration
 
 ---
 
-### Pest Expectation
+### Pest PHP Expectation
 
-::: info
-See more in [pestphp](https://pestphp.com/docs/expectations)
-:::
-
-* Only available for [laradumps/laradumps](https://github.com/laradumps/laradumps)
-
-You can also chain a `ds()` method similar to a pest expectation:
+You can also chain a `ds()` method inside your [Pest Expectation](https://pestphp.com/docs/expectations) to inspect its contents.
 
 ```php{4}
 
-it('any test', function() {
-    expect(true)
-        ->ds() // send $this->value to LaraDumps
-        ->toBeTrue();
+test('some test', function() {
+    expect(Something::execute())
+        ->ds() //dumps the expectation value
+        ->toBe('some result');
 })
 ```
 
 ### Test Response
 
-* Only available for [laradumps/laradumps](https://github.com/laradumps/laradumps)
 
 ```php{5}
 
-it('can render actionsFromView property', function (string $component, object $params) {
-    livewire($component)
-        ->call('setTestThemeClass', $params->theme)
+test('some test', function() {
+    livewire(SomeComponent::class)
+        ->call('doSomething', 'some-value')
         ->ds()
         ->assertSeeInOrder([
-            'Dish From Actions View: 1',
-            'Dish From Actions View: 2',
-            'Dish From Actions View: 3',
-            'Dish From Actions View: 4',
-            'Dish From Actions View: 5',
-            'Dish From Actions View: 6',
+            'result 1',
+            'result 2',
+            'result 3',
         ]);
-})->with([
-    'tailwind'  => [$component::class, (object) ['theme' => \PowerComponents\LivewirePowerGrid\Themes\Tailwind::class, 'field' => 'name']],
-    'bootstrap' => [$component::class, (object) ['theme' => \PowerComponents\LivewirePowerGrid\Themes\Bootstrap5::class, 'field' => 'name']],
-]);
+});
 ```
 
 ### Mailable
@@ -210,6 +197,8 @@ To monitor and dump executed Jobs, just enable the "Jobs" option inside your pro
 Alternativelly, you may edit the option `observers` > `jobs` in your project's `laradumps.yaml` file.
 
 ```yaml
+#laradumps.yaml
+
 observers:
   jobs: false
 ```
