@@ -49,6 +49,34 @@ ds()->queriesOff();
 
 ![Output](/_media/app_queries_example.png)
 
+### Ignorning Queries
+
+Sometimes you may want to exclude certain queries from the debug dump. This could be helpful if you are looking for a specific query among a lot of others.
+
+To ignore queries, you first need to publish the Laradumps Laravel's config file. To do so, run the following command:
+
+```shell
+php artisan vendor:publish --tag=laradumps-config
+```
+
+Now, you can configure the recently created file `config/laradumps.php`, adding the queries or route patterns that you do not want to see in your debug dump.
+
+```php
+//config/laradumps.php
+
+return [
+    'queries' => [
+        'ignore_sql_patterns' => [
+            'select name from `flights`',
+        ],
+        'ignore_routes_patterns' => [
+            'horizon/*',
+            'telescope/*',
+        ],
+    ],
+];
+```
+
 ::: info
 **To Listen globally:**
 
