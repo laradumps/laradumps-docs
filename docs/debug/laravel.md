@@ -65,6 +65,17 @@ User::query()->where('name', 'Luan')
 The macro feature doesn't require SQL Queries to be enabled in the configuration file.
 :::
 
+## Blade directive
+
+For your convenience, LaraDums provides a `@ds()` Blade directive.
+
+```php{4}
+<!DOCTYPE html>
+<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
+    <head>
+    @ds('Hello World')
+```
+
 ## Queries
 
 To debug SQL queries, you must place the database call within the `queriesOn()` and `queriesOff()` methods.
@@ -208,6 +219,19 @@ ds()->commandsOff();
 * In Desktop App, choose your project and toggle: **COMMANDS**, or set `observers.commands` : `true` in **laradumps.yaml**
 :::
 
+## Gates
+
+To monitor Gates activity, just enable the "Gate" option inside your project settings in the desktop app.
+
+Alternativelly, you may edit the option `observers` > `gate` in your project's `laradumps.yaml` file.
+
+```yaml
+#laradumps.yaml
+
+observers:
+  gate: false
+```
+
 ## Jobs
 
 To monitor and dump executed Jobs, just enable the "Jobs" option inside your project settings in the desktop app.
@@ -220,12 +244,6 @@ Alternativelly, you may edit the option `observers` > `jobs` in your project's `
 observers:
   jobs: false
 ```
-
-::: info
-**To Listen globally:**
-
-* In Desktop App, choose your project and toggle: **JOBS**, or set `observers.jobs` : `true` in **laradumps.yaml**
-:::
 
 ## Cache
 
