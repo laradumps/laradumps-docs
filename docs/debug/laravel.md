@@ -81,8 +81,6 @@ User::query()->where('id', 20)->get();
 ds()->queriesOff();
 ```
 
-![Output](/_media/app_queries_example.png)
-
 ## Ignorning Queries
 
 Sometimes you may want to exclude certain queries from the debug dump. This could be helpful if you are looking for a specific query among a lot of others.
