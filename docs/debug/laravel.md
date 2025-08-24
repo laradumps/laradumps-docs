@@ -219,6 +219,19 @@ ds()->commandsOff();
 * In Desktop App, choose your project and toggle: **COMMANDS**, or set `observers.commands` : `true` in **laradumps.yaml**
 :::
 
+## Scheduled Commands
+
+To monitor scheduled commands, just enable the "Scheduled Commands" option inside your project settings in the desktop app.
+
+Alternativelly, you may edit the option `observers` > `scheduled_commands` in your project's `laradumps.yaml` file.
+
+```yaml
+#laradumps.yaml
+
+observers:
+  scheduled_commands: true
+```
+
 ## Gates
 
 To monitor Gates activity, just enable the "Gate" option inside your project settings in the desktop app.
@@ -229,7 +242,7 @@ Alternativelly, you may edit the option `observers` > `gate` in your project's `
 #laradumps.yaml
 
 observers:
-  gate: false
+  gate: true
 ```
 
 ## Jobs
@@ -242,7 +255,7 @@ Alternativelly, you may edit the option `observers` > `jobs` in your project's `
 #laradumps.yaml
 
 observers:
-  jobs: false
+  jobs: true
 ```
 
 ## Cache
