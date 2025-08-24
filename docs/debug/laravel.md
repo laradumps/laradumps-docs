@@ -126,6 +126,24 @@ return [
 * In Desktop App, choose your project and toggle: **QUERIES**, or set `observers.queries` : `true` in **laradumps.yaml**
 :::
 
+## Slow Queries
+
+To monitor slow queries, just enable the "Slow Queries" option inside your project settings in the desktop app.
+
+Alternativelly, you may edit the option `observers` > `slow_queries` in your project's `laradumps.yaml` file.
+
+You may configure `laradumps.yaml` and adjust the time limit that determines when a query's execution time is considered "slow". Just change the `slow_queries` > `threshold_in_ms`. The default time is 500 milliseconds.
+
+```yaml
+#laradumps.yaml
+
+observers:
+  slow_queries: true
+
+slow_queries:
+  threshold_in_ms: 500
+```
+
 ## Table
 
 You can use the `table()` method to display dumps in a table with a built-in search bar.
