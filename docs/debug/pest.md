@@ -4,6 +4,19 @@
 
 LaraDumps provides a [Pest](https://www.pestphp.com) Helper to integrate its debugging tool into your testing experience.
 
+## Enable LaraDumps in Test
+
+To use LaraDumps while testing, you must enable the "Enabled in testing" option inside your project settings in the desktop app.
+
+Alternativelly, you may edit the option `observers` > `enabled_in_testing` in your project's `laradumps.yaml` file.
+
+```yaml
+#laradumps.yaml
+
+observers:
+  enabled_in_testing: true
+```
+
 ## Pest PHP Expectation
 
 To inspect the value of Pest Expectation, just chain a `ds()` method inside the expectation.
