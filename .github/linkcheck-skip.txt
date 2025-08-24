@@ -1,5 +1,5 @@
 # These links will be exclude from broken link check perfomred at CI.
 # See https://github.com/marketplace/actions/check-links-with-linkcheck
 
-*twitter.com/*
+https://twitter.com/luanfreitasdev
 https://getcomposer.org
