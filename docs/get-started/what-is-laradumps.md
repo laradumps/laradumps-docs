@@ -29,7 +29,7 @@ LaraDumps solves these problems and offers much more:
 
 ## Features
 
-LaraDumps provides a comprehensive set of [debug tools](/debug/usage?id=debug-functions) that go far beyond basic debugging:
+LaraDumps provides a comprehensive set of [debug tools](/debug/php) that go far beyond basic debugging:
 
 ### Advanced Debugging
 - **Xdebug Integration**: Step-by-step debugging with full Xdebug support

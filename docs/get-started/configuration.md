@@ -111,7 +111,7 @@ By default, LaraDumps Desktop App will be invoked and gain focus whenever a new 
 
 To disable this behavior, change the `laradumps.yaml` file key `observers.auto_invoke_app` to `false`.
 
-You can also send [Quiet dumps](../debug/usage?id=quiet-dump) and the app will not be invoked.
+You can also send [Quiet dumps](../debug/php?id=quiet-dump) and the app will not be invoked.
 
 ```yaml
 observers:
