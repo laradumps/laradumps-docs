@@ -41,6 +41,6 @@ This example uses Pest's [Architecture testing](https://pestphp.com/docs/arch-te
 
 ```php
 arch('does not use debug functions')
-    ->expect(['ds', 'dsd', 'dsq', 'dd', 'ddd', 'dump', 'ray', 'die', 'var_dump', 'sleep', 'exit'])
+    ->expect(['ds', 'ds1' 'ds2', 'ds3', 'ds4', 'ds5', 'dsd', 'dsq', 'dd', 'ddd', 'dump', 'ray', 'die', 'var_dump', 'sleep', 'exit'])
     ->not->toBeUsed();
 ```
