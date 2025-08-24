@@ -1,46 +1,69 @@
 # Reference sheet
 
-LaraDumps usage reference sheet:
+On this page you will find the a summary of LaraDumps debug tools.
 
-| **Function**                                                        | **Description**                                                                   | **Package**     |
-|---------------------------------------------------------------------|-----------------------------------------------------------------------------------|-----------------|
-| ds($var);                                                           | Display a string, array or object                                                 | Any             |
-| ds($var1, $var2);                                                   | Display multiples arguments                                                       | Any             |
-| ds($var)->die();                                                    | Dump and die                                                                      | Any             |
-| dsd($var);                                                          | Alias for dump and die                                                            | Any             |
-| dsq($var);                                                          | Send a dump without invoking (focus) the Desktop App, "Quiet dump"                | Any             |
-| ds($var)->label('My Label');                                        | Send dump with a custom label                                                     | Any             |
-| ds($var)->toScreen('My Screen');                                    | Adds new screen 'My screen'                                                       | Any             |
-| ds($var)->s('My Screen');                                           | Alias for new screen                                                              | Any             |
-| ds2($var); ... ds5($var);                                           | Send dump to pre-defined screens ('screen 2' to 'screen 5');                      | Any             |
-| ds($var)->info();                                                   | Blue color tag                                                                    | Any             |
-| ds($var)->success();                                                | Green color tag                                                                   | Any             |
-| ds($var)->danger();                                                 | Red color tag                                                                     | Any             |
-| ds($var)->dark();                                                   | Black color tag                                                                   | Any             |
-| ds($var)->warning();                                                | Orange color tag                                                                  | Any             |
-| ds()->time('Reference #1');                                         | Start clocking execution time                                                     | Any             |
-| ds()->stopTime('Reference #1');                                     | Stop clocking execution time                                                      | Any             |
-| ds()->queriesOn('My Label');                                        | Start capturing SQL queries                                                       | Laravel Package |
-| ds()->queriesOff();                                                 | Stop capturing SQL queries                                                        | Laravel Package |
-| ds()->model(User::query()->first());                                | Dumps the Model’s Attributes and Relationships.                                   | Laravel Package |
-| ds()->mailable(new \App\Mail\TestMail());                           | Displays mail details and the HTML preview for an instance of a `Mailable` class. | Laravel Package |
-| ds()->httpOn('My Label');                                           | Start capturing HTTP Requests.                                                    | Laravel Package |
-| ds()->httpOff();                                                    | Stop capturing HTTP Requests.                                                     | Laravel Package |
-| ds()->jobsOn('My Label');                                           | Start capturing Jobs.                                                             | Laravel Package |
-| ds()->jobsOff();                                                    | Stop capturing Jobs.                                                              | Laravel Package |
-| ds()->commandsOn('My Label');                                       | Start capturing calls to Artisan.                                                 | Laravel Package |
-| ds()->commandsOff();                                                | Stop capturing calls to Artisan.                                                  | Laravel Package |
-| ds()->cacheOn('My Label');                                          | Start capturing Cache.                                                            | Laravel Package |
-| ds()->cacheOff();                                                   | Stop capturing Cache.                                                             | Laravel Package |
-| ds()->routes();                                                     | Dumps Laravel Routes in a table format                                            | Laravel Package |
-| ds()->table(Collection $data, $name);                               | Dumps data in a table format                                                      | Any             |
-| ds($var)->isJson();                                                 | Validates and display JSON data                                                   | Any             |
-| ds($var)->contains('Text', caseSensitive: false, wholeWord: false); | Search if the `content` contains the given string                                 | Any             |
-| Str::of('hello world')->upper()->ds();                              | Displays the current string in a Stringable macro                                 | Laravel Package |
-| collect(['hello', 'world'])->ds();                                  | Displays the current state of a Collection Macro                                  | Laravel Package |
-| ds()->markdown('# Hi, Anand Pilania!');                             | Displays the markdown rendered as HTML.                                           | Laravel Package |
-| ds()->phpinfo();                                                    | Dumps PHP configuration                                                           | Any             |
-| ds()->withContext();                                                | Display  the current state of Laravel Context                                     | Laravel Package |
+## PHP
 
+Summary of LaraDumps [PHP Tools](/debug/php.html).
+
+| **Function** | **Description** |
+|---|---|
+| ds($var); | Dump a string, array or object |
+| ds($var1, $var2); | Dump multiples arguments |
+| ds($var)->die(); | Dump and die |
+| dsd($var); | Alias for dump and die |
+| dsq($var); | Perform a dump without invoking (focus) the Desktop App, "Quiet dump" |
+| ds($var)->label('My Label'); | Perform a dump with a custom label |
+| ds($var)->toScreen('My Screen'); | Adds new screen 'My screen' |
+| ds($var)->s('My Screen'); | Alias for new screen |
+| ds2($var);<br/>ds3($var);<br/>ds4($var);<br/>ds5($var); | Perform a dump to one of the 5 specific pre-defined screens |
+| ds($var)->info(); | Blue color tag |
+| ds($var)->success(); | Green color tag |
+| ds($var)->danger(); | Red color tag |
+| ds($var)->dark(); | Black color tag |
+| ds($var)->warning(); | Orange color tag |
+| ds()->time('Reference #1');<br/>... some code ...<br/>ds()->stopTime('Reference #1');  | Start/Stop clocking execution time |
+| ds()->table(Collection $data, $name); | Dump data in a table format |
+| ds($var)->isJson(); | Validates and dumps the JSON data |
+| ds('hello world')->contains('hello', caseSensitive: false, wholeWord: false); | Search if the `content` contains the given string |
+| ds()->phpinfo(); | Dump PHP configuration |
+
+## Laravel
+
+Summary of LaraDumps [Laravel Tools](/debug/laravel.html).
+
+| **Function** | **Description** |
+|---|---|
+| ds()->routes(); | Dump Laravel Routes in a table format |
+| str('Hello')<br/>&nbsp;&nbsp;->append('world')<br/>&nbsp;&nbsp;->ds(); | Dump the current string in a Stringable macro |
+| collect(['hello', 'world'])->ds(); | Dump the current state of a Collection Macro |
+| ds()->queriesOn('My Label');<br/>ds()->queriesOff(); | Start/Stop capturing SQL queries |
+| ds()->model(User::query()->first()); | Dump the Model’s Attributes and Relationships. |
+| ds()->mailable(new \App\Mail\TestMail()); | Dump mail details and the HTML preview for an instance of a `Mailable` class. |
+| ds()->httpOn('My Label');<br/>ds()->httpOff(); | Start/Stop capturing HTTP Requests. |
+| ds()->commandsOn('My Label');<br/>ds()->commandsOff(); | Start/Stop capturing calls to Artisan. |
+| ds()->cacheOn('My Label');<br/>ds()->cacheOff(); | Start/Stop capturing Cache. |
+| ds()->withContext(); | Dump the current state of Laravel Context |
+| ds()->markdown('# hello world!'); | Dump the markdown rendered as HTML. |
+
+## Livewire/Volt
+
+Summary of LaraDumps [Livewire/Volt Tools](/debug/livewire.html).
+
+| **Function** | **Description** |
+|---|---|
+| #[Ds]<br/>&nbsp;class MyLivewireComponent extends ... | Listen to a Livewire component. |
+| \Livewire\Volt\title('todo');<br/><br/>booted(fn() => ds($this)); | Listen to a Volt component. |
+
+---
+
+## Pest PHP
+
+Summary of LaraDumps [Pest Integration](/debug/pest.html).
+
+| **Function** | **Description** |
+|---|---|
+| test('example')<br/>&nbsp;&nbsp;->expect(true)<br/>&nbsp;&nbsp;->ds()<br/>&nbsp;&nbsp;->toBeTrue(); | Dump the Pest Expectation API value. |
+| test('example')<br/>&nbsp;&nbsp;&nbsp;&nbsp;->livewire(SomeComponent::class) <br/>&nbsp;&nbsp;&nbsp;&nbsp;->call('doSomething', 'some-value') <br/>&nbsp;&nbsp;&nbsp;&nbsp;->ds() <br/>&nbsp;&nbsp;&nbsp;&nbsp;->assertSeeInOrder(...) | Dump the test result. |
 
 ---
