@@ -23,7 +23,7 @@ Summary of LaraDumps [PHP Tools](/debug/php.html).
 | ds($var)->dark(); | Black color tag |
 | ds($var)->warning(); | Orange color tag |
 | ds()->time('Reference #1');<br/>... some code ...<br/>ds()->stopTime('Reference #1');  | Start/Stop clocking execution time |
-| ds()->table(Collection $data, $name); | Dump data in a table format |
+| ds()->table($data, 'my table'); | Dump data in a table format |
 | ds($var)->isJson(); | Validates and dumps the JSON data |
 | ds('hello world')->contains('hello', caseSensitive: false, wholeWord: false); | Search if the `content` contains the given string |
 | ds()->phpinfo(); | Dump PHP configuration |
@@ -39,6 +39,7 @@ Summary of LaraDumps [Laravel Tools](/debug/laravel.html).
 | collect(['hello', 'world'])->ds(); | Dump the current state of a Collection Macro |
 | ds()->queriesOn('My Label');<br/>ds()->queriesOff(); | Start/Stop capturing SQL queries |
 | ds()->model(User::query()->first()); | Dump the Model’s Attributes and Relationships. |
+| ds()->table(Users::all(), 'all users'); | Dump data in a table format |
 | ds()->mailable(new \App\Mail\TestMail()); | Dump mail details and the HTML preview for an instance of a `Mailable` class. |
 | ds()->httpOn('My Label');<br/>ds()->httpOff(); | Start/Stop capturing HTTP Requests. |
 | ds()->commandsOn('My Label');<br/>ds()->commandsOff(); | Start/Stop capturing calls to Artisan. |
