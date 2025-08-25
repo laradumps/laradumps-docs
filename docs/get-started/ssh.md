@@ -1,10 +1,10 @@
 # Remote Server
 
-When connected to a remote server, LaraDumps securely transfers the output of ds calls from your server to your local machine via **SSH**.
+When connected to a remote server, LaraDumps securely transfers the output of `ds()` function calls from your server to your local machine via **SSH**.
 
-### Package setup
+## Package setup
 
-Install LaraDumps package without --dev
+❗ In order to use this feature, you **must** install LaraDumps package without the `--dev` flag.
 
 :::tabs
 == Laravel Project

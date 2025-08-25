@@ -1,5 +1,7 @@
 # Deploying to production
 
+## Introduction
+
 Since LaraDumps is a debug `dev` tool, you might want to check if you forgot a `ds()` somewhere in your code before you deploy your app to production.
 
 LaraDumps provides the command `vendor/bin/laradumps check` which will produce an error if any `ds()` is found in your code.
@@ -55,3 +57,7 @@ You can use **--dirty** to only track files that haven't been added to git for q
 ```bash
 vendor/bin/laradumps --dirty
 ```
+
+## Pest PHP Architecture Test
+
+In addition, we recommend you see this example of [Pest Architecture](/debug/pest.html#architecture-test) used to detect leftover debug code.

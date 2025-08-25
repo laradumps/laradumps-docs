@@ -22,7 +22,7 @@ hero:
 features:
   - icon: 🚀
     title: Powerful Debugging
-    details: Debug variables, queries, logs, jobs, and more with an intuitive desktop interface. Supports XDebug integration for step-by-step debugging.
+    details: Debug variables, queries, logs, jobs, and more with an intuitive desktop interface. Supports Xdebug integration for step-by-step debugging.
     
   - icon: ⚡️
     title: Real-time Monitoring
