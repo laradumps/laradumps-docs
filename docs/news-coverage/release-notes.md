@@ -6,7 +6,7 @@
 
 🌼 **UI made with** [daisyUI 5](https://daisyui.com/)
 
-🔥 **XDebug step debugging** - Now you can use XDebug with LaraDumps. Just enable with `xdebug_break()` and see the result in the app.
+🔥 **Xdebug step debugging** - Now you can use Xdebug with LaraDumps. Just enable with `xdebug_break()` and see the result in the app.
 
 Features:
 

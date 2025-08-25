@@ -92,7 +92,7 @@ User::query()->where('id', 20)->get();
 ds()->queriesOff();
 ```
 
-## Ignorning Queries
+## Ignoring Queries
 
 Sometimes you may want to exclude certain queries from the debug dump. This could be helpful if you are looking for a specific query among a lot of others.
 
@@ -130,7 +130,7 @@ return [
 
 To monitor slow queries, just enable the "Slow Queries" option inside your project settings in the desktop app.
 
-Alternativelly, you may edit the option `observers` > `slow_queries` in your project's `laradumps.yaml` file.
+Alternatively, you may edit the option `observers` > `slow_queries` in your project's `laradumps.yaml` file.
 
 You may configure `laradumps.yaml` and adjust the time limit that determines when a query's execution time is considered "slow". Just change the `slow_queries` > `threshold_in_ms`. The default time is 500 milliseconds.
 
@@ -241,7 +241,7 @@ ds()->commandsOff();
 
 To monitor scheduled commands, just enable the "Scheduled Commands" option inside your project settings in the desktop app.
 
-Alternativelly, you may edit the option `observers` > `scheduled_commands` in your project's `laradumps.yaml` file.
+Alternatively, you may edit the option `observers` > `scheduled_commands` in your project's `laradumps.yaml` file.
 
 ```yaml
 #laradumps.yaml
@@ -254,7 +254,7 @@ observers:
 
 To monitor Gates activity, just enable the "Gate" option inside your project settings in the desktop app.
 
-Alternativelly, you may edit the option `observers` > `gate` in your project's `laradumps.yaml` file.
+Alternatively, you may edit the option `observers` > `gate` in your project's `laradumps.yaml` file.
 
 ```yaml
 #laradumps.yaml
@@ -267,7 +267,7 @@ observers:
 
 To monitor and dump executed Jobs, just enable the "Jobs" option inside your project settings in the desktop app.
 
-Alternativelly, you may edit the option `observers` > `jobs` in your project's `laradumps.yaml` file.
+Alternatively, you may edit the option `observers` > `jobs` in your project's `laradumps.yaml` file.
 
 ```yaml
 #laradumps.yaml

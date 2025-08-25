@@ -42,7 +42,7 @@ You may configure a custom host value, if needed.
 | Docker/Sail                 | host.docker.internal |
 | Homestead with VirtualBox   | 10.211.55.2          |
 | Homestead with Parallels    | 10.211.55.2          |
-| Wsl Host                    | WSL IP (read below)  |
+| WSL Host                    | WSL IP (read below)  |
 
 ### app.secondary_host
 
@@ -70,7 +70,7 @@ The WSL IP changes every time the computer is restarted, and you must update you
 
 ##### Find out the WSL IP
 
-To determine the WSL IP address, launch Windows Powershell and execute the `ipconfig` command.
+To determine the WSL IP address, launch Windows PowerShell and execute the `ipconfig` command.
 
 You should see an output similar to this:
 

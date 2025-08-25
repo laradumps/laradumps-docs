@@ -8,7 +8,7 @@ LaraDumps provides a [Pest](https://www.pestphp.com) Helper to integrate its deb
 
 To use LaraDumps while testing, you must enable the "Enabled in testing" option inside your project settings in the desktop app.
 
-Alternativelly, you may edit the option `observers` > `enabled_in_testing` in your project's `laradumps.yaml` file.
+Alternatively, you may edit the option `observers` > `enabled_in_testing` in your project's `laradumps.yaml` file.
 
 ```yaml
 #laradumps.yaml

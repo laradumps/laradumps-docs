@@ -10,7 +10,7 @@ Every time the component is updated, you will be able to see all the information
 
 ![Output](/_media/livewire/profile.png)
 
-#### Propeties
+#### Properties
 
 ![Output](/_media/livewire/properties.png)
 
