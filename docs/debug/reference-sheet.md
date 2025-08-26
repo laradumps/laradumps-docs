@@ -16,7 +16,6 @@ Summary of LaraDumps [PHP Tools](/debug/php.html).
 | ds($var)->label('My Label'); | Perform a dump with a custom label |
 | ds($var)->toScreen('My Screen'); | Adds new screen 'My screen' |
 | ds($var)->s('My Screen'); | Alias for new screen |
-| ds2($var);<br/>ds3($var);<br/>ds4($var);<br/>ds5($var); | Perform a dump to one of the 5 specific pre-defined screens |
 | ds($var)->info(); | Blue color tag |
 | ds($var)->success(); | Green color tag |
 | ds($var)->danger(); | Red color tag |
@@ -25,7 +24,7 @@ Summary of LaraDumps [PHP Tools](/debug/php.html).
 | ds()->time('Reference #1');<br/>... some code ...<br/>ds()->stopTime('Reference #1');  | Start/Stop clocking execution time |
 | ds()->table($data, 'my table'); | Dump data in a table format |
 | ds($var)->isJson(); | Validates and dumps the JSON data |
-| ds('hello world')->contains('hello', caseSensitive: false, wholeWord: false); | Search if the `content` contains the given string |
+| ds($var)->contains('some string', caseSensitive: false, wholeWord: false); | Search if the `content` contains the given string |
 | ds()->phpinfo(); | Dump PHP configuration |
 
 ## Laravel
@@ -39,7 +38,7 @@ Summary of LaraDumps [Laravel Tools](/debug/laravel.html).
 | collect(['hello', 'world'])->ds(); | Dump the current state of a Collection Macro |
 | ds()->queriesOn('My Label');<br/>ds()->queriesOff(); | Start/Stop capturing SQL queries |
 | ds()->model(User::query()->first()); | Dump the Model’s Attributes and Relationships. |
-| ds()->table(Users::all(), 'all users'); | Dump data in a table format |
+| ds()->table(User::all(), 'all users'); | Dump data in a table format |
 | ds()->mailable(new \App\Mail\TestMail()); | Dump mail details and the HTML preview for an instance of a `Mailable` class. |
 | ds()->httpOn('My Label');<br/>ds()->httpOff(); | Start/Stop capturing HTTP Requests. |
 | ds()->commandsOn('My Label');<br/>ds()->commandsOff(); | Start/Stop capturing calls to Artisan. |
