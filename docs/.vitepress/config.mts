@@ -47,25 +47,34 @@ export default defineConfig({
     ],
     sidebar: [
       {
-        text: 'Get Started',
+        text: 'News Coverage',
         items: [
-          { text: '🚀 What is LaraDumps?', link: '/get-started/what-is-laradumps.md' },
-          { text: '📣 Release Notes', link: '/get-started/release-notes.md' },
-          { text: '⬆️ Upgrade Guide', link: '/get-started/upgrade-guide.md' },
-          { text: '📦 Installation', link: '/get-started/installation.md' },
-          { text: '🔄 Updating LaraDumps', link: '/get-started/updating-laradumps.md' },
-          { text: '⚙️ Configuration', link: '/get-started/configuration.md' },
+          { text: '📣 Release Notes', link: '/news-coverage/release-notes.md' },
+          { text: '⬆️ Upgrade Guide', link: '/news-coverage/upgrade-guide.md' },
+          { text: '🛟 Support & Source Code', link: '/news-coverage/support-and-sourcecode.md' },
         ],
         collapsed: false
       },
       {
-        text: 'Debugging',
+        text: 'Get Started',
         items: [
-          { text: '📖 Usage', link: '/debug/usage.md' },
-          { text: '⚡ Laravel', link: '/debug/laravel.md' },
-          { text: '🔌 Livewire', link: '/debug/livewire.md' },
+          { text: '👀 What is LaraDumps?', link: '/get-started/what-is-laradumps.md' },
+          { text: '📦 Installation', link: '/get-started/installation.md' },
+          { text: '🔄 Updating LaraDumps', link: '/get-started/updating-laradumps.md' },
+          { text: '⚙️ Configuration', link: '/get-started/configuration.md' },
+          { text: '🔒 Remote Servers (SSH)', link: '/get-started/ssh.md' },
+        ],
+        collapsed: false
+      },
+      {
+        text: 'Debug Tools & Integrations',
+        items: [
+          { text: '📖 Introduction', link: '/debug/introduction.md' },
+          { text: '🐘 PHP', link: '/debug/php.md' },
+          { text: '🧰 Laravel', link: '/debug/laravel.md' },
+          { text: '🔌 Livewire/Volt', link: '/debug/livewire.md' },
+          { text: '✅ Pest PHP', link: '/debug/pest.md' },
           { text: '🐛 Xdebug', link: '/debug/xdebug.md' },
-          { text: '🔒 Remove Servers (SSH)', link: '/debug/ssh.md' },
           { text: '🚀 Deploying to production', link: '/debug/deploying-to-production.md' },
           { text: '📝 Reference sheet', link: '/debug/reference-sheet.md' },
         ],

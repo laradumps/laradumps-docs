@@ -1,4 +1,4 @@
-# Xdebug
+# Xdebug Integration
 
 ## Requirements
 
@@ -93,8 +93,8 @@ class NotificationService
         $subject = "Order Confirmation - #{$order->id}";
         $body = "Thank you for your order. Your order ID is #{$order->id} and the total is \${$order->total}.";
 
-        xdebug_break(); // <<-- This will trigger the Xdebug session
-
+        xdebug_break(); // add breakpoint here  [!code ++]
+   
         $this->sendEmail($recipient, $subject, $body);
     }
 }

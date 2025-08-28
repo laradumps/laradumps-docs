@@ -11,7 +11,7 @@ With LaraDumps, you can go right into debugging with minimal effort:
 3. You may also install the Global LaraDumps package to make LaraDumps available in all projects in your computer.
    * [Global LaraDumps Package](installation.html?id=desktop-app#global-laradumps)
 
-4. Start to [Debugging](../debug/usage.html)!
+4. Start [Debugging](/debug/introduction.html)!
 
 ## Desktop App
 
@@ -66,7 +66,7 @@ brew uninstall laradumps/app/laradump
 
 Alternatively, you can download and install the LaraDumps App using its disk image.
 
-[Download latest version here](https://github.com/laradumps/app/releases/download/v4.3.0/LaraDumps-4.3.0-universal.dmg )
+[Download latest version here](https://github.com/laradumps/app/releases/download/v4.7.0/LaraDumps-4.7.0-universal.dmg )
 
 📝 **NOTE:** If you receive an "application damaged" error, read the section **Running the app** in this page.
 
@@ -112,7 +112,7 @@ sudo snap install laradumps
 
 ### AppImage
 
-[Download latest version here](https://github.com/laradumps/app/releases/download/v4.3.0/LaraDumps-4.3.0.AppImage)
+[Download latest version here](https://github.com/laradumps/app/releases/download/v4.7.0/LaraDumps-4.7.0.AppImage)
 
 Download the latest application image `LaraDumps-x.x.x.AppImage` from [GitHub](https://github.com/laradumps/app/releases).
 
@@ -123,7 +123,7 @@ Click on `Properties`, navigate to `Permissions` and click `Allow to execute fil
 Alternatively, use the Terminal and run the command below:
 
 ```shell
-chmod u+x ./LaraDumps-4.3.0.AppImage && ./LaraDumps-4.3.0.AppImage
+chmod u+x ./LaraDumps-4.7.0.AppImage && ./LaraDumps-4.7.0.AppImage
 ```
 
 *(These steps might slightly change depending on your Linux distribution).*
@@ -132,7 +132,7 @@ chmod u+x ./LaraDumps-4.3.0.AppImage && ./LaraDumps-4.3.0.AppImage
 
 ### Windows
 
-[Download latest version here](https://github.com/laradumps/app/releases/download/v4.3.0/LaraDumps-Setup-4.3.0.exe)
+[Download latest version here](https://github.com/laradumps/app/releases/download/v4.7.0/LaraDumps-Setup-4.7.0.exe)
 
 Once downloaded, open it and proceed with the installer.
 
