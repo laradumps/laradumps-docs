@@ -14,7 +14,7 @@ You may configure LaraDumps to [exclude](/get-started/configuration?id=routes) s
 ds()->routes();
 ```
 
-## Elloquent Model
+## Eloquent Model
 
 You can use the `model()` method to view [Eloquent Model's](https://laravel.com/docs/eloquent#introduction) Attributes and Relationships.
 
@@ -148,7 +148,7 @@ slow_queries:
 
 You can use the `table()` method to display dumps in a table with a built-in search bar.
 
-To build a table, you can pass an instace of an Elloquent Model or any `iterable $data` as the first argument. Next, you may add an optional `string $name` for the table name.
+To build a table, you can pass an instace of an Eloquent Model or any `iterable $data` as the first argument. Next, you may add an optional `string $name` for the table name.
 
 ```php{5}
 use App\Models\User;
