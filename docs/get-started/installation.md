@@ -66,7 +66,7 @@ brew uninstall laradumps/app/laradump
 
 Alternatively, you can download and install the LaraDumps App using its disk image.
 
-[Download latest version here](https://github.com/laradumps/app/releases/download/v4.7.5/LaraDumps-4.7.5-universal.dmg )
+[Download latest version here](https://github.com/laradumps/app/releases/download/v4.8.0/LaraDumps-4.8.0-universal.dmg )
 
 📝 **NOTE:** If you receive an "application damaged" error, read the section **Running the app** in this page.
 
@@ -112,7 +112,7 @@ sudo snap install laradumps
 
 ### AppImage
 
-[Download latest version here](https://github.com/laradumps/app/releases/download/v4.7.5/LaraDumps-4.7.5.AppImage)
+[Download latest version here](https://github.com/laradumps/app/releases/download/v4.8.0/LaraDumps-4.8.0.AppImage)
 
 Download the latest application image `LaraDumps-x.x.x.AppImage` from [GitHub](https://github.com/laradumps/app/releases).
 
@@ -123,7 +123,7 @@ Click on `Properties`, navigate to `Permissions` and click `Allow to execute fil
 Alternatively, use the Terminal and run the command below:
 
 ```shell
-chmod u+x ./LaraDumps-4.7.5.AppImage && ./LaraDumps-4.7.5.AppImage
+chmod u+x ./LaraDumps-4.8.0.AppImage && ./LaraDumps-4.8.0.AppImage
 ```
 
 *(These steps might slightly change depending on your Linux distribution).*
@@ -132,7 +132,7 @@ chmod u+x ./LaraDumps-4.7.5.AppImage && ./LaraDumps-4.7.5.AppImage
 
 ### Windows
 
-[Download latest version here](https://github.com/laradumps/app/releases/download/v4.7.5/LaraDumps-Setup-4.7.5.exe)
+[Download latest version here](https://github.com/laradumps/app/releases/download/v4.8.0/LaraDumps-Setup-4.8.0.exe)
 
 Once downloaded, open it and proceed with the installer.
 
