@@ -264,3 +264,16 @@ global-laradumps uninstall
 ```
 
 ---
+
+## Other Clients
+
+LaraDumps provides client libraries for other languages. These clients allow projects written in JavaScript/Node and Go to send dumps to the LaraDumps desktop app. 
+See each repository for full usage examples and configuration.
+
+### JavaScript / Node.js
+
+Repository: https://github.com/laradumps/laradumps-js
+
+### Go
+
+Repository: https://github.com/laradumps/laradumps-go
