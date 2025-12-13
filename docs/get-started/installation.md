@@ -132,7 +132,7 @@ chmod u+x ./LaraDumps-4.10.1.AppImage && ./LaraDumps-4.10.1.AppImage
 
 ### Windows
 
-[Download latest version here](https://github.com/laradumps/app/releases/download/v4.10.1/LaraDumps-Setup-4.10.1.exe)
+[Download the latest version here](https://github.com/laradumps/app/releases/download/v4.10.1/LaraDumps-Setup-4.10.1.exe)
 
 Once downloaded, open it and proceed with the installer.
 
@@ -142,14 +142,14 @@ Once downloaded, open it and proceed with the installer.
 
 ### Laravel Package
 
-**Requirements**: PHP 8.1+ and Laravel 10+
+**Requirements**: PHP 8.2+ and Laravel 11+
 
 1․ Install LaraDumps Package in your Laravel project using [Composer](https://getcomposer.org).
 
 Run the command:
 
 ```shell
-composer require laradumps/laradumps ^4.0 --dev -W
+composer require laradumps/laradumps --dev -W
 ```
 
 <br/>
@@ -198,14 +198,14 @@ observers:
 
 ### Agnostic PHP Framework
 
-**Requirements**: PHP 8.1+
+**Requirements**: PHP 8.2+
 
 1․ Install LaraDumps Package in your PHP project using [Composer](https://getcomposer.org).
 
 Run the command:
 
 ```shell
-composer require laradumps/laradumps-core ^3.0 --dev
+composer require laradumps/laradumps-core --dev
 ```
 
 <br/>
@@ -239,7 +239,7 @@ config:
 
 ### Global LaraDumps
 
-**Requirements**: PHP 8.1+
+**Requirements**: PHP 8.2+
 
 1․ You can install the global LaraDumps via [Composer](https://getcomposer.org).
 
