@@ -9,7 +9,7 @@ If you are using version 2, you are probably using the Laravel framework. For th
 :::tabs
 == Laravel
 ```bash
-composer require laradumps/laradumps --dev ^4.0 -W 
+composer require laradumps/laradumps --dev ^5.0 -W 
 ```
 
 == PHP Agnostic

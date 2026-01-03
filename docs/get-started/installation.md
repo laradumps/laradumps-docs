@@ -132,7 +132,7 @@ chmod u+x ./LaraDumps-4.10.1.AppImage && ./LaraDumps-4.10.1.AppImage
 
 ### Windows
 
-[Download the latest version here](https://github.com/laradumps/app/releases/download/v4.10.1/LaraDumps-Setup-4.10.1.exe)
+[Download latest version here](https://github.com/laradumps/app/releases/download/v4.10.1/LaraDumps-Setup-4.10.1.exe)
 
 Once downloaded, open it and proceed with the installer.
 
@@ -169,29 +169,55 @@ If your project_path is empty, you must manually add your project's `$(pwd)` to 
 
 ```yaml
 app:
-  primary_host: 127.0.0.1
-  secondary_host: host.docker.internal
-  port: 9191
-  workdir: /var/www/html/
-  project_path: /your-project-path-here/
+   dispatcher: curl
+   primary_host: 127.0.0.1
+   secondary_host: host.docker.internal
+   port: 9191
+   workdir: /var/www/html/
+   project_path: /Users/luan.freitas/Dev/upload-flow/laravel-project/
+   wsl_config: wsl+Ubuntu/
 config:
-  sleep: 0
-  color_in_screen: false
-  docker: false
+   sleep: 0
+   macos_auto_launch: false
 observers:
-  dump: false
-  original_dump: false
-  queries: false
-  mail: false
-  logs_applications: false
-  logs_vendor: false
-  logs_deprecated: false
-  http: false
-  jobs: false
-  commands: false
-  scheduled_commands: false
-  gate: false
-  cache: false
+   auto_invoke_app: false
+   enabled_in_testing: false
+   dump: false
+   original_dump: true
+   queries: false
+   slow_queries: false
+   mail: false
+   logs: true
+   http: false
+   jobs: false
+   commands: false
+   scheduled_commands: false
+   gate: false
+   cache: false
+   brain: false
+xdebug:
+   client_host: 0.0.0.0
+   client_port: 9003
+code_snippet:
+   above: 7
+   below: 3
+logs:
+   info: true
+   warning: true
+   emergency: true
+   alert: false
+   debug: true
+   error: true
+   critical: true
+   notice: true
+   vendor: true
+   deprecated_message: true
+slow_queries:
+   threshold_in_ms: 500
+extra:
+   context: false
+queries:
+   explain: false
 ```
 
 > See full information in [configuration options](configuration.md).
@@ -222,15 +248,25 @@ Similar to Laravel step, a `laradumps.yaml` file will be generated here without 
 
 ```yaml
 app:
-  primary_host: 127.0.0.1
-  secondary_host: host.docker.internal
-  port: 9191
-  workdir: /var/www/html/
-  project_path: /your-project-path-here/
+   dispatcher: curl
+   primary_host: 127.0.0.1
+   secondary_host: host.docker.internal
+   port: 9191
+   workdir: /var/www/html/
+   project_path:
+   wsl_config: wsl+Ubuntu/ #wsl+Ubuntu20.04/
 config:
-  sleep: 0
-  color_in_screen: false
-  docker: false
+   sleep: 0
+   macos_auto_launch: false
+observers:
+   auto_invoke_app: false
+   enabled_in_testing: false
+xdebug:
+   client_host: 0.0.0.0
+   client_port: 9003
+code_snippet:
+   above: 7
+   below: 3
 ```
 
 > See full information in [configuration options](configuration.md).
