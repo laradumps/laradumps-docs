@@ -186,6 +186,19 @@ Log::error('Your message', ['0' => 'Your Context']);
 
 > Laravel 11 [Log Context](https://laravel.com/docs/11.x/context) was supported
 
+## Laravel Boost Logs
+
+By default, LaraDumps will ignore Laravel Boost's browser info messages.
+
+To alter this behavior, change the `laradumps.yaml` file key `logs.boost_info` to `true`.
+
+```yaml
+logs:
+  boost_info: false
+```
+
+---
+
 ## Mailable
 
 Displays mail details and the HTML preview for an instance of a `Illuminate\Mail\Mailable` class.

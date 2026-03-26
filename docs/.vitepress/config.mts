@@ -76,8 +76,8 @@ export default defineConfig({
           { text: '✅ Pest PHP', link: '/debug/pest.md' },
           { text: '🐛 Xdebug', link: '/debug/xdebug.md' },
           { text: '🚀 Deploying to production', link: '/debug/deploying-to-production.md' },
+          { text: '🤖 MCP Server', link: '/debug/mcp-server.md'  },
           { text: '📝 Reference sheet', link: '/debug/reference-sheet.md' },
-          { text: '🤖 MCP Server', link: '/debug/mcp-server.md'  }
         ],
         collapsed: false
       },
