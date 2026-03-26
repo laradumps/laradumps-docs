@@ -28,7 +28,7 @@ ds()->model($firstUser);
 
 ## Stringable Macro
 
-Displays the current string in a [Stringable Macro](https://laravel.com/docs/12.x/strings)
+Displays the current string in a [Stringable Macro](https://laravel.com/docs/strings)
 
 ```php{5}
 use Illuminate\Support\Str;
@@ -184,7 +184,7 @@ Log::error('Your message', ['0' => 'Your Context']);
 * In Desktop App, choose your project and toggle: **LOGS**, or set `observers.logs` : `true` in **laradumps.yaml**
 :::
 
-> Laravel 11 [Log Context](https://laravel.com/docs/11.x/context) was supported
+> Laravel 11+ [Log Context](https://laravel.com/docs/context) was supported
 
 ## Laravel Boost Logs
 
