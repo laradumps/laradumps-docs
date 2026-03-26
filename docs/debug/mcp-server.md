@@ -44,7 +44,7 @@ Controls the maximum number of items returned by each tool call (logs, queries, 
 }
 ```
 
-(Replace `3000` with your configured port if different)
+(Replace `3000` with your configured port if your port differs)
 
 #### OpenCode
 
@@ -103,13 +103,14 @@ The MCP server communicates internally with LaraDumps via `http://0.0.0.0:9191/a
 | `clear_mails`             | Clear all captured emails from the dashboard.                              |
 | `clear_logs`              | Clear all captured application logs.                                       |
 | `clear_dumps`             | Clear all captured variable dumps.                                         |
-| `toggle_env`              | Enable, disable or toggle a environment/watcher (e.g. queries, logs, cache). |
+| `toggle_env`              | Enable, disable, or toggle an environment/watcher (e.g. queries, logs, cache). |
 
 ## Available Prompts
 
 Prompts are pre-configured AI interactions that gather relevant debugging data and present it to the AI model for analysis.
 
 ### `analyze_last_exception`
+
 Analyzes the most recent error or exception in your application logs.
 
 **Behavior:**
@@ -121,6 +122,7 @@ Analyzes the most recent error or exception in your application logs.
 **Example Use Case:** Quickly understand what caused an error and get AI-powered solutions.
 
 ### `optimize_latest_query`
+
 Analyzes the most recent SQL query for performance optimization.
 
 **Behavior:**
@@ -134,9 +136,10 @@ Analyzes the most recent SQL query for performance optimization.
 ## Common Commands
 
 ### 1. Real-time Code Analysis
+
 Use Cursor or OpenCode with MCP to analyze your latest queries and logs as you're developing:
 
-```
+```text
 "Analyze my last query and tell me if there are any N+1 problems"
 → Uses `get_queries` and `optimize_latest_query` prompt
 ```
@@ -144,7 +147,7 @@ Use Cursor or OpenCode with MCP to analyze your latest queries and logs as you'r
 ### 2. Error Debugging
 Quickly understand what went wrong:
 
-```
+```text
 "What caused the last error in my application?"
 → Uses `get_logs` and `analyze_last_exception` prompt
 ```
@@ -152,7 +155,7 @@ Quickly understand what went wrong:
 ### 3. Performance Optimization
 Get AI-powered suggestions for improving your application:
 
-```
+```text
 "Are my background jobs running efficiently?"
 → Uses `get_jobs` and `get_project_info` tools
 ```
@@ -160,7 +163,7 @@ Get AI-powered suggestions for improving your application:
 ### 4. Monitoring Control
 Enable/disable specific monitoring features through AI:
 
-```
+```text
 "Stop monitoring queries for now"
 → Uses `toggle_env` tool with queries
 ```
@@ -168,7 +171,7 @@ Enable/disable specific monitoring features through AI:
 ### 5. Project Understanding
 Get comprehensive project information:
 
-```
+```text
 "What's running in my Laravel application?"
 → Uses `get_project_info`, `get_livewire_components`, `get_mails`
 ```
@@ -222,12 +225,10 @@ The MCP server respects the following environment configuration:
 
 ### Tools Aren't Responding
 
-**Problem:** The client calls tools but gets timeout or no response.
+**Problem:** The client calls tools but receives a timeout or no response.
 
 **Solution:**
 1. Ensure the MCP Server is enabled in LaraDumps Settings
 2. Verify your Laravel app is running and sending data
 3. Wait 10 seconds after restarting your editor
 4. Try starting a new conversation
-
-
