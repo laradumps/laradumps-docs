@@ -1,76 +1,21 @@
-name: "Broken links check on Preview Deploy"
+name: Check for broken links
 
 on:
-  issue_comment:
-    types: [created]
-
+  push:
+  #pull_request:
+  schedule:
+    - cron: '0 0 * * 0'
 jobs:
-  check-preview-deploy:
+  crawl_for_broken_links:
     runs-on: ubuntu-latest
-    timeout-minutes: 15
-    permissions:
-      pull-requests: write
-    if: github.event.issue.pull_request && contains(github.event.comment.body, 'Deploy Preview for') && contains(github.event.comment.body, 'https://deploy-preview')
-
+    name: Broken-Links-Crawler
     steps:
-      - uses: "actions/checkout@v4"
-
-     ################# Parse URL #######################
-
-      - name: 🔎 Parse Deploy URL out of comment body
-        id: parse-url
-        env:
-          BODY: ${{ github.event.comment.body }}
-        run: |
-          BODY=$(echo "$BODY" | grep -Eo "(http|https)://deploy-preview[a-zA-Z0-9./?=_%:-]*" | sort -u)
-          echo "URL=${BODY}" >> "$GITHUB_OUTPUT"
-
-     ################# Check links #######################
-
-      - name: "🕵️‍♂️ Check preview page for broken links"
-        id: linkcheck
-        continue-on-error: true
-        if:  ${{ startsWith(steps.parse-url.outputs.URL, 'https://deploy-preview') && endsWith(steps.parse-url.outputs.URL, '.netlify.app') }}
-        uses: filiph/linkcheck@3.0.0
-        with:
-          arguments: ${{ steps.parse-url.outputs.URL }} --external --no-connection-failures-as-warnings --skip-file .github/linkcheck-skip.txt
-
-     ################# On Success #######################
-
-      - name: ✅ Add PR Comment if link check passes 
-        if:  steps.linkcheck.outcome == 'success'
-        uses: mshick/add-pr-comment@v2
-        with:
-          allow-repeats: true
-          message: |
-            ✅ No broken links detected!
-
-      - name: ✂️ Remove broken link labels
-        if:  steps.linkcheck.outcome == 'success'
-        uses: actions-ecosystem/action-remove-labels@v1
-        with:
-          labels: |
-            broken links
-
-      ################# On Failure #######################
-
-      - name: ❌ Add PR Comment if link check fails
-        if:  steps.linkcheck.outcome != 'success'
-        uses: mshick/add-pr-comment@v2
-        with:
-          allow-repeats: true
-          message: |
-            Hello, thank you for your contribution! 🙏 
-                        
-            It appears that broken links were found in the latest deploy preview page.
-                        
-            Please check [GitHub Actions](https://github.com/${{github.repository}}/commit/${{github.sha}}/checks/${{github.run_id}}) for more details and proceed to review your changes to fix any hyperlinks resulting in error.
-
-            LaraDumps team
-
-      - name: 🏷️ Add PR Labels if link check fails
-        if:  steps.linkcheck.outcome != 'success'
-        uses: actions-ecosystem/action-add-labels@v1
-        with:
-          labels: |
-            broken links
+    - name: Checking links
+      uses: ScholliYT/Broken-Links-Crawler-Action@v3
+      with:
+        website_url: 'https://laradumps.dev'
+        exclude_url_prefix: 'mailto:,data:,https://twitter.com/luanfreitasdev,https://getcomposer.org'
+        verbose: 'true'
+        max_retry_time: 30
+        max_retries: 5
+        max_depth: -1
