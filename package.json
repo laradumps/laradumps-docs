@@ -15,7 +15,7 @@
   "dependencies": {
     "@tailwindcss/postcss": "^4.1.5",
     "floating-vue": "^5.2.2",
-    "postcss": "^8.5.3",
+    "postcss": "^8.5.28",
     "tailwindcss": "^4.1.5"
   }
 }
