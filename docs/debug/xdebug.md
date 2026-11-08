@@ -3,7 +3,7 @@
 ## Requirements
 
 * [xdebug](https://xdebug.org/docs/install) PHP extension ^3.0
-* LaraDumps ^3.5.0
+* LaraDumps
 
 ::: info
 **Breakpoints**: Currently, **only PHPStorm is supported** for IDE integration.

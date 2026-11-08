@@ -9,17 +9,12 @@ If you are using version 2, you are probably using the Laravel framework. For th
 :::tabs
 == Laravel
 ```bash
-composer require laradumps/laradumps --dev ^5.0 -W 
+composer require laradumps/laradumps --dev -W 
 ```
 
 == PHP Agnostic
 ```bash
-composer require laradumps/laradumps-core --dev ^3.0 -W 
-```
-
-== Global LaraDumps
-```bash
-composer global require laradumps/global-laradumps ^3.0
+composer require laradumps/laradumps-core --dev -W 
 ```
 :::
 

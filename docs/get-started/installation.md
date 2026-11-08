@@ -8,10 +8,7 @@ With LaraDumps, you can go right into debugging with minimal effort:
    * [Laravel Framework Package](installation.html?id=desktop-app#laravel-package)
    * [PHP Agnostic Framework](installation.html?id=desktop-app#agnostic-php-framework)
 
-3. You may also install the Global LaraDumps package to make LaraDumps available in all projects in your computer.
-   * [Global LaraDumps Package](installation.html?id=desktop-app#global-laradumps)
-
-4. Start [Debugging](/debug/introduction.html)!
+3. Start [Debugging](/debug/introduction.html)!
 
 ## Desktop App
 
@@ -270,36 +267,6 @@ code_snippet:
 ```
 
 > See full information in [configuration options](configuration.md).
-
----
-
-### Global LaraDumps
-
-**Requirements**: PHP 8.2+
-
-1․ You can install the global LaraDumps via [Composer](https://getcomposer.org).
-
-```shell
-composer global require laradumps/global-laradumps
-```
-
-<br/>
-
-#### How to install
-
-```shell
-global-laradumps install
-```
-
-<br/>
- 
-#### How to uninstall
-
-```shell
-global-laradumps uninstall
-```
-
----
 
 ## Other Clients
 

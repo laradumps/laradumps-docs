@@ -14,7 +14,6 @@ const getContributors = async () => {
     fromRepo('laradumps'),
     fromRepo('laradumps-core'),
     fromRepo('laradumps-docs'),
-    fromRepo('global-laradumps'),
     fromRepo('homebrew-app'),
   ])
 
