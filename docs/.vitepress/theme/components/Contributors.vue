@@ -17,7 +17,7 @@ const getContributors = async () => {
     fromRepo('homebrew-app'),
   ])
 
-  contributors.value = users.reduce((acc, data = []) => {
+  const merged = users.reduce((acc, data = []) => {
     if (!Array.isArray(data)) {
       return acc
     }
@@ -38,14 +38,17 @@ const getContributors = async () => {
       avatar_url: user.avatar_url
     }]
   }, [])
+
+  // keep the cached list when GitHub rate-limits every request
+  if (merged.length) contributors.value = merged.sort((a, b) => b.contributions - a.contributions)
 }
 
 getContributors()
 </script>
 
 <template>
-  <div class="text-lg text-center leading-7 my-10 px-5">
-    <div class="flex flex-wrap gap-2">
+  <div class="my-6">
+    <div class="flex flex-wrap gap-1.5">
       <a
           v-for="contributor of contributors"
           :key="contributor.id"
@@ -60,9 +63,9 @@ getContributors()
             :alt="contributor.username"
             :aria-label="contributor.username"
             loading="lazy"
-            width="50"
-            height="50"
-            class="w-15 h-15 min-w-15 min-h-15 !rounded-full"
+            width="40"
+            height="40"
+            class="w-10 h-10 rounded-full"
         />
       </a>
     </div>

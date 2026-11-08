@@ -1,10 +1,10 @@
-# Remote Server
+# Remote server
 
-When connected to a remote server, LaraDumps securely transfers the output of `ds()` function calls from your server to your local machine via **SSH**.
+LaraDumps forwards `ds()` output from a remote server to your machine over SSH.
 
-## Package setup
+## Install without `--dev`
 
-❗ In order to use this feature, you **must** install LaraDumps package without the `--dev` flag.
+The package must be a regular dependency on the server.
 
 :::tabs
 == Laravel Project
@@ -21,21 +21,20 @@ composer require laradumps/laradumps-core
 
 :::
 
-### App setup
+## Add the connection
 
-* Click the "**SSH Connection**" icon in the top-right corner of the LaraDumps app.
+1. In the app, click the SSH icon in the top-right corner.
+2. Click **Add Connection**.
+3. Fill in the server details and click **Connect**.
+4. Turn the connection on with its toggle.
 
-![Output](/_media/ssh/ssh-1.png)
-
-* Click "Add Connection" 
-
-![Output](/_media/ssh/ssh-2.png)
-
-* Add your server credentials 
-
-![Output](/_media/ssh/ssh-3.png)
-
-* Enable connection
-
-![Output](/_media/ssh/ssh-4.png)
-
+| Field | Notes |
+|---|---|
+| Name | Label shown in the connection list. |
+| Host | Server address. |
+| Port | Defaults to `22`. |
+| Authentication Type | Private key (default) or password. |
+| Username | SSH user. |
+| Private Key Path | With private key. Pick the file, for example `~/.ssh/id_ed25519`. |
+| Passphrase | With private key, only if the key has one. |
+| Password | With password authentication. |

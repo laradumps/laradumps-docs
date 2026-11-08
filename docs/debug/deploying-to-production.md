@@ -1,63 +1,51 @@
 # Deploying to production
 
-## Introduction
+`ds()` is a development tool. Run `check` before you deploy to find any call you left behind.
 
-Since LaraDumps is a debug `dev` tool, you might want to check if you forgot a `ds()` somewhere in your code before you deploy your app to production.
+```bash
+vendor/bin/laradumps check --dir=app,routes,config
+```
 
-LaraDumps provides the command `vendor/bin/laradumps check` which will produce an error if any `ds()` is found in your code.
+The command lists each match with file, line and code, and exits with an error if it finds one. It needs no configuration file or environment variable.
 
-## Pipeline
+```text
+ERROR - Found 3 errors / 1 file
+```
 
-You can also add a custom `verify` script in your `composer.json`, and run `composer verify` in your deployment pipeline (CI/CD).
+## Options
 
-Example script:
+| Option | Description |
+|---|---|
+| `--dir` | Directories to search, comma-separated. Required. |
+| `--text` | Words to search for, comma-separated. Default: `ds,dsq,dsd,ds1,ds2,ds3,ds4,ds5`. |
+| `--extension` | File extensions to search, comma-separated. |
+| `--exactly` | Search for exact occurrences. |
+| `--ignore` | Directories to skip, comma-separated. |
+| `--ignore-files` | Files to skip, comma-separated. |
+| `--dirty` | Search only files that are dirty in git. |
+| `stop-on-failure` | Argument. Stop at the first match. |
+
+```bash
+vendor/bin/laradumps check --dir=app --dirty
+```
+
+## Run it in CI
+
+Add a Composer script and call it from your pipeline.
 
 ```json
 "scripts": {
-   "ds:check": "@php vendor/bin/laradumps check --dir=app,routes,config --text=dump,dd",
-   "verify": [
-         "@ds:check",
-         // ..
-   ],
+    "ds:check": "@php vendor/bin/laradumps check --dir=app,routes,config --text=dump,dd",
+    "verify": [
+        "@ds:check"
+    ]
 }
 ```
 
-If any `ds()` is found, the `check` command will indicate you the file, line and code snippet.
-
-::: tip
-Does not require environment variables or configuration files. Only via argument in the terminal:
-:::
-
-#### Arguments
-
-* You can pass some arguments, `--dir` is required
-* Default words: `ds,dsq,dsd,ds1,ds2,ds3,ds4,ds5`
-
 ```bash
---dir // Directories that will be filtered separated by comma
---text // Texts that will be searched separated by a comma
---dirty // Search only files that are dirty in git
---ignore // Directories to be ignored separated by comma
---ignore-files // Files that will be ignored separated by a comma
-stop-on-failure // Stop the search if a match is found
+composer verify
 ```
 
-![Output](/_media/ds_check_error.png)
+## Next step
 
-If you have not forgotten any `ds()`, your pipeline will be completed successfully.
-
-![Output](/_media/ds_check_success.png)
-
----
-
-::: tip
-You can use **--dirty** to only track files that haven't been added to git for quick checks - Inspired by [Laravel Pint](https://github.com/laravel/pint/pull/130)
-:::
-
-```bash
-vendor/bin/laradumps --dirty
-```
-
-## Pest PHP Architecture Test
-
-In addition, we recommend you see this example of [Pest Architecture](/debug/pest.html#architecture-test) used to detect leftover debug code.
+For architecture tests that catch leftover debug code, see [Pest](/debug/pest#architecture-test).

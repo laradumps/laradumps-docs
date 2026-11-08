@@ -1,30 +1,247 @@
-@import "tailwindcss";
+/* Tailwind without preflight: its reset fights VitePress heading/list styles. */
+@layer theme, base, components, utilities;
+@import "tailwindcss/theme.css" layer(theme);
+@import "tailwindcss/utilities.css" layer(utilities);
 
+/* Neutrals match the desktop app (DESIGN-LAYOUT.html); yellow is the brand accent. */
 :root {
-    --vp-c-brand-1: #cb9812;
-    --vp-c-brand-2: #cb9812;
-    --vp-button-brand-text: black;
-    --vp-button-brand-bg: #cb9812;
+    --vp-c-bg: #ffffff;
+    --vp-c-bg-alt: #f6f7f9;
+    --vp-c-bg-soft: #f1f3f6;
+    --vp-c-bg-elv: #ffffff;
+    --vp-c-divider: #dfe3ea;
+    --vp-c-gutter: #dfe3ea;
+    --vp-c-text-1: #1d2330;
+    --vp-c-text-2: #5b6475;
+    --vp-c-text-3: #646d7d;
+
+    /* darker yellows so links pass AA on white and soft backgrounds */
+    --vp-c-brand-1: #8f6700;
+    --vp-c-brand-2: #7a5700;
+    --vp-c-brand-3: #e6b800;
+    --vp-c-brand-soft: rgba(230, 184, 0, 0.16);
+
+    --vp-button-brand-text: #14171d;
+    --vp-button-brand-bg: #e6b800;
+    --vp-button-brand-border: transparent;
+    --vp-button-brand-hover-text: #14171d;
+    --vp-button-brand-hover-bg: #f2c62a;
+    --vp-button-brand-hover-border: transparent;
+    --vp-button-brand-active-text: #14171d;
+    --vp-button-brand-active-bg: #d4a500;
+    --vp-button-brand-active-border: transparent;
+
+    --vp-font-family-base: "Geist", "Inter", ui-sans-serif, system-ui, sans-serif;
+    --vp-font-family-mono: "Geist Mono", ui-monospace, "SF Mono", "JetBrains Mono", Menlo, Consolas, monospace;
+    --vp-code-color: var(--vp-c-text-1);
+    --vp-code-bg: var(--vp-c-bg-soft);
+
+    --vp-home-hero-name-color: var(--vp-c-brand-1);
 }
 
 .dark {
-    --vp-button-brand-bg: #fdbe17;
+    --vp-c-bg: #14171d;
+    --vp-c-bg-alt: #101318;
+    --vp-c-bg-soft: #1c2028;
+    --vp-c-bg-elv: #1c2028;
+    --vp-c-divider: #2b313c;
+    --vp-c-gutter: #0c0e12;
+    --vp-c-text-1: #e6e9ef;
+    --vp-c-text-2: #9aa3b2;
+    --vp-c-text-3: #838c9c;
+
+    --vp-c-brand-1: #f2c230;
+    --vp-c-brand-2: #e6b800;
+    --vp-c-brand-3: #d4a500;
+    --vp-c-brand-soft: rgba(242, 194, 48, 0.14);
+
+    --vp-code-block-bg: #101318;
 }
 
-.dark .vp-doc :not(pre) > code {
-    color: white;
-    font-weight: bold;
-    text-decoration: none !important;
-    border: 1px solid dimgray;
+/* ---------- Navbar: solid once scrolled on home ---------- */
+.VPNavBar.home .content-body {
+    background: color-mix(in srgb, var(--vp-c-bg) 80%, transparent);
+    backdrop-filter: blur(12px);
+}
+.VPNavBar.home.top .content-body {
+    background: transparent;
+    backdrop-filter: none;
 }
 
+/* ---------- Hero ---------- */
+.VPHero .name {
+    font-size: 14px !important;
+    line-height: 20px !important;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    font-weight: 600;
+}
+.VPHero .text {
+    font-size: clamp(34px, 5vw, 52px) !important;
+    line-height: 1.08 !important;
+    letter-spacing: -0.03em;
+    max-width: 560px !important;
+    padding-top: 8px;
+}
+.VPHero .tagline {
+    font-size: 18px !important;
+    line-height: 28px !important;
+    font-weight: 400 !important;
+    max-width: 460px !important;
+    padding-top: 16px;
+}
+.VPHero .image-container::before {
+    content: "";
+    position: absolute;
+    inset: 10% 0;
+    background: radial-gradient(closest-side, rgba(230, 184, 0, 0.16), transparent);
+    pointer-events: none;
+}
+.VPHero .image-bg {
+    display: none;
+}
+
+/* default theme pulls the image under the navbar and boxes it at 320x320 */
+@media (max-width: 959px) {
+    .VPHero .image {
+        margin: 0 0 32px;
+        order: 1;
+    }
+    .VPHero .image-container {
+        width: 100%;
+        height: auto;
+    }
+}
+
+@media (max-width: 480px) {
+    .VPHero .action {
+        flex: 1 1 100%;
+    }
+    .VPHero .action a {
+        width: 100%;
+    }
+}
+
+/* ---------- Feature cards ---------- */
+.VPFeatures {
+    padding-top: 8px;
+}
+.VPFeature {
+    border: 1px solid var(--vp-c-divider) !important;
+    background: var(--vp-c-bg-soft);
+    transition: border-color 0.15s, transform 0.15s;
+}
+.VPFeature:hover {
+    border-color: var(--vp-c-brand-3) !important;
+    transform: translateY(-2px);
+}
+.VPFeature .icon {
+    width: 36px !important;
+    height: 36px !important;
+    margin-bottom: 14px !important;
+    border-radius: 8px !important;
+    background: var(--vp-c-brand-soft) !important;
+    color: var(--vp-c-brand-1);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.VPFeature .title {
+    font-size: 15px !important;
+}
+.VPFeature .details {
+    font-size: 14px !important;
+}
+
+.home-section {
+    margin: 48px auto 0;
+    padding-top: 32px;
+    border-top: 1px solid var(--vp-c-divider);
+}
+.home-section h2 {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-size: 20px;
+    font-weight: 600;
+    letter-spacing: -0.01em;
+    color: var(--vp-c-text-1);
+}
+
+/* ---------- Sidebar ---------- */
+.VPSidebarItem.level-0 > .item > .text {
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--vp-c-text-2);
+}
+.VPSidebarItem.is-active > .item .indicator {
+    background-color: var(--vp-c-brand-3);
+    width: 2px;
+}
+
+/* ---------- Content ---------- */
+.vp-doc h1,
+.vp-doc h2 {
+    letter-spacing: -0.02em;
+}
+.vp-doc p,
+.vp-doc li {
+    line-height: 1.7;
+}
 .vp-doc :not(pre) > code {
-    color: black;
-    font-weight: bold;
-    text-decoration: none !important;
-    border: 1px solid #e5e3e3;
+    font-size: 0.875em;
+    border-radius: 6px;
+    border: 1px solid var(--vp-c-divider);
+    padding: 1px 6px;
 }
 
-img {
-    border-radius: 12px;
+.vp-doc table {
+    display: table;
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0;
+    border: 1px solid var(--vp-c-divider);
+    border-radius: 10px;
+    overflow: hidden;
+}
+.vp-doc th {
+    background: var(--vp-c-bg-soft);
+    font-size: 12px;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    color: var(--vp-c-text-2);
+}
+.vp-doc th code {
+    text-transform: none;
+    letter-spacing: 0;
+}
+.vp-doc th,
+.vp-doc td {
+    border: 0;
+    border-bottom: 1px solid var(--vp-c-divider);
+    padding: 10px 14px;
+}
+.vp-doc tr:nth-child(2n) {
+    background: transparent;
+}
+.vp-doc tr:last-child td {
+    border-bottom: 0;
+}
+
+/* frame screenshots only, not badges or inline icons */
+.vp-doc p > img:only-child,
+.vp-doc figure img {
+    border: 1px solid var(--vp-c-divider);
+    border-radius: 10px;
+}
+
+/* Thin themed scrollbars (page, sidebar, code blocks) */
+* {
+    scrollbar-width: thin;
+    scrollbar-color: var(--vp-c-divider) transparent;
+}
+*:hover {
+    scrollbar-color: var(--vp-c-text-3) transparent;
 }

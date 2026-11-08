@@ -1,9 +1,3 @@
-# Support & Source Code
+# Support and source code
 
-## Technical Support & Bug Reports
-
-LaraDumps technical support is entirely centered in our [GitHub Repositories](https://github.com/laradumps).
-
-## Source Code
-
-You can find the LaraDumps Desktop App and PHP Packages source code in our [GitHub Repositories](https://github.com/laradumps).
+Support and bug reports happen in the [LaraDumps GitHub repositories](https://github.com/laradumps). The desktop app and the PHP packages are open source there too.

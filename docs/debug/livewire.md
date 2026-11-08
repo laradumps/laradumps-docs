@@ -1,48 +1,44 @@
-# Livewire/Volt Tools
+# Livewire and Volt
 
-## Introduction
+LaraDumps shows each [Livewire](https://livewire.laravel.com) component with its properties, queries and timings. It sends one payload per HTTP request.
 
-LaraDumps provides a very convenient way to debug [Livewire](https://livewire.laravel.com) Component's `properties`, `events`, `queries` and `validation errors`.
+Pick the components you want to watch in the page picker, or pin them from code.
 
-Every time the component is updated, you will be able to see all the information in your LaraDumps Desktop app.
+## Enable the observer
 
-#### Profile
+Turn on the Livewire observer in `laradumps.yaml`. The page picker only appears when `APP_DEBUG=true`.
 
-![Output](/_media/livewire/profile.png)
+```yaml
+observers:
+  livewire: true
+```
 
-#### Properties
+::: tip
+The page picker needs `laradumps/laradumps` 5.5 or later.
+:::
 
-![Output](/_media/livewire/properties.png)
+## Pin a component
 
-## Livewire Component
-
-To enable LaraDumps to listen to a specific Livewire component, add a `#[Ds]` PHP attribute to the its class as demonstrated in the next example:
+Add the `#[Ds]` attribute to the component class. LaraDumps sends that component on every request it takes part in, even if you did not pick it.
 
 ```php
-use LaraDumps\LaraDumps\Livewire\Attributes\Ds;// [!code ++]
+use LaraDumps\LaraDumps\Livewire\Attributes\Ds; // [!code ++]
 
-#[Ds]// [!code ++]
-class MyLivewireComponent extends \Livewire\Component 
+#[Ds] // [!code ++]
+class OrderList extends \Livewire\Component
 {
-    public function mount() 
-    {
-        // ..
-    }
+    // ...
 }
 ```
 
-## Volt function
+## Pin a Volt component
 
-To enable LaraDumps to listen to a specific Volt component, add a `ds()` function like in the example below.
+Call `ds($this)` in `booted()`.
 
 ```php
-\Livewire\Volt\title('todo');
+use function Livewire\Volt\{booted, state};
 
-booted(fn() => ds($this));  // [!code ++]
+booted(fn () => ds($this)); // [!code ++]
 
-state([
-    'todo' => ''
-]);
-
-// ...
+state(['todo' => '']);
 ```

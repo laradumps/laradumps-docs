@@ -1,73 +1,48 @@
 # What is LaraDumps?
 
-## About
+LaraDumps is a desktop app for debugging PHP and Laravel. Your code sends data with `ds()`, and the app shows it in its own window. The request keeps running.
 
-LaraDumps is a powerful and user-friendly debugging app that revolutionizes how you debug Laravel PHP applications. Unlike traditional debugging methods that interrupt your application flow or clutter your browser output, LaraDumps displays your debug information in a clean, organized standalone Desktop Application.
+<DumpPreview />
 
-```php
-ds('Hello !');
+## Why not `dd()`?
 
-```
+| | `dd()` / `dump()` | `ds()` |
+|---|---|---|
+| Request | Stops at `dd()` | Keeps running |
+| Output | Mixed into the page | Separate window |
+| After a reload | Gone | Kept |
+| API, queue, CLI | Hard to see | Same window |
 
-![Output](/_media/app_homepage.png)
+## What you can inspect
 
-## Why Choose LaraDumps?
+- **Variables**: arrays, objects, models, JSON and tables. See [PHP](/debug/php).
+- **Laravel**: queries, logs, jobs, mail, cache, routes. See [Laravel](/debug/laravel).
+- **Livewire**: component state as it changes. See [Livewire](/debug/livewire).
+- **Tests**: dumps from Pest. See [Pest](/debug/pest).
+- **Step debugging**: breakpoints with [Xdebug](/debug/xdebug).
+- **AI agents**: read dumps through the [MCP server](/debug/mcp-server).
 
-Traditional debugging methods like `dd()`, `dump()`, or `var_dump()` have limitations:
-- `dd()` stops your application execution
-- Browser output becomes messy with multiple `dump()` calls
-- `var_dump()` output is hard to read and analyze
-- You lose previous debug information when refreshing the page
+## Next step
 
-LaraDumps solves these problems and offers much more:
-- ✨ **Keep Your App Running**: Debug without interrupting the application flow
-- 🔍 **Persistent History**: Debug output persists between page refreshes
-- 📱 **Dedicated Interface**: Clean, organized view in a separate window
-- 🎯 **Multiple Dumps**: View multiple debug points simultaneously
-- 🎨 **Beautiful Formatting**: Well-structured, readable output
-- 🔄 **Real-time Updates**: See debug information as it happens
+[Install LaraDumps](/get-started/installation) and send your first dump.
 
-## Features
+## Community
 
-LaraDumps provides a comprehensive set of [debug tools](/debug/php) that go far beyond basic debugging:
+### Articles
 
-### Advanced Debugging
-- **Xdebug Integration**: Step-by-step debugging with full Xdebug support
-- **Variable Inspector**: Beautiful and readable formatting for any variable type
-- **Query Monitor**: Track and analyze SQL queries in real-time
-- **Job Monitor**: Track and debug Laravel queue jobs
-- **Log Monitor**: Real-time Laravel log monitoring with filtering
+- [Powerful Debugging for PHP & Laravel with LaraDumps](https://laravel-news.com/laradumps), Laravel News
+- [A free and open-source alternative to Spatie's Ray](https://www.amitmerchant.com/free-open-source-alternative-spatie-ray-debug-php-applications/), by Amit Merchant
+- [LaraDumps on Made with Laravel](https://madewithlaravel.com/laradumps)
 
-### Development Tools
-- **Multi-Screen Support**: Organize debug output across multiple windows
-- **Theme System**: Multiple themes powered by daisyUI
-- **Table View**: View arrays and objects in searchable tables
-- **Clean Interface**: Well-organized and easy to navigate
+### Videos
 
-### Application Insights
-- **Route List**: View all registered Laravel routes
-- **Model Inspector**: Examine Eloquent model attributes
-- **JSON Validator**: Validate and format JSON strings
-- **String Search**: Find and highlight substrings within text
-- **PHP Info**: Quick access to your PHP configuration
-
-## View more
-
-- YouTube video [Como Debugar Aplicações Laravel Daqui Pra Frente](https://www.youtube.com/watch?v=IJqJGvEhqp0) - by Tio Jobs (in Portuguese)
-- YouTube video [Laravel: Debugging de Tus Aplicaciones con LaraDumps](https://www.youtube.com/watch?v=R-5SlKBt72w) - by Code with Luis (in Spanish)
-- YouTube video [Un super outil GRATUIT pour débugger vos applications Laravel !](https://www.youtube.com/watch?v=Go55pP5rIgY&t=10s&pp=ygUJbGFyYWR1bXBz) - by Laravel Jutsu
-
-## Tech Stack
-
-- PHP & Laravel
-- Electron
-- Vue 3
-- [Tailwind CSS 4](https://tailwindcss.com/) / [daisyUI 5](https://daisyui.com/)
+- [LaraDumps: A Package for Better dd() in Laravel/PHP](https://www.youtube.com/watch?v=1c2MT2d00EE), by Povilas Korop, Laravel Daily (English)
+- [Como Debugar Aplicações Laravel Daqui Pra Frente](https://www.youtube.com/watch?v=IJqJGvEhqp0), by Tio Jobs (Portuguese)
+- [Laravel: Debugging de Tus Aplicaciones con LaraDumps](https://www.youtube.com/watch?v=R-5SlKBt72w), by Code with Luis (Spanish)
+- [Un super outil GRATUIT pour débugger vos applications Laravel !](https://www.youtube.com/watch?v=Go55pP5rIgY), by Laravel Jutsu (French)
 
 ## Credits
 
-LaraDumps is a free open-source project, and it was inspired by [Spatie Ray](https://github.com/spatie/ray), check it out!
+Built with Electron, Vue 3, Tailwind CSS 4 and daisyUI 5. Inspired by [Spatie Ray](https://github.com/spatie/ray).
 
-- Author: [Luan Freitas](https://github.com/luanfreitasdev)
-
-- Logo by [Vitor S. Rodrigues](https://github.com/vs0uz4)
+Created by [Luan Freitas](https://github.com/luanfreitasdev). Logo by [Vitor S. Rodrigues](https://github.com/vs0uz4).

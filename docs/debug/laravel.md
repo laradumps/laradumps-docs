@@ -1,90 +1,85 @@
-# Laravel Tools
+# Laravel
 
-## Introduction
-
-The features listed on this page are available only for applications built on the [Laravel Framework](https://laravel.com) and require the [LaraDumps Laravel](/get-started/installation.html?id=desktop-app#laravel-package) package to work properly.
+These helpers need a Laravel app with the [LaraDumps Laravel package](/get-started/installation) installed.
 
 ## Routes
 
-You can use the `routes()` method to list all Routes in a [table](/debug/php.html?id=table#table) format.
-
-You may configure LaraDumps to [exclude](/get-started/configuration?id=routes) specific routes from the dump output.
+List your routes in a [table](/debug/php). Pass strings to skip routes whose URI contains them.
 
 ```php
 ds()->routes();
+ds()->routes('horizon', 'telescope');
 ```
 
-## Eloquent Model
+## Eloquent models
 
-You can use the `model()` method to view [Eloquent Model's](https://laravel.com/docs/eloquent#introduction) Attributes and Relationships.
+Show a model's attributes and relationships. You can pass several models.
 
-```php{5}
-use App\Models\User;
-
-$firstUser = User::first();
-
-ds()->model($firstUser);
+```php
+ds()->model(User::first());
 ```
 
-## Stringable Macro
+## Macros and Blade
 
-Displays the current string in a [Stringable Macro](https://laravel.com/docs/strings)
+Chain `ds()` on strings, collections and query builders. Each returns the original value, so the chain keeps working.
 
-```php{5}
-use Illuminate\Support\Str;
+```php
+Str::of('Hello')->append(' World')->ds();
 
-Str::of('Hello')
-    ->append(' World')
-    ->ds();
-```
-
-## Collection Macro
-
-Displays the current state of a [Collection Macro](https://laravel.com/docs/collections#main-content)
-
-```php{4}
 collect(['hello', 'world'])
     ->ds('original input')
-    ->map(fn($string) => ucfirst($string))
-    ->ds('capitalize result');
+    ->map(fn ($string) => ucfirst($string))
+    ->ds('capitalized');
+
+User::query()->where('name', 'Luan')->ds()->get();
 ```
 
-## Query Macro
+The query macro works even when the SQL observer is off. In Blade, use the `@ds()` directive:
 
-You can also chain a `ds()` method before the query execution and, it will be dumped in the Desktop App:
-
-```php{4}
-use App\Models\User;
-
-User::query()->where('name', 'Luan')
-    ->ds()
-    ->get();
+```blade
+@ds('Hello World')
 ```
 
-::: warning
-The macro feature doesn't require SQL Queries to be enabled in the configuration file.
-:::
+## Table and Markdown
 
-## Blade directive
+`table()` takes a model or any iterable, and an optional name. The app adds a search bar. `markdown()` renders Markdown as HTML.
 
-For your convenience, LaraDums provides a `@ds()` Blade directive.
+```php
+ds()->table(User::all(['id', 'name', 'email']), 'my users');
 
-```php{4}
-<!DOCTYPE html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
-    <head>
-    @ds('Hello World')
+ds()->markdown('# hello world!');
 ```
+
+## Observers
+
+Observers dump Laravel events for you. Turn one on globally with its toggle in your project settings in the app, or in `laradumps.yaml`. Or wrap a block of code with the `On` and `Off` methods, which work even when the toggle is off.
+
+| Observer | `laradumps.yaml` key | Scoped methods |
+|---|---|---|
+| Queries | `observers.queries` | `queriesOn()`, `queriesOff()` |
+| Slow queries | `observers.slow_queries` | None |
+| Logs | `observers.logs` (on by default) | None |
+| Mail | `observers.mail` | None |
+| HTTP client | `observers.http` | `httpOn()`, `httpOff()` |
+| Artisan commands | `observers.commands` | `commandsOn()`, `commandsOff()` |
+| Scheduled commands | `observers.scheduled_commands` | `scheduledCommandOn()`, `scheduledCommandOff()` |
+| Gates and policies | `observers.gate` | `gateOn()`, `gateOff()` |
+| Jobs | `observers.jobs` | None |
+| Cache | `observers.cache` | `cacheOn()`, `cacheOff()` |
+
+```yaml
+# laradumps.yaml
+observers:
+  queries: true
+```
+
+The `On` methods that take a label (`queriesOn`, `httpOn`, `commandsOn`, `cacheOn`, `scheduledCommandOn`, `gateOn`) tag the dumps with it.
 
 ## Queries
 
-To debug SQL queries, you must place the database call within the `queriesOn()` and `queriesOff()` methods.
+Wrap the database calls you want to see.
 
-For example:
-
-```php{3,7}
-use App\Models\User;
-
+```php
 ds()->queriesOn('checking a user query');
 
 User::query()->where('id', 20)->get();
@@ -92,51 +87,38 @@ User::query()->where('id', 20)->get();
 ds()->queriesOff();
 ```
 
-## Ignoring Queries
+To hide noise, publish the config file and add patterns.
 
-Sometimes you may want to exclude certain queries from the debug dump. This could be helpful if you are looking for a specific query among a lot of others.
-
-To ignore queries, you first need to publish the LaraDumps Laravel's config file. To do so, run the following command:
-
-```shell
+```bash
 php artisan vendor:publish --tag=laradumps-config
 ```
 
-Now, you can configure the recently created file `config/laradumps.php`, adding the queries or route patterns that you do not want to see in your debug dump.
-
 ```php
-//config/laradumps.php
-
+// config/laradumps.php
 return [
     'queries' => [
         'ignore_sql_patterns' => [
-            'select name from `flights`',// [!code ++]
+            'select name from `flights`',
         ],
         'ignore_routes_patterns' => [
-            'horizon/*',// [!code ++]
-            'telescope/*',// [!code ++] 
+            'horizon/*',
+            'telescope/*',
         ],
     ],
 ];
 ```
 
-::: info
-**To Listen globally:**
+- `ignore_sql_patterns`: skips queries whose SQL contains the text. `*` works as a wildcard. Matching is case-insensitive.
+- `ignore_routes_patterns`: skips queries run while serving a request whose path matches. `*` works as a wildcard, and the pattern must match the whole path.
 
-* In Desktop App, choose your project and toggle: **QUERIES**, or set `observers.queries` : `true` in **laradumps.yaml**
-:::
+To flag full table scans, set `queries.explain: true` in `laradumps.yaml`. LaraDumps then runs `EXPLAIN FORMAT=JSON` on `select` queries, which requires MySQL or MariaDB.
 
-## Slow Queries
+### Slow queries
 
-To monitor slow queries, just enable the "Slow Queries" option inside your project settings in the desktop app.
-
-Alternatively, you may edit the option `observers` > `slow_queries` in your project's `laradumps.yaml` file.
-
-You may configure `laradumps.yaml` and adjust the time limit that determines when a query's execution time is considered "slow". Just change the `slow_queries` > `threshold_in_ms`. The default time is 500 milliseconds.
+Enable `observers.slow_queries`. A query is slow at or above `threshold_in_ms`, which defaults to 500.
 
 ```yaml
-#laradumps.yaml
-
+# laradumps.yaml
 observers:
   slow_queries: true
 
@@ -144,216 +126,104 @@ slow_queries:
   threshold_in_ms: 500
 ```
 
-## Table
-
-You can use the `table()` method to display dumps in a table with a built-in search bar.
-
-To build a table, you can pass an instace of an Eloquent Model or any `iterable $data` as the first argument. Next, you may add an optional `string $name` for the table name.
-
-```php{5}
-use App\Models\User;
-
-$allUsers = User::all(['id', 'name', 'email']);
-
-ds()->table($allUsers, 'my users table');
-```
-
-## Markdown
-
-Displays the markdown rendered as HTML.
-
-```php
-ds()->markdown('# hello world!');
-```
+When the queries observer is also on, slow queries are not sent twice.
 
 ## Logs
 
-The Desktop App will receive and dump [Laravel Logs](https://laravel.com/docs/logging) entries whenever you enable the [Log](/get-started/configuration?id=laravel-logs) feature.
+With `observers.logs` on (the default), `Log` entries appear in the app, with the request, the executed queries and, for exceptions, a code snippet. [Laravel Context](https://laravel.com/docs/context) is included.
 
 ```php
-use Illuminate\Support\Facades\Log;
-
-Log::info('Your message', ['0' => 'Your Context']);
-
-Log::error('Your message', ['0' => 'Your Context']);
+Log::info('Order shipped', ['order_id' => 42]);
+Log::error('Payment failed', ['order_id' => 42]);
 ```
 
-::: info
-**To Listen globally:**
-
-* In Desktop App, choose your project and toggle: **LOGS**, or set `observers.logs` : `true` in **laradumps.yaml**
-:::
-
-> Laravel 11+ [Log Context](https://laravel.com/docs/context) was supported
-
-## Laravel Boost Logs
-
-By default, LaraDumps will ignore Laravel Boost's browser info messages.
-
-To alter this behavior, change the `laradumps.yaml` file key `logs.boost_info` to `true`.
+Choose which levels to receive under `logs` in `laradumps.yaml`. All are `true` except `alert`.
 
 ```yaml
 logs:
+  error: true
+  alert: false
+  vendor: true
+  deprecated_message: true
   boost_info: false
 ```
 
----
+- `vendor`: only messages that contain "vendor".
+- `deprecated_message`: only messages that contain "deprecated".
+- `boost_info`: Laravel Boost browser logs, hidden by default.
 
-## Mailable
+## Mail
 
-Displays mail details and the HTML preview for an instance of a `Illuminate\Mail\Mailable` class.
+Preview a `Mailable` with its recipients and rendered HTML.
 
 ```php
-ds()->mailable(new \App\Mail\TestMail());
+ds()->mailable(new \App\Mail\OrderShipped());
 ```
 
-::: info
-**To Listen globally:**
+With `observers.mail` on, LaraDumps also dumps every sent mail and mail notification.
 
-* In Desktop App, choose your project and toggle: **MAIL**, or set `observers.mail` : `true` in **laradumps.yaml**
-:::
+## HTTP client
 
-## HTTP Requests
+Dump requests and responses made with `Http` inside the block.
 
-Captures and displays all the properties of HTTP Requests within the `httpOn()` and `httpOff()` methods.
-
-```php{3,5}
-use \Illuminate\Support\Facades\Http;
-
+```php
 ds()->httpOn();
-    Http::get('https://jsonplaceholder.typicode.com/todos/1');
+Http::get('https://jsonplaceholder.typicode.com/todos/1');
 ds()->httpOff();
 ```
 
-::: info
-**To Listen globally:**
+## Artisan commands
 
-* In Desktop App, choose your project and toggle: **HTTP**, or set `observers.http` : `true` in **laradumps.yaml**
-:::
+Dump commands with their arguments, options and exit code.
 
-## Artisan Command
-
-Captures and displays the called Artisan commands with their arguments, options and exit code.
-
-```php{3,5}
-use Illuminate\Support\Facades\Artisan;
-
+```php
 ds()->commandsOn('running a command');
-    Artisan::call('inspire');
+Artisan::call('inspire');
 ds()->commandsOff();
-
 ```
 
-::: info
-**To Listen globally:**
+## Scheduled commands, gates and jobs
 
-* In Desktop App, choose your project and toggle: **COMMANDS**, or set `observers.commands` : `true` in **laradumps.yaml**
-:::
-
-## Scheduled Commands
-
-To monitor scheduled commands, just enable the "Scheduled Commands" option inside your project settings in the desktop app.
-
-Alternatively, you may edit the option `observers` > `scheduled_commands` in your project's `laradumps.yaml` file.
+These have no extra helpers beyond the toggles in the table above.
 
 ```yaml
-#laradumps.yaml
-
+# laradumps.yaml
 observers:
   scheduled_commands: true
-```
-
-## Gates
-
-To monitor Gates activity, just enable the "Gate" option inside your project settings in the desktop app.
-
-Alternatively, you may edit the option `observers` > `gate` in your project's `laradumps.yaml` file.
-
-```yaml
-#laradumps.yaml
-
-observers:
   gate: true
-```
-
-## Jobs
-
-To monitor and dump executed Jobs, just enable the "Jobs" option inside your project settings in the desktop app.
-
-Alternatively, you may edit the option `observers` > `jobs` in your project's `laradumps.yaml` file.
-
-```yaml
-#laradumps.yaml
-
-observers:
   jobs: true
 ```
 
+The jobs observer reports a job as queued, processing, processed or failed.
+
 ## Cache
 
-Captures and displays [Cache](https://laravel.com/docs/cache#introduction) information loaded within the `cacheOn()` and `cacheOff()` methods.
+Dump hits, misses, writes and forgets inside the block.
 
-```php{1,17}
+```php
 ds()->cacheOn('My cache');
 
-    // SET
-    cache()->set('feature', 'Cache Observer');
-
-    cache()->remember('name', 10, fn() => 'Anand Pilania');
-
-    // HIT
-    cache()->get('name');
-
-    // FORGET
-    cache()->forget('feature');
-
-    // MISSED
-    cache()->get('feature');
+cache()->set('feature', 'Cache Observer');
+cache()->get('feature');
+cache()->forget('feature');
+cache()->get('feature');
 
 ds()->cacheOff();
 ```
 
-::: info
-**To Listen globally:**
-
-* In Desktop App, choose your project and toggle: **CACHE**, or set `observers.cache` : `true` in **laradumps.yaml**
-:::
-
 ## Context
 
-Displays the current state of [Laravel Context](https://laravel.com/docs/context)
+Dump [Laravel Context](https://laravel.com/docs/context), or only the keys you pass.
 
-* Enable in the desktop app:
-  `Settings → Layout tab → Show context (true)`
-
-### Basic Usage
-
-```php{5}
-use Illuminate\Support\Facades\Context;
-
+```php
 Context::set('key', 'value');
 
 ds()->withContext();
-```
-
-### Filtering Context by Key
-
-Pass a key to display only the specified context value:
-
-```php{5}
-use Illuminate\Support\Facades\Context;
-
-Context::set('key', 'value');
-
 ds()->withContext('key');
 ```
 
-::: info
-Enable automatic context display for every dump by adding this to laradumps.yaml:
+The app shows it when **Show context** is on in its settings. To attach context to every dump, set `extra.context: true` in `laradumps.yaml`.
 
-```yaml
-extra:
-  context: true
-```
+## Next step
 
-:::
+Debug [Livewire](/debug/livewire) components.
