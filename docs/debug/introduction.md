@@ -1,14 +1,6 @@
 # Introduction
 
-## How to use
-
-To debug with LaraDumps, simply add a `ds()` in your code.
-
-It's quite similar to using the `var_dump()`, `dump()` or `dd()` functions, but with the benefit of seeing your debug dump in a dedicated Desktop Application.
-
-## Try it yourself
-
-In this example, we will add a call to the `ds()` function in the project home-page.
+Add `ds()` to your code. It works like `var_dump()` or `dump()`, but the output appears in the desktop app.
 
 ```php{2}
 Route::get('/', function () {
@@ -17,16 +9,14 @@ Route::get('/', function () {
 });
 ```
 
-When accessing the home-page, your code will be executed normally, and your page will be displayed in the browser as expected.
+The page renders as usual. The app receives the dump.
 
-Meanwhile, in the background, LaraDumps will be sending the debug dump to the Desktop App, as seen here:
-
-![Output](/_media/app_first_example.png)
+<DumpPreview code="ds('Home page accessed!');" file="routes/web.php:2" type="dump" output="(string) Home page accessed!" />
 
 ::: tip
-💡 **Trivia**: The "ds()" function is based on the first and last letters of the word **d**ump**s**, and it is conveniently similar to "dd()". This is not a coincidence! Easy to switch!
+`ds` comes from **d**ump**s**. It is one letter away from `dd()`, so switching is easy.
 :::
 
-## Debug Tools
+## Next step
 
-Proceed to discover all available [LaraDumps PHP Tools](/debug/php.html).
+Learn the [PHP tools](/debug/php), or see every helper in the [reference sheet](/debug/reference-sheet).

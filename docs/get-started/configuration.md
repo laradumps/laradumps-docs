@@ -1,149 +1,72 @@
 # Configuration
 
-After running the initial configuration command shown in the previous step. 
-You will notice that your project will be shown as in the image below, observing the “**signal**” icon.
+Settings live in `laradumps.yaml` in your project root. Create it with `php artisan ds:init $(pwd)` (see [Installation](/get-started/installation)).
 
-By clicking on the signal icon, you will be able to see all your projects, toggle the settings, and also remove them.
-
-![Output](/_media/config-example.gif)
+In the app, click the signal icon to list your projects, toggle their settings and remove them.
 
 ::: warning
-
-The settings may change depending on the update of the PHP or Laravel package. 
-
-**Always have the latest versions installed to ensure compatibility between desktop apps**
-
+Options change between package versions. Keep the app and packages up to date.
 :::
 
----
+## Hosts
 
-## Configuration options
-
-LaraDumps options and their respective configurations are detailed in this section.
-
-### app.primary_host
-
-Desktop App Host. Your PHP/Laravel project will send Dumps to this address.
-
-You can configure the host in your `laradumps.yaml` file, under the key `app.primary_host`.
-
-In most cases, it will be your localhost:
+`app.primary_host` is the address where the app listens. `app.secondary_host` is a fallback tried when the primary host is unreachable.
 
 ```yaml
 app:
   primary_host: 127.0.0.1
+  secondary_host: host.docker.internal
+  port: 9191
 ```
 
-You may configure a custom host value, if needed.
+| Environment | Host |
+|---|---|
+| Default | `127.0.0.1` |
+| Docker or Sail | `host.docker.internal` |
+| Homestead (VirtualBox or Parallels) | `10.211.55.2` |
+| WSL | the WSL IP (see below) |
 
-| **Environment**             |  **Host**            |
-|-----------------------------|----------------------|
-| Default                     | 127.0.0.1            |
-| Docker/Sail                 | host.docker.internal |
-| Homestead with VirtualBox   | 10.211.55.2          |
-| Homestead with Parallels    | 10.211.55.2          |
-| WSL Host                    | WSL IP (read below)  |
+On Linux, Docker does not map `host.docker.internal` automatically. See [laravel/sail#222](https://github.com/laravel/sail/pull/222).
 
-### app.secondary_host
+### WSL
 
-As a direct alternative, the secondary host can already be configured if you wish to have more than one pre-defined host, such as a "docker connection" using `host.docker.internal`
-
-```yaml
-app:
-  primary_host: 127.0.0.1
-  secondary_host: host.docker.internal // [!code ++]
-```
-
----
-
-#### Docker and Linux
-
-If you are using `Docker` on a `Linux` host, you must perform additional configuration because. Automatic mapping is not available. Read more [here](https://github.com/laravel/sail/pull/222).
-
-#### WSL
-
-If you are running your project directly from the WSL machine, you must configure LaraDumps with the WSL IP.
-
-This is often the case when running `php artisan serve` from inside the WSL machine.
-
-The WSL IP changes every time the computer is restarted, and you must update your project configuration when the IP changes.
-
-##### Find out the WSL IP
-
-To determine the WSL IP address, launch Windows PowerShell and execute the `ipconfig` command.
-
-You should see an output similar to this:
-
-```shell
-C:\Users\user>ipconfig
-
-Windows IP Configuration
-
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-~~~~~~~ some other adapters.... ~~~~~~~
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-Ethernet adapter vEthernet (WSL):
-
-   Connection-specific DNS Suffix  . :
-   Link-local IPv6 Address . . . . . : fda6::4727:7d48:8e61:7d48%60
-   IPv4 Address. . . . . . . . . . . : 172.21.48.1 <====================================
-   Subnet Mask . . . . . . . . . . . : 255.255.240.0
-   Default Gateway . . . . . . . . . :
-```
-
-Scroll down to the `Ethernet adapter vEthernet (WSL)` section, disregard other adapters.
-
-Now, add the IP address from this section in your `app.primary_host` or `app.secondary_host` in your `laradumps.yaml` file.
-
-For example:
+If your project runs inside WSL (for example `php artisan serve`), use the WSL IP as the host. Run `ipconfig` in PowerShell and read `IPv4 Address` under `Ethernet adapter vEthernet (WSL)`.
 
 ```yaml
 app:
   primary_host: 172.21.48.1
 ```
 
----
+The IP changes on every restart. Update the file when it does.
 
-### Auto-Invoke
+## Open files from WSL
 
-By default, LaraDumps Desktop App will be invoked and gain focus whenever a new dump arrives.
+To open files in VS Code Remote WSL, set the project path and distro name:
 
-To disable this behavior, change the `laradumps.yaml` file key `observers.auto_invoke_app` to `false`.
+```yaml
+app:
+  project_path: C:\dan\projects\
+  wsl_config: wsl+Ubuntu
+```
 
-You can also send [Quiet dumps](../debug/php?id=quiet-dump) and the app will not be invoked.
+Find the distro with `wsl -l -v`. Find the path with `pwd` inside your WSL project folder.
+
+## Auto-invoke
+
+When `observers.auto_invoke_app` is `true`, the app opens and takes focus on every new dump. It is `false` by default.
 
 ```yaml
 observers:
   auto_invoke_app: true
 ```
 
----
+Send a [quiet dump](/debug/php#quiet-dump) to skip this for a single call.
 
-#### VS Code Remote WSL (custom path)
+## macOS auto-launch
 
-* Windows
+Opens the app if it is not running when you call `ds()`:
 
-```yaml
-app:
-  project_path: C:\dan\projects\\
-  wsl_config: wsl+Ubuntu
-```
-
-::: tip
-* To get your distro name, run the command `wsl -l -v` in your command prompt.
-* To get remote path, you can run the `pwd`  command inside your WSL project folder.
-:::
-
----
-
-### macOS auto-launch
-
-Sometimes, when debugging a variable using `ds()` in a code snippet, you may forget to open the LaraDumps desktop application. 
-To make things easier, LaraDumps provides an automatic way to open the application if you are using macOS.
-
-In `laradumps.yaml`, add:
 ```yaml
 config:
-    macos_auto_launch: true
+  macos_auto_launch: true
 ```

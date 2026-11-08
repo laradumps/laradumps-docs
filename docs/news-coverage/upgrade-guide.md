@@ -1,20 +1,19 @@
-# Upgrade Guide
+# Upgrade guide
 
-::: warning
-If you are using version 2, you are probably using the Laravel framework. For this some things are necessary.
-::: 
+## From version 2
 
-### 1 - Update composer dependencies:
+Update the Composer dependency for your setup.
 
 :::tabs
 == Laravel
 ```bash
-composer require laradumps/laradumps --dev -W 
+composer require laradumps/laradumps --dev -W
 ```
 
-== PHP Agnostic
+== PHP agnostic
 ```bash
-composer require laradumps/laradumps-core --dev -W 
+composer require laradumps/laradumps-core --dev -W
 ```
 :::
 
+Then install the latest [desktop app](/get-started/installation).

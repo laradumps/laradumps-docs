@@ -1,59 +1,47 @@
-# Pest PHP Integration
+# Pest
 
-## Introduction
+LaraDumps adds `ds()` to Pest expectations and test responses.
 
-LaraDumps provides a [Pest](https://www.pestphp.com) Helper to integrate its debugging tool into your testing experience.
+## Enable in tests
 
-## Enable LaraDumps in Test
-
-To use LaraDumps while testing, you must enable the "Enabled in testing" option inside your project settings in the desktop app.
-
-Alternatively, you may edit the option `observers` > `enabled_in_testing` in your project's `laradumps.yaml` file.
+Dumps are off while tests run. Turn on **Enabled in testing** in the app's project settings, or set it in `laradumps.yaml`:
 
 ```yaml
-#laradumps.yaml
-
 observers:
   enabled_in_testing: true
 ```
 
-## Pest PHP Expectation
+## Expectations
 
-To inspect the value of Pest Expectation, just chain a `ds()` method inside the expectation.
+Chain `ds()` in an expectation to dump its value. The dump is labeled `Pest Expectation`.
 
 ```php{3}
-test('some test', function() {
-    expect(Something::execute())
-        ->ds() //dumps the expectation value
-        ->toBe('some result');
+test('calculates the total', function () {
+    expect(Order::total($items))
+        ->ds()
+        ->toBe(150);
 });
 ```
 
-## Test Response
+## Test responses
 
-LaraDumps also allows you to inspect the test response by chaining `ds()` method in a Livewire test.
+Chain `ds()` on a test response to dump its status, headers, data and exceptions. The dump is labeled `Test Response`.
 
 ```php{4}
-test('some test', function() {
-    livewire(SomeComponent::class)
-        ->call('doSomething', 'some-value')
+test('shows the order', function () {
+    livewire(ShowOrder::class)
+        ->call('refresh')
         ->ds()
-        ->assertSeeInOrder([
-            'result 1',
-            'result 2',
-            'result 3',
-        ]);
+        ->assertSeeInOrder(['Order #1', 'Paid']);
 });
 ```
 
-## Architecture Test
+## Architecture test
 
-Production code should not contain any debug functions.
-
-This example uses Pest's [Architecture testing](https://pestphp.com/docs/arch-testing) to check your code for the usage of any of this debug functions.
+Production code should not contain debug calls. Use Pest [architecture testing](https://pestphp.com/docs/arch-testing) to fail when they appear.
 
 ```php
 arch('does not use debug functions')
-    ->expect(['ds','dsd', 'dsq', 'dd', 'ddd', 'dump', 'ray', 'die', 'var_dump', 'sleep', 'exit'])
+    ->expect(['ds', 'dsd', 'dsq', 'dd', 'ddd', 'dump', 'ray', 'die', 'var_dump', 'sleep', 'exit'])
     ->not->toBeUsed();
 ```

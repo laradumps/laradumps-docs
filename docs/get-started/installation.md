@@ -1,282 +1,96 @@
 # Installation
 
-With LaraDumps, you can go right into debugging with minimal effort:
+Install the desktop app, then the PHP package for your project.
 
-1. Download the [LaraDumps Desktop App](installation.html?id=desktop-app#desktop-app).
+## Desktop app
 
-2. Install one of the LaraDumps PHP Packages according to your project stack.
-   * [Laravel Framework Package](installation.html?id=desktop-app#laravel-package)
-   * [PHP Agnostic Framework](installation.html?id=desktop-app#agnostic-php-framework)
-
-3. Start [Debugging](/debug/introduction.html)!
-
-## Desktop App
-
-LaraDumps Desktop App is available for Windows, Linux and macOS.
-
-Proceed to the installation instructions according to your operating system:
+The app runs on macOS, Linux and Windows.
 
 :::tabs
 == macOS
 
-#### Install via 🍺 Homebrew
-
-1. First, make sure Homebrew it is up to date. Run the following command:
-
-```bash
-brew update
-```
-
-2. Then, add Homebrew LaraDumps tap. Run the following command:
-
 ```bash
 brew tap laradumps/app
-```
-
-3. Next, install the LaraDumps app. Run the following command:
-
-```bash
 brew install --cask laradumps/app/laradumps
 ```
 
-Now, just open the App!
+Or download the [.dmg](https://github.com/laradumps/app/releases/latest) and drag LaraDumps into `Applications`.
 
-📝 **NOTE:** If you receive an "application damaged" error, read the section **Running the app** in this page.
+The app is not signed with an Apple certificate. If macOS blocks it on first launch, open `System Settings`, go to `Privacy & Security`, and click `Open Anyway` for LaraDumps. The exact path varies by macOS version.
 
----
-
-To upgrade the app using Homebrew, run:
+To upgrade or uninstall:
 
 ```bash
 brew upgrade --cask laradumps
+brew uninstall --cask laradumps
 ```
-
-To uninstall the app using Homebrew, run:
-
-```bash
-brew uninstall laradumps/app/laradump
-```
-
----
-
-#### Disk image .dmg
-
-Alternatively, you can download and install the LaraDumps App using its disk image.
-
-[Download latest version here](https://github.com/laradumps/app/releases/download/v4.19.0/LaraDumps-4.19.0-universal.dmg )
-
-📝 **NOTE:** If you receive an "application damaged" error, read the section **Running the app** in this page.
-
----
-
-#### Running the app
-
-Once downloaded, open the file and drag & drop the LaraDumps app into your `Applications` folder.
-
-##### Authorizing the app
-
-The first time you open LaraDumps, you will receive an alert saying `LaraDumps cannot be opened`.
-
-Don't worry! This is just because the app code is not signed with Apple. LaraDumps is not malicious software and all code is open-source.
-
-To `authorize LaraDumps` to run, follow these steps:
-
-1․ Click on the  (Apple logo) on the top menu.
-
-2․ Go to `System Preferences`.
-
-3․ Open the `Security & Privacy` tab.
-
-4․ Click on the 🔒 (lock pad) and enter your password to authenticate.
-
-5․ Click `Open Anyway` for LaraDumps.
-
-6․ Once again, click `Open` when you are prompted about "This is an Internet Application".
-
-Now, LaraDumps should run just fine!
 
 == Linux
 
-### Linux
-
-#### snapcraft
-
-https://snapcraft.io/laradumps
+Snap:
 
 ```bash
 sudo snap install laradumps
 ```
 
-### AppImage
+AppImage: download `LaraDumps-x.x.x.AppImage` from the [releases page](https://github.com/laradumps/app/releases/latest), then run:
 
-[Download latest version here](https://github.com/laradumps/app/releases/download/v4.19.0/LaraDumps-4.19.0.AppImage)
-
-Download the latest application image `LaraDumps-x.x.x.AppImage` from [GitHub](https://github.com/laradumps/app/releases).
-
-Once downloaded, assign **execution permission** to the file:
-
-Click on `Properties`, navigate to `Permissions` and click `Allow to execute file as program`. Now, open the AppImage file to proceed with the installation.
-
-Alternatively, use the Terminal and run the command below:
-
-```shell
-chmod u+x ./LaraDumps-4.19.0.AppImage && ./LaraDumps-4.19.0.AppImage
+```bash
+chmod u+x LaraDumps-*.AppImage && ./LaraDumps-*.AppImage
 ```
-
-*(These steps might slightly change depending on your Linux distribution).*
 
 == Windows
 
-### Windows
-
-[Download latest version here](https://github.com/laradumps/app/releases/download/v4.19.0/LaraDumps-Setup-4.19.0.exe)
-
-Once downloaded, open it and proceed with the installer.
+Download `LaraDumps-Setup-x.x.x.exe` from the [releases page](https://github.com/laradumps/app/releases/latest) and run the installer.
 
 :::
 
-## PHP Packages
+## Laravel package
 
-### Laravel Package
+Requires PHP 8.2+ and Laravel 11+.
 
-**Requirements**: PHP 8.2+ and Laravel 11+
-
-1․ Install LaraDumps Package in your Laravel project using [Composer](https://getcomposer.org).
-
-Run the command:
-
-```shell
+```bash
 composer require laradumps/laradumps --dev -W
-```
-
-<br/>
-
-2․ Now, configure LaraDumps. Run the command below:
-
-```shell
 php artisan ds:init $(pwd)
 ```
 
-This command will generate a file called `laradumps.yaml` in the root of your project that looks like this:
+`ds:init` creates `laradumps.yaml` in the project root, sets `app.project_path` to the path you passed, and adds the file to `.gitignore`.
 
 ::: warning
-This file is important for correct communication between the desktop app and the Laravel or PHP project.
-If your project_path is empty, you must manually add your project's `$(pwd)` to `app.project_path`
+If `app.project_path` is empty, set it to your project path by hand. The app uses it to link dumps back to your files.
 :::
 
 ```yaml
 app:
-   dispatcher: curl
-   primary_host: 127.0.0.1
-   secondary_host: host.docker.internal
-   port: 9191
-   workdir: /var/www/html/
-   project_path: /Users/luan.freitas/Dev/upload-flow/laravel-project/
-   wsl_config: wsl+Ubuntu/
+  primary_host: 127.0.0.1
+  secondary_host: host.docker.internal
+  port: 9191
+  project_path: /Users/taylor/Dev/my-app/
 config:
-   sleep: 0
-   macos_auto_launch: false
+  macos_auto_launch: false
 observers:
-   auto_invoke_app: false
-   enabled_in_testing: false
-   dump: false
-   original_dump: true
-   queries: false
-   slow_queries: false
-   mail: false
-   logs: true
-   http: false
-   jobs: false
-   commands: false
-   scheduled_commands: false
-   gate: false
-   cache: false
-   brain: false
-xdebug:
-   client_host: 0.0.0.0
-   client_port: 9003
-code_snippet:
-   above: 7
-   below: 3
-logs:
-   info: true
-   warning: true
-   emergency: true
-   alert: false
-   debug: true
-   error: true
-   critical: true
-   notice: true
-   vendor: true
-   deprecated_message: true
-slow_queries:
-   threshold_in_ms: 500
-extra:
-   context: false
-queries:
-   explain: false
+  auto_invoke_app: false
+  logs: true
 ```
 
-> See full information in [configuration options](configuration.md).
+See [Configuration](/get-started/configuration) for every option.
 
-### Agnostic PHP Framework
+## PHP package
 
-**Requirements**: PHP 8.2+
+For projects without Laravel. Requires PHP 8.2+.
 
-1․ Install LaraDumps Package in your PHP project using [Composer](https://getcomposer.org).
-
-Run the command:
-
-```shell
+```bash
 composer require laradumps/laradumps-core --dev
-```
-
-<br/>
-
-2․ Now, configure LaraDumps. Run the command below:
-
-```shell
 vendor/bin/laradumps init $(pwd)
 ```
 
-::: info
-Similar to Laravel step, a `laradumps.yaml` file will be generated here without the "`observers`" key, which is specific to Laravel.
-:::
+This creates the same `laradumps.yaml` without the Laravel-only `observers` entries.
 
-```yaml
-app:
-   dispatcher: curl
-   primary_host: 127.0.0.1
-   secondary_host: host.docker.internal
-   port: 9191
-   workdir: /var/www/html/
-   project_path:
-   wsl_config: wsl+Ubuntu/ #wsl+Ubuntu20.04/
-config:
-   sleep: 0
-   macos_auto_launch: false
-observers:
-   auto_invoke_app: false
-   enabled_in_testing: false
-xdebug:
-   client_host: 0.0.0.0
-   client_port: 9003
-code_snippet:
-   above: 7
-   below: 3
-```
+## Other languages
 
-> See full information in [configuration options](configuration.md).
+- [JavaScript / Node.js](https://github.com/laradumps/laradumps-js)
+- [Go](https://github.com/laradumps/laradumps-go)
 
-## Other Clients
+## Next step
 
-LaraDumps provides client libraries for other languages. These clients allow projects written in JavaScript/Node and Go to send dumps to the LaraDumps desktop app. 
-See each repository for full usage examples and configuration.
-
-### JavaScript / Node.js
-
-Repository: https://github.com/laradumps/laradumps-js
-
-### Go
-
-Repository: https://github.com/laradumps/laradumps-go
+[Send your first dump](/debug/introduction).

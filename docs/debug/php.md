@@ -1,214 +1,162 @@
-# PHP Tools
+# PHP tools
 
-## Introduction
- 
-LaraDumps provides you with a set of tools to debug your code and inspect what is happening to your application during the development process.
-
-The LaraDumps core tools are framework agnostic and should be compatible with any PHP project.
-
-In addition to PHP tools, LaraDumps also provides specific tools for debugging [Laravel](/debug/laravel.html) and [Livewire](/debug/livewire.html) projects, and it continues to accompany you while testing your software with [Pest PHP](/debug/pest.html).
+These tools are framework agnostic and work in any PHP project. For framework-specific tools, see [Laravel](/debug/laravel) and [Livewire](/debug/livewire). For tests, see [Pest](/debug/pest).
 
 ## Dump
 
-To send a dump to the application, just pass one or more values to the `ds()` function.
+Pass one or more values to `ds()`. Execution continues.
 
-```php{8,11}
-$myString = 'Hello World!';
+```php
+$name    = 'Taylor';
+$country = ['code' => 'US', 'name' => 'United States'];
 
-$myArray = ['name' => 'Luan', 'country' => 'BR'];
-
-$myBoolean = false;
-
-//Single value
-ds($myString);
-
-//Multiple values
-ds($myString, $myArray, $myBoolean);
+ds($name);
+ds($name, $country);
 ```
 
-This function is similar to PHP `var_dump()` or Laravel's `dump()` and it will not stop the code execution.
-
-![Output](/_media/app_second_example.png)
+<DumpPreview code="ds($name, $country);" file="routes/web.php:5" type="dump" :output="'(string) Taylor\n\narray:2 [\n  &quot;code&quot; => &quot;US&quot;\n  &quot;name&quot; => &quot;United States&quot;\n]'" />
 
 ## Dump and die
 
-Use the function `ds()->die()` or its shortcut `dsd()` to dump and immediately stop the code execution.
+`ds()->die()` or `dsd()` dumps, then stops execution. Both work like `dd()`.
 
-```php{3}
-$myString = 'Hello World!';
-
-ds($myString)->die(); // or dsd($myString);
-
-ds('This code will never be executed!');
+```php
+ds($order)->die();
+dsd($order);
 ```
-
-This function is similar to PHP `var_dump(); die;`or Laravel's `dd()`.
 
 ## Quiet dump
 
-By default, LaraDumps Desktop App will be invoked and gain focus whenever a new dump is received.
+By default the app comes to the front on every dump. Use `dsq()` to dump without bringing it forward, or turn off [Auto-Invoke](/get-started/configuration#auto-invoke).
 
-If this is not what you want, simply disable the [Auto-Invoke](/get-started/configuration?id=auto-invoke) feature.
-
-Alternatively, just use the `dsq()` method and send a quiet dump. This will not invoke the App.
-
-```php{6,9}
-// Requires Auto-Invoke to be enabled
-
-$products = [['id' => 1, 'price' => 10], ['id' => 2, 'price' => 50], ['id' => 3, 'price' => -5]];
-
+```php
 foreach ($products as $product) {
-    dsq('Checking product #' . $product['id']); //Send a dump without invoking the app
+    dsq('Checking product #' . $product['id']); // app stays in the background
 
     if ($product['price'] < 0) {
-        ds('Price error in product #' . $product['id']); //App will be invoked
+        ds('Invalid price in product #' . $product['id']); // app is invoked
     }
 }
 ```
 
-The previous example will quietly dump each product prices and only invoke in case the price is invalid.
+`dsq()` has an effect only when Auto-Invoke is on.
 
 ## Label
 
-You can use the `label()` method to set a label to your debug dump.
+`label()` names a dump so you can find it among similar ones.
 
-Assigning a label makes it easier to locate the debug dump among other similar results.
-
-```php{4,6}
-$person  = ['name' => 'Luan', 'country' => 'BR'];
-$person2 = ['name' => 'Taylor', 'country' => 'US'];
-
-ds($person)->label('Creator of LaraDumps');
-
-ds($person2)->label('Creator of Laravel');
+```php
+ds($creator)->label('Creator of LaraDumps');
+ds($other)->label('Creator of Laravel');
 ```
 
 ## Screens
 
-You can use the `toScreen()` or `s()` methods to send your debug dump to a specific Screen.
-
-By opening different screens, you can better organize your dumps into groups of similar issues.
+`toScreen()` and its alias `s()` send a dump to a named screen. Screens group related dumps.
 
 ```php
-ds('this is screen 1'); //default screen
-
-ds('this is screen 2')->toScreen('screen 2');
-
-ds('custom value')->s('Custom screen');
-
+ds('Default screen');
+ds('Checkout')->toScreen('checkout');
+ds('Checkout')->s('checkout');
 ```
 
-## Clear Screens
+`toScreen()` takes an optional second argument, `raiseIn`: the delay in seconds before the app comes to the front.
 
-You can use the `clear()` method to delete all previous dumps from all screens.
+`toScreenWindow()` and its alias `w()` open the screen in a new window.
 
-This will reset your application to the start point.
+```php
+ds($payment)->toScreenWindow('payments');
+ds($payment)->w('payments');
+```
+
+## Clear screens
+
+`clear()` removes all previous dumps from all screens.
 
 ```php
 ds()->clear();
 ```
 
-::: tip
-📝 **Note**: To clear only the current screen, click on the `×` at the right end of the screen list.
-:::
+To clear one screen, click the `×` on its tab in the app.
 
-## Color Tag
+## Color tag
 
-You can use the `color()` method to mark a dump with a predefined color.
+Mark a dump with a color. Each color has an alias.
+
+| Method | Alias | Color |
+|---|---|---|
+| `info()` | `blue()` | Blue |
+| `success()` | `green()` | Green |
+| `danger()` | `red()` | Red |
+| `warning()` | `orange()` | Orange |
+| `dark()` | `black()` | Black |
 
 ```php
-ds('Info: Just FYI')->info(); // or ->blue()
-
-ds('Success: IT WORKS!')->success(); // or ->green()
-
-ds('Danger: ERROR!!!')->danger(); // or ->red()
-
-ds('Warning: Something is not right!')->warning(); // or ->orange()
-
-ds('Dark: The Dark Side of the Moon')->dark(); // or ->black()
-
+ds('Payment received')->success();
+ds('Payment failed')->danger();
 ```
+
+When `config.color_in_screen` is `true` in `laradumps.yaml`, `info()`, `success()`, `danger()` and `warning()` send the dump to a screen of the same name instead.
 
 ## Time
 
-To simply measure the execution time of a block of code, place it within the `time($reference)` and `stopTime($reference)` methods.
+Wrap code in `time()` and `stopTime()`. Use the same reference string in both.
 
-You must pass the **same unique** `$reference` title to both methods. The reference can be any combination of words.
+```php
+ds()->time('import');
 
-```php{1,7}
-ds()->time('my count');
+foreach ($rows as $row) {
+    // ...
+}
 
-    for($i=0; $i<100000; $i++){
-        //some code
-    }
-
-ds()->stopTime('my count');
+ds()->stopTime('import');
 ```
 
 ## Table
 
-You can use the `table()` method to display dumps in a table with a built-in search bar.
+`table()` shows data in a table with a search bar. It takes an iterable or object, and an optional name.
 
-To build a table, you must pass an `iterable $data` as the first argument, followed by an optional `string $name` for the table name.
-
-```php{7}
-$allUsers = [
-        ['id' => 1, 'name' => 'David', 'email' => 'david@example.com'],
-        ['id' => 2, 'name' => 'Julia', 'email' => 'julia@example.com'],
-        //...
+```php
+$users = [
+    ['id' => 1, 'name' => 'David', 'email' => 'david@example.com'],
+    ['id' => 2, 'name' => 'Julia', 'email' => 'julia@example.com'],
 ];
 
-ds()->table($allUsers, 'my users table');
+ds()->table($users, 'users');
 ```
 
 ## JSON
 
-Use the `isJson()` method to validate and display JSON strings in human-readable format.
+`isJson()` validates a string and shows it as formatted JSON. Use it for API and front-end payloads.
 
-This is very helpful for checking JSON content sent from an API or front-end app.
-
-```php{7,10}
-use Illuminate\Support\Facades\Http;
-
-//Fetch Json data from the API
-$moviesJson = Http::get('https://api.tvmaze.com/search/people?q=lauren')->body();
-
-//✅ Valid JSON string
-ds($moviesJson)->isJson();
-
-//❌ Invalid JSON string
-ds('{"name: Luan}')->isJson();
+```php
+ds($response->body())->isJson();  // valid: formatted
+ds('{"name: Luan}')->isJson();    // invalid: reported as invalid
 ```
 
 ## Contains
 
-You can use the `contains()` method to verify if a given string appears in the dump.
+`contains()` checks whether a string appears in the dump. Use it on long strings.
 
-This is particularly useful when working with longer strings that require a lot of time to inspect and debug.
+```php
+$html = '<select><option>Choice 1</option><option>Choice 3</option></select>';
 
-```php{3,5}
-$html   = '<select name="select-choice" id="select-choice"><option value="Choice 1">Choice 1</option><option value="Choice 2">Choice 2</option><option value="Choice 3">Choice 3</option></select>';
-
-ds($html)->contains('Choice 3')->label('It should contain');
-
+ds($html)->contains('Choice 3')->label('Should contain');
 ds($html)->contains('Choice 29')->label('Should not contain');
 ```
 
-For a stricter search, you can activate `Case Sensitive` or `Whole word` parameters:
+Both options default to `false`:
 
-```php{4,7}
-$json = '{"name":"Mariana", "country":"Brazil"}';
+```php
+$json = '{"name":"Mariana","country":"Brazil"}';
 
-//Will not match "Brazil"
-ds($json)->contains('brazil', caseSensitive: true);
-
-//No match for "Maria" in "Mariana"
-ds($json)->contains('Maria', wholeWord: true);
+ds($json)->contains('brazil', caseSensitive: true); // no match
+ds($json)->contains('Maria', wholeWord: true);      // no match
 ```
 
 ## PHPInfo
 
-Displays the current PHP settings in [table](/debug/php.html?id=table#table) format.
+`phpinfo()` shows the current PHP settings in a [table](#table).
 
 ```php
 ds()->phpinfo();
@@ -216,42 +164,40 @@ ds()->phpinfo();
 
 ## Benchmark
 
-Benchmark closures (`array` of closures or a variable number of closures as `arguments`) and dump detailed results including `start time, end time, total execution time, and result` for each closure and also includes a `fastest` flag to indicate the fastest closure in the results.
+`benchmark()` runs closures and dumps the start time, end time, total time and result of each. The fastest closure is flagged. Pass closures as arguments or as an array.
 
 ```php
 ds()->benchmark(
-    function() {
+    function () {
         sleep(2);
         return 'First';
     },
-    function(){
+    function () {
         sleep(1);
         return 'Second';
     }
 );
 ```
 
-You can also add custom labels for each closures:
+Use array keys as labels:
 
 ```php
 ds()->benchmark([
-    'Label 1' => function() {
-        sleep(1);
-        return 'Result 1';
-    },
-    'Label 2' => function() {
-        sleep(2);
-        return 'Result 2';
-    },
+    'Query' => fn () => User::all(),
+    'Cache' => fn () => Cache::get('users'),
 ]);
 ```
 
-You can also chain multiple benchmarks or other tools:
+`benchmark()` returns the instance, so you can chain it with other tools:
 
 ```php
-ds()->benchmark(
-    ...
-)->benchmark(
-    ...
-)->table(..., ...);
+ds()->benchmark($first, $second)->table($users, 'users');
 ```
+
+## Grouped dumps
+
+With `config.grouped_dumps: true` in `laradumps.yaml`, `ds($a, $b)` sends all arguments as one dump instead of one dump per argument.
+
+## Next step
+
+See the [Laravel tools](/debug/laravel), or scan the [reference sheet](/debug/reference-sheet).

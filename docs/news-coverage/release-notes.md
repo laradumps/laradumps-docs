@@ -1,59 +1,17 @@
-# Release Notes
+# Release notes
 
-## LaraDumps v4 is now available!
+Every release is listed on GitHub:
 
-### New in LaraDumps App
+- [Desktop app releases](https://github.com/laradumps/app/releases)
+- [Laravel package releases](https://github.com/laradumps/laradumps/releases)
 
-🌼 **UI made with** [daisyUI 5](https://daisyui.com/)
+## Highlights of v4
 
-🔥 **Xdebug step debugging** - Now you can use Xdebug with LaraDumps. Just enable with `xdebug_break()` and see the result in the app.
+- **Xdebug step debugging**: run, step over, step into, stop and evaluate expressions. See [Xdebug](/debug/xdebug).
+- **Custom themes**: create your own and share them.
+- **Queries, logs, jobs and mails**: new screens for each.
+- **Settings**: General (language, IDE handler, updates, auto-launch) and Layout (theme, scroll direction, dump order). You also choose which buttons show on screen.
+- **Limited dumps**: cap how many dumps, queries, logs and jobs the app displays.
+- **UI**: rebuilt with [daisyUI 5](https://daisyui.com/).
 
-Features:
-
-* Run
-* Step over
-* Step into
-* Stop
-* Evaluate expression
-
-![Output](/_media/xdebug.png)
-
----
-
-🎨 **Custom Themes** - You can create your own themes and share them with the community.
-
-![Output](/_media/custom-theme.png)
-
----
-
-🔥 **New Queries, Mail, Logs and Jobs** 
-
-**Jobs**
-
-![Output](/_media/laravel-jobs.png)
-
-**Logs**
-
-![Output](/_media/laravel-logs.png)
-
-**Queries**
-
-![Output](/_media/laravel-queries.png)
-
----
-
-🔥 **New Settings Page** 
-
-- **General** - Language, IDE Handler, Check for Updates and auto-launch.
-- **Layout** - Theme, Scroll Direction, Dump order.
-* Now, you can control which buttons are visible on the screen. (show collapse button, show pause button, show ssh button)
-
----
-
-🔥 **Limited Dumps** 
-
-Now, you can limit the number of dumps displayed on the screen. This is useful when you have a lot of dumps and want to see only the last ones.
-- Limit every dump
-- Limit Laravel Queries
-- Limit Laravel Logs
-- Limit Laravel Jobs
+To upgrade from an older version, see the [upgrade guide](/news-coverage/upgrade-guide).

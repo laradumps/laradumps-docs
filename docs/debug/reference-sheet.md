@@ -1,69 +1,68 @@
 # Reference sheet
 
-On this page you will find the a summary of LaraDumps debug tools.
+Every helper and method, with a link to the page that explains it.
 
 ## PHP
 
-Summary of LaraDumps [PHP Tools](/debug/php.html).
-
-| **Function** | **Description** |
-|---|---|
-| ds($var); | Dump a string, array or object |
-| ds($var1, $var2); | Dump multiples arguments |
-| ds($var)->die(); | Dump and die |
-| dsd($var); | Alias for dump and die |
-| dsq($var); | Perform a dump without invoking (focus) the Desktop App, "Quiet dump" |
-| ds($var)->label('My Label'); | Perform a dump with a custom label |
-| ds($var)->toScreen('My Screen'); | Adds new screen 'My screen' |
-| ds($var)->s('My Screen'); | Alias for new screen |
-| ds($var)->info(); | Blue color tag |
-| ds($var)->success(); | Green color tag |
-| ds($var)->danger(); | Red color tag |
-| ds($var)->dark(); | Black color tag |
-| ds($var)->warning(); | Orange color tag |
-| ds()->time('Reference #1');<br/>... some code ...<br/>ds()->stopTime('Reference #1');  | Start/Stop clocking execution time |
-| ds()->table($data, 'my table'); | Dump data in a table format |
-| ds($var)->isJson(); | Validates and dumps the JSON data |
-| ds($var)->contains('some string', caseSensitive: false, wholeWord: false); | Search if the `content` contains the given string |
-| ds()->phpinfo(); | Dump PHP configuration |
+| Call | Description | Details |
+|---|---|---|
+| `ds($a, $b)` | Dump one or more values | [Dump](/debug/php#dump) |
+| `ds($a)->die()` | Dump and stop execution | [Dump and die](/debug/php#dump-and-die) |
+| `dsd($a)` | Alias for dump and die | [Dump and die](/debug/php#dump-and-die) |
+| `dsq($a)` | Dump without bringing the app forward | [Quiet dump](/debug/php#quiet-dump) |
+| `->label('Name')` | Name the dump | [Label](/debug/php#label) |
+| `->toScreen('name', $raiseIn)` | Send to a screen; optional delay in seconds | [Screens](/debug/php#screens) |
+| `->s('name')` | Alias for `toScreen()` | [Screens](/debug/php#screens) |
+| `->toScreenWindow('name')` | Send to a screen in a new window | [Screens](/debug/php#screens) |
+| `->w('name')` | Alias for `toScreenWindow()` | [Screens](/debug/php#screens) |
+| `ds()->clear()` | Clear all screens | [Clear screens](/debug/php#clear-screens) |
+| `->info()` / `->blue()` | Blue tag | [Color tag](/debug/php#color-tag) |
+| `->success()` / `->green()` | Green tag | [Color tag](/debug/php#color-tag) |
+| `->danger()` / `->red()` | Red tag | [Color tag](/debug/php#color-tag) |
+| `->warning()` / `->orange()` | Orange tag | [Color tag](/debug/php#color-tag) |
+| `->dark()` / `->black()` | Black tag | [Color tag](/debug/php#color-tag) |
+| `->color('red')` | Tag with a color by name | [Color tag](/debug/php#color-tag) |
+| `ds()->time('ref')`, `ds()->stopTime('ref')` | Measure execution time | [Time](/debug/php#time) |
+| `ds()->table($data, 'name')` | Show data in a searchable table | [Table](/debug/php#table) |
+| `->isJson()` | Validate and format a JSON string | [JSON](/debug/php#json) |
+| `->contains('text', caseSensitive: false, wholeWord: false)` | Check if the dump contains a string | [Contains](/debug/php#contains) |
+| `ds()->phpinfo()` | Show PHP settings | [PHPInfo](/debug/php#phpinfo) |
+| `ds()->benchmark(...$closures)` | Time closures and flag the fastest | [Benchmark](/debug/php#benchmark) |
 
 ## Laravel
 
-Summary of LaraDumps [Laravel Tools](/debug/laravel.html).
+| Call | Description | Details |
+|---|---|---|
+| `ds()->routes()` | Show routes in a table | [Routes](/debug/laravel#routes) |
+| `ds()->model($user)` | Show a model's attributes and relationships | [Eloquent models](/debug/laravel#eloquent-models) |
+| `str('Hello')->ds()` | Dump a `Stringable` and keep chaining | [Macros and Blade](/debug/laravel#macros-and-blade) |
+| `collect($items)->ds()` | Dump a collection and keep chaining | [Macros and Blade](/debug/laravel#macros-and-blade) |
+| `User::query()->ds()` | Dump an Eloquent builder's query | [Macros and Blade](/debug/laravel#macros-and-blade) |
+| `@ds($var)` | Dump from a Blade view | [Macros and Blade](/debug/laravel#macros-and-blade) |
+| `ds()->queriesOn('label')`, `ds()->queriesOff()` | Start and stop capturing SQL queries | [Queries](/debug/laravel#queries) |
+| `ds()->markdown('# Hello')` | Render markdown as HTML | [Table and Markdown](/debug/laravel#table-and-markdown) |
+| `ds()->mailable(new TestMail())` | Show mail details and an HTML preview | [Mail](/debug/laravel#mail) |
+| `ds()->httpOn('label')`, `ds()->httpOff()` | Start and stop capturing HTTP client requests | [HTTP client](/debug/laravel#http-client) |
+| `ds()->commandsOn('label')`, `ds()->commandsOff()` | Start and stop capturing Artisan commands | [Artisan commands](/debug/laravel#artisan-commands) |
+| `ds()->scheduledCommandOn('label')`, `ds()->scheduledCommandOff()` | Start and stop capturing scheduled commands | [Scheduled commands and gates](/debug/laravel#scheduled-commands-gates-and-jobs) |
+| `ds()->gateOn('label')`, `ds()->gateOff()` | Start and stop capturing gate and policy checks | [Scheduled commands and gates](/debug/laravel#scheduled-commands-gates-and-jobs) |
+| `ds()->cacheOn('label')`, `ds()->cacheOff()` | Start and stop capturing cache events | [Cache](/debug/laravel#cache) |
+| `ds()->withContext('key')` | Show Laravel Context, optionally filtered by key | [Context](/debug/laravel#context) |
+| `ds()->startProfile('label')`, `ds()->stopProfile()` | Start and stop a profile | Not documented yet |
+| `ds()->profile($callback, 'label')` | Profile a closure and return its result | Not documented yet |
+| `ds()->measure($name, $callback, $type, $metadata)` | Measure a closure inside a profile | Not documented yet |
+| `ds()->flushProfile()`, `ds()->captureProfileForTermination()` | Send or finalize the current profile data | Not documented yet |
 
-| **Function** | **Description** |
-|---|---|
-| ds()->routes(); | Dump Laravel Routes in a table format |
-| str('Hello')<br/>&nbsp;&nbsp;->append('world')<br/>&nbsp;&nbsp;->ds(); | Dump the current string in a Stringable macro |
-| collect(['hello', 'world'])->ds(); | Dump the current state of a Collection Macro |
-| ds()->queriesOn('My Label');<br/>ds()->queriesOff(); | Start/Stop capturing SQL queries |
-| ds()->model(User::query()->first()); | Dump the Model’s Attributes and Relationships. |
-| ds()->table(User::all(), 'all users'); | Dump data in a table format |
-| ds()->mailable(new \App\Mail\TestMail()); | Dump mail details and the HTML preview for an instance of a `Mailable` class. |
-| ds()->httpOn('My Label');<br/>ds()->httpOff(); | Start/Stop capturing HTTP Requests. |
-| ds()->commandsOn('My Label');<br/>ds()->commandsOff(); | Start/Stop capturing calls to Artisan. |
-| ds()->cacheOn('My Label');<br/>ds()->cacheOff(); | Start/Stop capturing Cache. |
-| ds()->withContext(); | Dump the current state of Laravel Context |
-| ds()->markdown('# hello world!'); | Dump the markdown rendered as HTML. |
+## Livewire and Volt
 
-## Livewire/Volt
+| Call | Description | Details |
+|---|---|---|
+| `#[Ds]` | Listen to a Livewire component | [Pin a component](/debug/livewire#pin-a-component) |
+| `booted(fn () => ds($this))` | Listen to a Volt component | [Pin a Volt component](/debug/livewire#pin-a-volt-component) |
 
-Summary of LaraDumps [Livewire/Volt Tools](/debug/livewire.html).
+## Pest
 
-| **Function** | **Description** |
-|---|---|
-| #[Ds]<br/>&nbsp;class MyLivewireComponent extends ... | Listen to a Livewire component. |
-| \Livewire\Volt\title('todo');<br/><br/>booted(fn() => ds($this)); | Listen to a Volt component. |
-
----
-
-## Pest PHP
-
-Summary of LaraDumps [Pest Integration](/debug/pest.html).
-
-| **Function** | **Description** |
-|---|---|
-| test('example')<br/>&nbsp;&nbsp;->expect(true)<br/>&nbsp;&nbsp;->ds()<br/>&nbsp;&nbsp;->toBeTrue(); | Dump the Pest Expectation API value. |
-| test('example')<br/>&nbsp;&nbsp;&nbsp;&nbsp;->livewire(SomeComponent::class) <br/>&nbsp;&nbsp;&nbsp;&nbsp;->call('doSomething', 'some-value') <br/>&nbsp;&nbsp;&nbsp;&nbsp;->ds() <br/>&nbsp;&nbsp;&nbsp;&nbsp;->assertSeeInOrder(...) | Dump the test result. |
-
----
+| Call | Description | Details |
+|---|---|---|
+| `expect($value)->ds()` | Dump an expectation value | [Expectations](/debug/pest#expectations) |
+| `$response->ds()` | Dump a test response | [Test responses](/debug/pest#test-responses) |
